@@ -1,0 +1,30 @@
+{
+  "name": "konstanta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "snowpack.config.js",
+  "parser": "babel-eslint",
+  "dependencies": {
+    "pixi.js": "^5.3.7",
+    "pixi.js-keyboard": "^1.0.9",
+    "pixi.js-mouse": "^1.0.4",
+    "snowpack": "^3.0.11"
+  },
+  "devDependencies": {
+    "@snowpack/plugin-babel": "^2.1.6",
+    "@snowpack/plugin-run-script": "^2.3.0",
+    "@snowpack/plugin-webpack": "^2.3.0",
+    "@snowpack/web-test-runner-plugin": "^0.2.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.19.0",
+    "eslint-watch": "^7.0.0"
+  },
+  "scripts": {
+    "d": "snowpack dev --polyfill-node",
+    "build": "snowpack build --polyfill-node",
+    "test": "web-test-runner \"src/**/*.test.js\"",
+    "lint": "eslint src --fix *.js"
+  },
+  "author": "Novout",
+  "license": "MIT"
+}
