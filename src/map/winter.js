@@ -35,7 +35,7 @@ export default () => {
     ['snowpack', 'src/assets/rig/snowpack.png'],
     ['pixijs', 'src/assets/rig/pixi.png'],
     ['winter1', 'src/assets/map/winter1.png'],
-    ['winter2', 'src/assets/map/winter2.jpg'],
+    ['winter_base', 'src/assets/map/winter_base.jpg'],
     ['winter3', 'src/assets/map/winter3.jpg'],
     ['twig', 'src/assets/map/twig.png'],
   ], setup);

@@ -1,6 +1,6 @@
-import { D_background } from "@/defines/winter";
+import { D_BACKGROUND } from "@/defines/winter";
 
-export const textureBackground = (background = D_background) => {
+export const textureBackground = (background = D_BACKGROUND) => {
   let _texture = undefined;
 
   background.every((texture) => {
@@ -40,7 +40,7 @@ export const generateItems = (nodes) => {
   const items = [];
 
   nodes.forEach(node => {
-    if(node.background === D_background[2][0]) {
+    if(node.background === D_BACKGROUND[2][0]) { // winter_base
       if(Math.floor(Math.random() * 101) >= 90) {
         const item = {};
         item.background = textureBackground([['twig', 100]]);

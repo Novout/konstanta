@@ -1,5 +1,5 @@
-export const D_background = [
-  ['winter1', 5],
+export const D_BACKGROUND = [
+  ['winter1', 1],
   ['winter3', 10],
-  ['winter2', 100],
+  ['winter_base', 100],
 ]
