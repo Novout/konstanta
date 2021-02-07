@@ -14,6 +14,9 @@ import { CreateUI, RenderUI } from '@/ui';
 let player, 
     items, 
     ui,
+    keyboard = {
+      press1: undefined
+    },
     nodes;
 
 export default () => {

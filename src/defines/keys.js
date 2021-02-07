@@ -1,0 +1,1 @@
+export const D_OPEN_INVENTORY = ['Digit1', 'Digit2', 'Digit3', 'Digit4', 'KeyR'];
