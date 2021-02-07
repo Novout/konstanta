@@ -12,6 +12,7 @@ export const createPlayer = () => {
     HP: 10,
     CA: 0, // % for ignore attack
     inventory: {
+      actually_item: undefined,
       primary_weapon: undefined,
       second_weapon: undefined,
       activate: undefined,
