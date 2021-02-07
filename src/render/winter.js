@@ -33,6 +33,8 @@ export const SecondLayerRender = (stage, resources, nodes) => {
     _item.y = item.y;
     _item.scale.set(item?.scale);
     _item.id = item.id;
+    _item.fx = item.fx;
+    _item.fy = item.fy;
     _items.push(_item);
     stage.addChild(_item);
   });

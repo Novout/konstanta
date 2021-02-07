@@ -49,6 +49,8 @@ export const generateItems = (nodes) => {
         if(item.background === "twig") {
           item.wood = 3;
           item.scale = (Math.random() * 0.4) + 0.3;
+          item.fx = 20.0;
+          item.fy = 20.0;
         }
         item.x = node.x;
         item.y = node.y;

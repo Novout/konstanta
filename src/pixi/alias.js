@@ -6,4 +6,6 @@ export const utils = PIXI.utils,
              resources = PIXI.resources,
              TextureCache = PIXI.utils.TextureCache,
              Sprite = PIXI.Sprite,
+             filters = PIXI.filters,
+             Graphics = PIXI.Graphics,
              Rectangle = PIXI.Rectangle;

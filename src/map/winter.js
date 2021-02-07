@@ -9,9 +9,11 @@ import { LoaderCache } from '@/pixi/loader';
 import { createContext } from '@/pixi/application';
 import { FullContextSize } from '@/utils/context';
 import { BlockRIG } from '@/event/sprite';
+import { CreateUI, RenderUI } from '@/ui';
 
 let player, 
     items, 
+    ui,
     nodes;
 
 export default () => {
@@ -19,10 +21,12 @@ export default () => {
 
   const setup = (loader, resources) =>  {
     nodes = FirstLayerRender(stage, resources);
-    items = SecondLayerRender(stage, resources, nodes);
     player = PlayerLayerRender(stage, resources);
+    items = SecondLayerRender(stage, resources, nodes);
   
     CameraInitialFixed(stage, renderer);
+
+    ui = CreateUI(app, player);
     
     GameLoop(app, loop);
   }
@@ -41,18 +45,19 @@ export default () => {
   ], setup);
   
   const play = (delta) => {
+    Keyboard.update();
     PlayerKeyboardListener(delta, player);
-  }
-  
-  const loop = (delta) => {
-    play(delta);
-  
+
     CameraFixed(stage, player);
+
+    RenderUI(app, ui, player);
 
     items.forEach(item => {
       BlockRIG(player, item);
     });
-    
-    Keyboard.update();
+  }
+  
+  const loop = (delta) => {
+    play(delta);
   }
 }
