@@ -1,8 +1,6 @@
-export const textureBackground = (background = [
-  ['winter1', 5],
-  ['winter2', 70],
-  ['winter3', 100],
-]) => {
+import { D_background } from "@/defines/winter";
+
+export const textureBackground = (background = D_background) => {
   let _texture = undefined;
 
   background.every((texture) => {
@@ -42,14 +40,20 @@ export const generateItems = (nodes) => {
   const items = [];
 
   nodes.forEach(node => {
-    if(Math.floor(Math.random() * 101) >= 70 && node.background === "winter3") {
-      const item = {};
-      item.background = textureBackground([['twig', 100]]);
-      item.id = `${node.id}${item.background}`;
-      item.size = 150;
-      item.x = node.x;
-      item.y = node.y;
-      items.push(item);
+    if(node.background === D_background[2][0]) {
+      if(Math.floor(Math.random() * 101) >= 90) {
+        const item = {};
+        item.background = textureBackground([['twig', 100]]);
+        item.id = `${node.id}${item.background}`;
+        item.scale = 1;
+        if(item.background === "twig") {
+          item.wood = 3;
+          item.scale = (Math.random() * 0.4) + 0.3;
+        }
+        item.x = node.x;
+        item.y = node.y;
+        items.push(item);
+      }
     }
   });
 

@@ -22,10 +22,25 @@ export const BlockRIG = (r1, r2) => {
 
   if (Math.abs(vx) < combinedHalfWidths) {
     if (Math.abs(vy) < combinedHalfHeights) {
-      if(r1.x > r2.x) { r1.x += r1.vx };
-      if(r1.x < r2.x) { r1.x -= r1.vx };
-      if(r1.y > r2.y) { r1.y += r1.vy };
-      if(r1.y < r2.y) { r1.y -= r1.vy };
+      if(r1.x > r2.x) { 
+        if(r1.x >= 63 * 150) return;
+        r1.x += r1.vx 
+      }
+
+      if(r1.x < r2.x) { 
+        if(r1.x <= 0) return;
+        r1.x -= r1.vx 
+      }
+
+      if(r1.y > r2.y) { 
+        if(r1.y >= 63 * 150) return;
+        r1.y += r1.vy 
+      }
+
+      if(r1.y < r2.y) { 
+        if(r1.y <= 0) return;
+        r1.y -= r1.vy 
+      }
     } 
   }
 };

@@ -31,8 +31,7 @@ export const SecondLayerRender = (stage, resources, nodes) => {
     let _item = new Sprite(resources[item.background].texture);
     _item.x = item.x;
     _item.y = item.y;
-    _item.width = item.size;
-    _item.height = item.size;
+    _item.scale.set(item?.scale);
     _item.id = item.id;
     _items.push(_item);
     stage.addChild(_item);
