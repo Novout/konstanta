@@ -5,6 +5,7 @@
   "main": "snowpack.config.js",
   "parser": "babel-eslint",
   "dependencies": {
+    "pixi-filters": "^3.2.2",
     "pixi.js": "^5.3.7",
     "pixi.js-keyboard": "^1.0.9",
     "pixi.js-mouse": "^1.0.4",

@@ -6,7 +6,12 @@ import {
   Graphics,
   resources
 } from "@/pixi/alias";
+import { GlowFilter } from 'pixi-filters';
 import { D_OPEN_INVENTORY } from '@/defines/keys';
+
+export const UIFXAA = () => new filters.FXAAFilter().enabled = true;
+
+export const UIGlow = () => new GlowFilter({ distance: 25, outerStrength: 4, quality: 0.2, color: 0x66BD99, knockout: false })
 
 export const UIAlpha = () => {
   const alpha_main = new filters.AlphaFilter(0.5);
@@ -15,12 +20,12 @@ export const UIAlpha = () => {
   return { alpha_main, alpha_item };
 }
 
-export const CreateUI = (app, player) => {
-  const inventory = CreateInventoryBar(app, player);
+export const CreateUI = (app, player, resources) => {
+  const inventory = CreateInventoryBar(app, player, resources);
   return { inventory };
 }
 
-export const CreateInventoryBar = (app, player) => {
+export const CreateInventoryBar = (app, player, resources) => {
   let inventory = new Container();
   inventory.position.set(player.x - 75, player.y - 100);
   app.stage.addChild(inventory);
@@ -29,17 +34,68 @@ export const CreateInventoryBar = (app, player) => {
   bar.beginFill(0x66BD99);
   bar.drawRect(0, 0, 256, 64);
   bar.endFill();
-  bar.filters = [UIAlpha().alpha_main];
+  bar.filters = [UIGlow(), UIAlpha().alpha_main];
   inventory.addChild(bar);
 
   let i_primary_weapon = new Graphics();
-  i_primary_weapon.beginFill(0xFFFFFF);
   i_primary_weapon.drawRect(0, 0, 64, 64);
   i_primary_weapon.endFill();
-  i_primary_weapon.filters = [UIAlpha().alpha_item];
+  i_primary_weapon.filters = [UIFXAA()];
+  i_primary_weapon.interactive = true;
+  i_primary_weapon.buttonMode = true;
   inventory.addChild(i_primary_weapon);
 
-  inventory.outer = i_primary_weapon;
+  let s_primary_weapon = new Sprite(resources.item_unknown.texture);
+  s_primary_weapon.width = 64;
+  s_primary_weapon.height = 64;
+  i_primary_weapon.addChild(s_primary_weapon);
+
+  let i_second_weapon = new Graphics();
+  i_second_weapon.drawRect(0, 0, 64, 64);
+  i_second_weapon.endFill();
+  i_second_weapon.filters = [UIFXAA()];
+  i_second_weapon.x = 64;
+  i_second_weapon.interactive = true;
+  i_second_weapon.buttonMode = true;
+  inventory.addChild(i_second_weapon);
+
+  let s_second_weapon = new Sprite(resources.item_unknown.texture);
+  s_second_weapon.width = 64;
+  s_second_weapon.height = 64;
+  i_second_weapon.addChild(s_second_weapon);
+
+  let i_activate = new Graphics();
+  i_activate.drawRect(0, 0, 64, 64);
+  i_activate.endFill();
+  i_activate.filters = [UIFXAA()];
+  i_activate.x = 128;
+  i_activate.interactive = true;
+  i_activate.buttonMode = true;
+  inventory.addChild(i_activate);
+
+  let s_activate = new Sprite(resources.item_unknown.texture);
+  s_activate.width = 64;
+  s_activate.height = 64;
+  i_activate.addChild(s_activate);
+
+  let i_artefact = new Graphics();
+  i_artefact.drawRect(0, 0, 64, 64);
+  i_artefact.endFill();
+  i_artefact.filters = [UIFXAA()];
+  i_artefact.x = 192;
+  i_artefact.interactive = true;
+  i_artefact.buttonMode = true;
+  inventory.addChild(i_artefact);
+
+  let s_artefact = new Sprite(resources.item_unknown.texture);
+  s_artefact.width = 64;
+  s_artefact.height = 64;
+  i_artefact.addChild(s_artefact);
+
+  inventory.primary_weapon = i_primary_weapon;
+  inventory.second_weapon = i_second_weapon;
+  inventory.activate = i_activate;
+  inventory.artefact = i_artefact;
 
   return inventory;
 }

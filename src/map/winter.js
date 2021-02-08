@@ -29,7 +29,7 @@ export default () => {
   
     CameraInitialFixed(stage, renderer);
 
-    ui = CreateUI(app, player);
+    ui = CreateUI(app, player, resources);
     
     GameLoop(app, loop);
   }
@@ -40,11 +40,12 @@ export default () => {
   
   LoaderCache([
     ['snowpack', 'src/assets/rig/snowpack.png'],
-    ['pixijs', 'src/assets/rig/pixi.png'],
     ['winter1', 'src/assets/map/winter1.png'],
     ['winter_base', 'src/assets/map/winter_base.jpg'],
     ['winter3', 'src/assets/map/winter3.jpg'],
     ['twig', 'src/assets/map/twig.png'],
+    ['winter_grass1', 'src/assets/map/winter_grass1.png'],
+    ['item_unknown', 'src/assets/ui/item_unknown.png']
   ], setup);
   
   const play = (delta) => {
