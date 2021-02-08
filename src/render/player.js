@@ -15,7 +15,7 @@ export const PlayerLayerRender = (stage, resources) => {
   _player.CA = player.CA;
   _player.inventory = player.inventory;
   _player.resources = player.resources;
-  _player.animationSpeed = 0.25;
+  _player.animationSpeed = 0.2;
   _player.scale.set(2, 2);
   _player.play();
   stage.addChild(_player);

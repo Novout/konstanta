@@ -3,7 +3,7 @@ export const CameraInitialFixed = (stage, renderer) => {
 }
 
 export const CameraFixed = (stage, player) => {
-  stage.pivot.set(player.x, player.y);
+  stage.pivot.set(player.x + 80, player.y + 80);
 }
 
 export const FullContextSize = (renderer) => {
