@@ -41,7 +41,7 @@ export default () => {
   FullContextSize(renderer);
   
   LoaderCache([
-    ['snowpack', 'src/assets/rig/snowpack.png'],
+    ['player_ide', 'src/assets/rig/player/player_ide.png'],
     ['winter1', 'src/assets/map/winter1.jpg'],
     ['winter_base', 'src/assets/map/winter2.jpg'],
     ['winter3', 'src/assets/map/winter3.jpg'],

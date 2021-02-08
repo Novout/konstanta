@@ -8,4 +8,7 @@ export const utils = PIXI.utils,
              Sprite = PIXI.Sprite,
              filters = PIXI.filters,
              Graphics = PIXI.Graphics,
+             Texture = PIXI.Texture,
+             BaseTexture = PIXI.BaseTexture,
+             AnimatedSprite = PIXI.AnimatedSprite,
              Rectangle = PIXI.Rectangle;

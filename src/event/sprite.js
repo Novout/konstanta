@@ -9,12 +9,12 @@ export const BlockRIG = (r1, r2) => {
   r2.centerX = r2.x + r2.width / 2;
   r2.centerY = r2.y + r2.height / 2;
 
-  r1.halfWidth = r1.width / 2;
-  r1.halfHeight = r1.height / 2;
+  r1.halfWidth = r1.cwidth / 2;
+  r1.halfHeight = r1.cheight / 2;
   r2.halfWidth = r2.width / 2;
   r2.halfHeight = r2.height / 2;
 
-  vx = r1.centerX - r2.centerX;
+  vx = (r1.centerX - 10) - r2.centerX;
   vy = r1.centerY - r2.centerY;
 
   combinedHalfWidths = r1.halfWidth + r2.halfWidth;
