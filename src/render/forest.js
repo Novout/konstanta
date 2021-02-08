@@ -33,6 +33,7 @@ export const SecondLayerRender = (stage, resources, nodes) => {
     if(item.background === 'foreststone1' || item.background === 'foreststone2') {
       _item.interactive = true;
       _item.buttonMode = true;
+      _item.on('click', () => {});
     }
     _item.x = item.x;
     _item.y = item.y;
@@ -58,6 +59,7 @@ export const ThirdLayerRender = (stage, resources, nodes) => {
     _item.id = item.id;
     _item.cwidth = item.cwidth;
     _item.cheight = item.cheight;
+    _item.on('click', () => {});
     _items.push(_item);
     stage.addChild(_item);
   });
