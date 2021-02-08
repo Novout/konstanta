@@ -14,7 +14,7 @@ export const BlockRIG = (r1, r2) => {
   r2.halfWidth = r2.width / 2;
   r2.halfHeight = r2.height / 2;
 
-  vx = (r1.centerX - 10) - r2.centerX;
+  vx = (r1.centerX - 20) - r2.centerX;
   vy = r1.centerY - r2.centerY;
 
   combinedHalfWidths = r1.halfWidth + r2.halfWidth;

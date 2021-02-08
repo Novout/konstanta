@@ -36,8 +36,8 @@ export const createPlayer = (resources) => {
     },
     y: 1500,
     x: 1500,
-    vx: 4,
-    vy: 4,
+    vx: 3,
+    vy: 3,
     cwidth: 18,
     cheight: 30,
     // habilities
