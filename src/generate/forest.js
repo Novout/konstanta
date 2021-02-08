@@ -49,8 +49,8 @@ export const generateItems = (nodes) => {
         if(item.background === "tree") {
           item.wood = 3;
           item.scale = (Math.random() * 0.7) + 0.4;
-          item.cwidth = 20.0;
-          item.cheight = 20.0;
+          item.cwidth = 25.0;
+          item.cheight = 25.0;
         }
         item.x = node.x;
         item.y = node.y;

@@ -56,8 +56,8 @@ export const ThirdLayerRender = (stage, resources, nodes) => {
     _item.y = item.y;
     _item.scale.set(item?.scale);
     _item.id = item.id;
-    _item.fx = item.fx;
-    _item.fy = item.fy;
+    _item.cwidth = item.cwidth;
+    _item.cheight = item.cheight;
     _items.push(_item);
     stage.addChild(_item);
   });

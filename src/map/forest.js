@@ -8,7 +8,7 @@ import { PlayerKeyboardListener } from '@/event/keyboard';
 import { LoaderCache } from '@/pixi/loader';
 import { createContext } from '@/pixi/application';
 import { FullContextSize } from '@/utils/context';
-import { BlockRIG } from '@/event/sprite';
+import { BlockScenarioRIG } from '@/event/sprite';
 import { CreateUI, RenderUI } from '@/ui';
 
 let player, 
@@ -63,7 +63,7 @@ export default () => {
     RenderUI(app, ui, player[0]);
 
     items.forEach(item => {
-      BlockRIG(player[0], item);
+      BlockScenarioRIG(player[0], item);
     });
   }
 }
