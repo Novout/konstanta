@@ -52,7 +52,7 @@ export default () => {
     ['item_unknown', 'src/assets/ui/item_unknown.png']
   ], setup);
   
-  const play = (delta) => {
+  const loop = (delta) => {
     Keyboard.update();
     PlayerKeyboardListener(delta, player[0], player[1]);
 
@@ -63,9 +63,5 @@ export default () => {
     items.forEach(item => {
       BlockRIG(player[0], item);
     });
-  }
-  
-  const loop = (delta) => {
-    play(delta);
   }
 }
