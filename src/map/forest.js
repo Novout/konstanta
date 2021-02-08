@@ -46,9 +46,11 @@ export default () => {
     ['forest_rock', 'src/assets/map/forest/forest_rock.jpg'],
     ['forest1', 'src/assets/map/forest/forest1.jpg'],
     ['forest2', 'src/assets/map/forest/forest2.jpg'],
+    ['forestgrass1', 'src/assets/map/forest/forestgrass1.png'],
+    ['forestgrass2', 'src/assets/map/forest/forestgrass2.png'],
+    ['foreststone1', 'src/assets/map/forest/foreststone1.png'],
+    ['foreststone2', 'src/assets/map/forest/foreststone2.png'],
     ['tree', 'src/assets/map/forest/tree.png'],
-    ['winter_grass1', 'src/assets/map/winter_grass1.png'],
-    ['winter_grass2', 'src/assets/map/winter_grass2.png'],
     ['item_unknown', 'src/assets/ui/item_unknown.png']
   ], setup);
   

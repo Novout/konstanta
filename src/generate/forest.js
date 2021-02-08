@@ -19,8 +19,8 @@ export const textureBackground = (background = D_FOREST_BACKGROUND) => {
 export const createNodes = () => {
   const nodes = [];
 
-  for (let x = 0; x < 128; x++) {
-    for (let y = 0; y < 128; y++) {
+  for (let x = 0; x < 64; x++) {
+    for (let y = 0; y < 64; y++) {
       const texture = textureBackground();
       const node = {};
       node.id = `name${x}${y}`;
@@ -49,8 +49,8 @@ export const generateItems = (nodes) => {
         if(item.background === "tree") {
           item.wood = 3;
           item.scale = (Math.random() * 0.7) + 0.4;
-          item.fx = 20.0;
-          item.fy = 20.0;
+          item.cwidth = 20.0;
+          item.cheight = 20.0;
         }
         item.x = node.x;
         item.y = node.y;
@@ -67,15 +67,17 @@ export const generateAddons = (nodes) => {
 
   nodes.forEach(node => {
     if(node.background === D_FOREST_BACKGROUND[2][0]) { // winter_base
-      if(Math.floor(Math.random() * 101) >= 50) {
-        const item = {};
-        item.background = textureBackground([['winter_grass2', 50],['winter_grass1', 100]]);
-        item.id = `${node.id}${item.background}`;
-        item.scale = 1;
-        item.scale = (Math.random() * 0.4) + 0.3;
-        item.x = node.x;
-        item.y = node.y;
-        items.push(item);
+      let random = Math.floor(Math.random() * 101);
+      for(let i = 0; i < random; i += 10) {
+        if(random >= i) {
+          const item = {};
+          item.background = textureBackground([['forestgrass1', 50],['forestgrass2', 100]]);
+          item.id = `${node.id}${item.background}`;
+          item.scale = (Math.random() * 2) + 1.5;
+          item.x = Math.floor((Math.random() * 100) + node.x);
+          item.y = Math.floor((Math.random() * 100) + node.y);
+          items.push(item);
+        }
       }
     }
   });
