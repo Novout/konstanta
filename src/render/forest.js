@@ -1,5 +1,6 @@
 import { 
   Sprite,
+  Rectangle
 } from '@/pixi/alias';
 import { createNodes, generateAddons, generateItems } from '@/generate/forest';
 
@@ -28,12 +29,17 @@ export const SecondLayerRender = (stage, resources, nodes) => {
   const _items = [];
   items.forEach((item) => {
     let _item = new Sprite(resources[item.background].texture);
+    _item.background = item.background;
+    if(item.background === 'foreststone1' || item.background === 'foreststone2') {
+      _item.interactive = true;
+      _item.hitArea = new Rectangle(0, 0, item.cwidth, item.cheight);
+    }
     _item.x = item.x;
     _item.y = item.y;
     _item.scale.set(item?.scale);
     _item.id = item.id;
-    _item.fx = item.fx;
-    _item.fy = item.fy;
+    _item.cwidth = item.cwidth;
+    _item.cheight = item.cheight;
     _items.push(_item);
     stage.addChild(_item);
   });
