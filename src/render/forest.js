@@ -1,8 +1,7 @@
-import { createNodes } from '@/generate/winter';
 import { 
   Sprite,
 } from '@/pixi/alias';
-import { generateAddons, generateItems } from '../generate/winter';
+import { createNodes, generateAddons, generateItems } from '@/generate/forest';
 
 export const FirstLayerRender = (stage, resources) => {
   const nodes = createNodes();

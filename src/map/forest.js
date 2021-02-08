@@ -1,5 +1,5 @@
 import Keyboard from 'pixi.js-keyboard';
-import { FirstLayerRender, SecondLayerRender, ThirdLayerRender } from '@/render/winter';
+import { FirstLayerRender, SecondLayerRender, ThirdLayerRender } from '@/render/forest';
 import { PlayerLayerRender } from '@/render/player';
 import { GameLoop } from '@/render/loop';
 import { OnlyWEBGL } from '@/utils/webgl';
@@ -42,10 +42,10 @@ export default () => {
   
   LoaderCache([
     ['player_ide', 'src/assets/rig/player/player_ide.png'],
-    ['winter1', 'src/assets/map/winter1.jpg'],
-    ['winter_base', 'src/assets/map/winter2.jpg'],
-    ['winter3', 'src/assets/map/winter3.jpg'],
-    ['twig', 'src/assets/map/twig.png'],
+    ['forest_rock', 'src/assets/map/forest/forest_rock.jpg'],
+    ['forest1', 'src/assets/map/forest/forest1.jpg'],
+    ['forest2', 'src/assets/map/forest/forest2.jpg'],
+    ['tree', 'src/assets/map/forest/tree.png'],
     ['winter_grass1', 'src/assets/map/winter_grass1.png'],
     ['winter_grass2', 'src/assets/map/winter_grass2.png'],
     ['item_unknown', 'src/assets/ui/item_unknown.png']

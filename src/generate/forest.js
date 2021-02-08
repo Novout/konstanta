@@ -1,6 +1,6 @@
-import { D_BACKGROUND } from "@/defines/winter";
+import { D_FOREST_BACKGROUND } from "@/defines/forest";
 
-export const textureBackground = (background = D_BACKGROUND) => {
+export const textureBackground = (background = D_FOREST_BACKGROUND) => {
   let _texture = undefined;
 
   background.every((texture) => {
@@ -40,15 +40,15 @@ export const generateItems = (nodes) => {
   const items = [];
 
   nodes.forEach(node => {
-    if(node.background === D_BACKGROUND[2][0]) { // winter_base
+    if(node.background === D_FOREST_BACKGROUND[2][0]) { // forest1.jpg
       if(Math.floor(Math.random() * 101) >= 90) {
         const item = {};
-        item.background = textureBackground([['twig', 100]]);
+        item.background = textureBackground([['tree', 100]]);
         item.id = `${node.id}${item.background}`;
         item.scale = 1;
-        if(item.background === "twig") {
+        if(item.background === "tree") {
           item.wood = 3;
-          item.scale = (Math.random() * 0.4) + 0.3;
+          item.scale = (Math.random() * 0.7) + 0.4;
           item.fx = 20.0;
           item.fy = 20.0;
         }
@@ -66,7 +66,7 @@ export const generateAddons = (nodes) => {
   const items = [];
 
   nodes.forEach(node => {
-    if(node.background === D_BACKGROUND[2][0]) { // winter_base
+    if(node.background === D_FOREST_BACKGROUND[2][0]) { // winter_base
       if(Math.floor(Math.random() * 101) >= 50) {
         const item = {};
         item.background = textureBackground([['winter_grass2', 50],['winter_grass1', 100]]);
