@@ -32,7 +32,7 @@ export const SecondLayerRender = (stage, resources, nodes) => {
     _item.background = item.background;
     if(item.background === 'foreststone1' || item.background === 'foreststone2') {
       _item.interactive = true;
-      _item.hitArea = new Rectangle(0, 0, item.cwidth, item.cheight);
+      _item.buttonMode = true;
     }
     _item.x = item.x;
     _item.y = item.y;
