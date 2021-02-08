@@ -31,7 +31,7 @@ export default () => {
   
     CameraInitialFixed(stage, renderer);
 
-    ui = CreateUI(app, player, resources);
+    ui = CreateUI(app, player[0], resources);
     
     GameLoop(app, loop);
   }
@@ -42,6 +42,7 @@ export default () => {
   
   LoaderCache([
     ['player_ide', 'src/assets/rig/player/player_ide.png'],
+    ['player_run', 'src/assets/rig/player/player_run.png'],
     ['forest_rock', 'src/assets/map/forest/forest_rock.jpg'],
     ['forest1', 'src/assets/map/forest/forest1.jpg'],
     ['forest2', 'src/assets/map/forest/forest2.jpg'],
@@ -53,14 +54,14 @@ export default () => {
   
   const play = (delta) => {
     Keyboard.update();
-    PlayerKeyboardListener(delta, player);
+    PlayerKeyboardListener(delta, player[0], player[1]);
 
-    CameraFixed(stage, player);
+    CameraFixed(stage, player[0]);
 
-    RenderUI(app, ui, player);
+    RenderUI(app, ui, player[0]);
 
     items.forEach(item => {
-      BlockRIG(player, item);
+      BlockRIG(player[0], item);
     });
   }
   
