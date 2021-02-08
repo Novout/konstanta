@@ -1,5 +1,5 @@
 import Keyboard from 'pixi.js-keyboard';
-import { FirstLayerRender, SecondLayerRender } from '@/render/winter';
+import { FirstLayerRender, SecondLayerRender, ThirdLayerRender } from '@/render/winter';
 import { PlayerLayerRender } from '@/render/player';
 import { GameLoop } from '@/render/loop';
 import { OnlyWEBGL } from '@/utils/webgl';
@@ -14,6 +14,7 @@ import { CreateUI, RenderUI } from '@/ui';
 let player, 
     items, 
     ui,
+    addons,
     keyboard = {
       press1: undefined
     },
@@ -24,8 +25,9 @@ export default () => {
 
   const setup = (loader, resources) =>  {
     nodes = FirstLayerRender(stage, resources);
+    addons = SecondLayerRender(stage, resources, nodes);
     player = PlayerLayerRender(stage, resources);
-    items = SecondLayerRender(stage, resources, nodes);
+    items = ThirdLayerRender(stage, resources, nodes);
   
     CameraInitialFixed(stage, renderer);
 
@@ -40,11 +42,12 @@ export default () => {
   
   LoaderCache([
     ['snowpack', 'src/assets/rig/snowpack.png'],
-    ['winter1', 'src/assets/map/winter1.png'],
-    ['winter_base', 'src/assets/map/winter_base.jpg'],
+    ['winter1', 'src/assets/map/winter1.jpg'],
+    ['winter_base', 'src/assets/map/winter2.jpg'],
     ['winter3', 'src/assets/map/winter3.jpg'],
     ['twig', 'src/assets/map/twig.png'],
     ['winter_grass1', 'src/assets/map/winter_grass1.png'],
+    ['winter_grass2', 'src/assets/map/winter_grass2.png'],
     ['item_unknown', 'src/assets/ui/item_unknown.png']
   ], setup);
   

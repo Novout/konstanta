@@ -2,7 +2,7 @@ import { createNodes } from '@/generate/winter';
 import { 
   Sprite,
 } from '@/pixi/alias';
-import { generateItems } from '../generate/winter';
+import { generateAddons, generateItems } from '../generate/winter';
 
 export const FirstLayerRender = (stage, resources) => {
   const nodes = createNodes();
@@ -25,6 +25,24 @@ export const FirstLayerRender = (stage, resources) => {
 }
 
 export const SecondLayerRender = (stage, resources, nodes) => {
+  const items = generateAddons(nodes);
+  const _items = [];
+  items.forEach((item) => {
+    let _item = new Sprite(resources[item.background].texture);
+    _item.x = item.x;
+    _item.y = item.y;
+    _item.scale.set(item?.scale);
+    _item.id = item.id;
+    _item.fx = item.fx;
+    _item.fy = item.fy;
+    _items.push(_item);
+    stage.addChild(_item);
+  });
+
+  return _items;
+}
+
+export const ThirdLayerRender = (stage, resources, nodes) => {
   const items = generateItems(nodes);
   const _items = [];
   items.forEach((item) => {

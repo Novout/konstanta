@@ -61,3 +61,24 @@ export const generateItems = (nodes) => {
 
   return items;
 };
+
+export const generateAddons = (nodes) => {
+  const items = [];
+
+  nodes.forEach(node => {
+    if(node.background === D_BACKGROUND[2][0]) { // winter_base
+      if(Math.floor(Math.random() * 101) >= 50) {
+        const item = {};
+        item.background = textureBackground([['winter_grass2', 50],['winter_grass1', 100]]);
+        item.id = `${node.id}${item.background}`;
+        item.scale = 1;
+        item.scale = (Math.random() * 0.4) + 0.3;
+        item.x = node.x;
+        item.y = node.y;
+        items.push(item);
+      }
+    }
+  });
+
+  return items;
+};
