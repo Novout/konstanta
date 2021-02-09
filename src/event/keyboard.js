@@ -14,7 +14,7 @@ const PlayerIsStop = (player, player_base) => {
   }
 }
 
-export const PlayerKeyboardListener = (delta, player, player_base) => {
+export const PlayerKeyboardListener = (delta, player, player_base, options) => {
   let stop = true;
   
   if (Keyboard.isKeyDown('ArrowLeft', 'KeyA')) {
@@ -31,7 +31,7 @@ export const PlayerKeyboardListener = (delta, player, player_base) => {
     player.anchor.x = 0; 
     player.scale.x = 2.5;
     PlayerIsRun(player, player_base);
-    if(player.x >= 63 * 150) return;
+    if(player.x >= (options.size - 1) * 150) return;
     player.x += player.vx * delta;
   }
 
@@ -45,7 +45,7 @@ export const PlayerKeyboardListener = (delta, player, player_base) => {
   if (Keyboard.isKeyDown('ArrowDown', 'KeyS')) {
     stop = false;
     PlayerIsRun(player, player_base);
-    if(player.y >= 63 * 150) return;
+    if(player.y >= (options.size - 1) * 150) return;
     player.y += player.vy * delta;
   }
 

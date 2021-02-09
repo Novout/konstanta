@@ -44,6 +44,7 @@ export default (options) => {
   LoaderCache([
     ['player_ide', 'src/assets/rig/player/player_ide.png'],
     ['player_run', 'src/assets/rig/player/player_run.png'],
+    ['player_attack', 'src/assets/rig/player/player_attack.png'],
     ['forest_rock', 'src/assets/map/forest/forest_rock.jpg'],
     ['forestrock1', 'src/assets/map/forest/forestrock1.png'],
     ['forest1', 'src/assets/map/forest/forest1.jpg'],
@@ -60,7 +61,7 @@ export default (options) => {
   
   const loop = (delta) => {
     Keyboard.update();
-    PlayerKeyboardListener(delta, player[0], player[1]);
+    PlayerKeyboardListener(delta, player[0], player[1], options);
 
     CameraFixed(stage, player[0]);
 

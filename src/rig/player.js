@@ -7,6 +7,7 @@ import {
 export const createPlayer = (resources) => {
   let resource_idle = BaseTexture.from(resources["player_ide"].url);
   let resource_run = BaseTexture.from(resources["player_run"].url);
+  let resource_attack = BaseTexture.from(resources["player_attack"].url);
   let w = 80;
   let h = 80;
   // localStorage request;
@@ -60,6 +61,32 @@ export const createPlayer = (resources) => {
         new Texture(resource_run, new Rectangle(21 * w, 0, w, h)),
         new Texture(resource_run, new Rectangle(22 * w, 0, w, h)),
         new Texture(resource_run, new Rectangle(23 * w, 0, w, h)),
+      ],
+      attack: [
+        new Texture(resource_attack, new Rectangle(0 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(1 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(2 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(3 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(4 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(5 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(6 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(7 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(8 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(9 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(10 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(11 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(12 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(13 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(14 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(15 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(16 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(17 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(18 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(19 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(20 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(21 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(22 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(23 * w, 0, w, h)),
       ]
     },
     y: 1500,
