@@ -96,8 +96,8 @@ export const generateAddons = (nodes, options) => {
             item.y = Math.floor((Math.random() * 10) + node.y);
           } else {
             item.scale = (Math.random() * 2) + 1.5;
-            item.x = Math.floor((Math.random() * 150) + node.x);
-            item.y = Math.floor((Math.random() * 150) + node.y);
+            item.x = Math.floor((Math.random() * options.node_size / 1.5) + node.x);
+            item.y = Math.floor((Math.random() * options.node_size / 1.5) + node.y);
             item.cwidth = 20.0;
             item.cheight = 20.0;
           }

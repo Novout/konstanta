@@ -5,5 +5,6 @@ Forest({
   size: 32,
   node_size: 200,
   node_addons: 10,
-  node_items: 50
+  node_items: 50,
+  altar_radius: 100
 });
