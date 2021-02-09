@@ -20,14 +20,14 @@ let player,
     },
     nodes;
 
-export default () => {
+export default (options) => {
   OnlyWEBGL();
 
   const setup = (loader, resources) =>  {
-    nodes = FirstLayerRender(stage, resources);
-    addons = SecondLayerRender(stage, resources, nodes);
+    nodes = FirstLayerRender(stage, resources, options);
+    addons = SecondLayerRender(stage, resources, nodes, options);
     player = PlayerLayerRender(stage, resources);
-    items = ThirdLayerRender(stage, resources, nodes);
+    items = ThirdLayerRender(stage, resources, nodes, options);
   
     CameraInitialFixed(stage, renderer);
 

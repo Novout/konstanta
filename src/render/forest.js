@@ -4,8 +4,8 @@ import {
 } from '@/pixi/alias';
 import { createNodes, generateAddons, generateItems } from '@/generate/forest';
 
-export const FirstLayerRender = (stage, resources) => {
-  const nodes = createNodes();
+export const FirstLayerRender = (stage, resources, options) => {
+  const nodes = createNodes(options);
   const _nodes = [];
   nodes.forEach(node => {
     let _node = new Sprite(resources[node.background].texture);
@@ -24,8 +24,8 @@ export const FirstLayerRender = (stage, resources) => {
   return _nodes;
 }
 
-export const SecondLayerRender = (stage, resources, nodes) => {
-  const items = generateAddons(nodes);
+export const SecondLayerRender = (stage, resources, nodes, options) => {
+  const items = generateAddons(nodes, options);
   const _items = [];
   items.forEach((item) => {
     let _item = new Sprite(resources[item.background].texture);
@@ -43,8 +43,8 @@ export const SecondLayerRender = (stage, resources, nodes) => {
   return _items;
 }
 
-export const ThirdLayerRender = (stage, resources, nodes) => {
-  const items = generateItems(nodes);
+export const ThirdLayerRender = (stage, resources, nodes, options) => {
+  const items = generateItems(nodes, options);
   const _items = [];
   items.forEach((item) => {
     let _item = new Sprite(resources[item.background].texture);

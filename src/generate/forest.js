@@ -16,17 +16,17 @@ export const textureBackground = (background = D_FOREST_BACKGROUND) => {
   return _texture;
 };
 
-export const createNodes = () => {
+export const createNodes = (options) => {
   const nodes = [];
 
-  for (let x = 0; x < 32; x++) {
-    for (let y = 0; y < 32; y++) {
+  for (let x = 0; x < options.size; x++) {
+    for (let y = 0; y < options.size; y++) {
       const texture = textureBackground();
       const node = {};
       node.id = `name${x}${y}`;
-      node.size = 200;
-      node.x = 200 * x;
-      node.y = 200 * y;
+      node.size = options.node_size;
+      node.x = options.node_size * x;
+      node.y = options.node_size * y;
       node.background = texture;
 
       nodes.push(node);
@@ -36,12 +36,12 @@ export const createNodes = () => {
   return nodes;
 };
 
-export const generateItems = (nodes) => {
+export const generateItems = (nodes, options) => {
   const items = [];
 
   nodes.forEach(node => {
     if(node.background === D_FOREST_BACKGROUND[2][0]) { // forest1.jpg
-      if(Math.floor(Math.random() * 101) >= 50) {
+      if(Math.floor(Math.random() * 101) >= options.node_items) {
         const item = {};
         item.background = textureBackground([['tree', 50], ['tree2', 100]]);
         item.id = `${node.id}${item.background}`;
@@ -62,14 +62,14 @@ export const generateItems = (nodes) => {
   return items;
 };
 
-export const generateAddons = (nodes) => {
+export const generateAddons = (nodes, options) => {
   const items = [];
 
   nodes.forEach(node => {
     if(node.background === D_FOREST_BACKGROUND[2][0]) { // forest_base
       let random = Math.floor(Math.random() * 101);
 
-      for(let i = 0; i < random; i += 5) {
+      for(let i = 0; i < random; i += options.node_addons) {
         if(random >= i) {
           const item = {};
           item.background = textureBackground([['forestgrass1', 50],['forestgrass2', 100]]);
