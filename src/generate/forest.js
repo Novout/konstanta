@@ -44,7 +44,6 @@ export const generateItems = (nodes, options) => {
     if(node.background === D_FOREST_BACKGROUND[1][0]) {
       if(Math.floor(Math.random() * 101) >= options.altar_chance) {
         const type = generateType();
-        console.log(type);
         const item = {};
         item.background = 'altar';
         item.active = true;
@@ -69,8 +68,23 @@ export const generateItems = (nodes, options) => {
           item.cwidth = 12.5 * (item.scale + 1.0);
           item.cheight = 12.5 * (item.scale + 1.0);
         }
-        item.x = node.x;
-        item.y = node.y;
+
+        if(node.x <= options.node_size) {
+          item.x = (Math.random() * options.node_size / 2) + node.x;
+        } else if(node.x >= (options.size - 1) * options.node_size) {
+          item.x = node.x - (Math.random() * options.node_size / 2);
+        } else {
+          item.x = node.x;
+        }
+
+        if(node.y <= options.node_size) {
+          item.y = ((Math.random() * options.node_size / 2) + node.y) - node.height;
+        } else if(node.y >= (options.size - 1) * options.node_size) {
+          item.y = (node.y - (Math.random() * options.node_size / 2)) - node.height;
+        } else {
+          item.y = node.y - node.height;
+        }
+
         items.push(item);
       }
     }

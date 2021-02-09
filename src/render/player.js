@@ -12,13 +12,18 @@ export const PlayerLayerRender = (stage, resources) => {
   _player.x = player.x;
   _player.action = {
     attack: false,
+    attack_time: 0,
     distance: false,
+    distance_time: 0,
     interactive: false
   };
   _player.cwidth = player.cwidth;
   _player.cheight = player.cheight;
   _player.vx = player.vx;
   _player.vy = player.vy;
+  _player.level = player.level;
+  _player.maxHP = player.maxHP;
+  _player.HP = player.HP;
   _player.CA = player.CA;
   _player.inventory = player.inventory;
   _player.resources = player.resources;
