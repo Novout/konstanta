@@ -8,7 +8,7 @@ import { PlayerKeyboardListener } from '@/event/keyboard';
 import { LoaderCache } from '@/pixi/loader';
 import { createContext } from '@/pixi/application';
 import { FullContextSize } from '@/utils/context';
-import { BlockScenarioRIG } from '@/event/sprite';
+import { BlockScenarioRIG, BlockFixedScenarioRIG } from '@/event/sprite';
 import { CreateUI, RenderUI } from '@/ui';
 
 let player, 
@@ -44,6 +44,7 @@ export default () => {
     ['player_ide', 'src/assets/rig/player/player_ide.png'],
     ['player_run', 'src/assets/rig/player/player_run.png'],
     ['forest_rock', 'src/assets/map/forest/forest_rock.jpg'],
+    ['forestrock1', 'src/assets/map/forest/forestrock1.png'],
     ['forest1', 'src/assets/map/forest/forest1.jpg'],
     ['forest2', 'src/assets/map/forest/forest2.jpg'],
     ['forestgrass1', 'src/assets/map/forest/forestgrass1.png'],
@@ -51,6 +52,7 @@ export default () => {
     ['foreststone1', 'src/assets/map/forest/foreststone1.png'],
     ['foreststone2', 'src/assets/map/forest/foreststone2.png'],
     ['tree', 'src/assets/map/forest/tree.png'],
+    ['tree2', 'src/assets/map/forest/tree2.png'],
     ['item_unknown', 'src/assets/ui/item_unknown.png']
   ], setup);
   
@@ -65,5 +67,9 @@ export default () => {
     items.forEach(item => {
       BlockScenarioRIG(player[0], item);
     });
+
+    addons.forEach(addon => {
+      if(addon.background.includes('rock')) BlockFixedScenarioRIG(player[0], addon);
+    })
   }
 }
