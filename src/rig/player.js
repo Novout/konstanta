@@ -78,7 +78,8 @@ export const createPlayer = (resources) => {
       primary_weapon: undefined,
       second_weapon: undefined,
       activate: undefined,
-      artefact: undefined
+      artefact: undefined,
+      general: []
     },
     //general
     resources: {

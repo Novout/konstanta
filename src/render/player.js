@@ -10,6 +10,11 @@ export const PlayerLayerRender = (stage, resources) => {
   _player.texture_actually = player.texture_actually,
   _player.y = player.y; 
   _player.x = player.x;
+  _player.action = {
+    attack: false,
+    distance: false,
+    interactive: false
+  };
   _player.cwidth = player.cwidth;
   _player.cheight = player.cheight;
   _player.vx = player.vx;

@@ -1,4 +1,5 @@
 import Keyboard from 'pixi.js-keyboard';
+import Mouse from 'pixi.js-mouse';
 import { FirstLayerRender, SecondLayerRender, ThirdLayerRender } from '@/render/forest';
 import { PlayerLayerRender } from '@/render/player';
 import { GameLoop } from '@/render/loop';
