@@ -1,4 +1,5 @@
 import { D_FOREST_BACKGROUND } from "@/defines/forest";
+import { generateType } from "./altar";
 
 export const textureBackground = (background = D_FOREST_BACKGROUND) => {
   let _texture = undefined;
@@ -40,8 +41,24 @@ export const generateItems = (nodes, options) => {
   const items = [];
 
   nodes.forEach(node => {
-    if(node.background === D_FOREST_BACKGROUND[2][0]) { // forest1.jpg
-      if(Math.floor(Math.random() * 101) >= options.node_items) {
+    if(node.background === D_FOREST_BACKGROUND[1][0]) {
+      if(Math.floor(Math.random() * 101) >= options.altar_chance) {
+        const type = generateType();
+        console.log(type);
+        const item = {};
+        item.background = 'altar';
+        item.active = true;
+        item.id = type.id;
+        item.id_color = type.id_color;
+        item.scale = 2;
+        item.x = node.x - (node.width / 4);
+        item.y = node.y - (node.height / 2);
+        item.cwidth = 12.5 * (item.scale + 1.0);
+        item.cheight = 12.5 * (item.scale + 1.0);
+        items.push(item);
+      }
+    } else if(node.background === D_FOREST_BACKGROUND[2][0]) { // forest1.jpg
+      if(Math.floor(Math.random() * 101) >= options.node_addons) {
         const item = {};
         item.background = textureBackground([['tree', 50], ['tree2', 100]]);
         item.id = `${node.id}${item.background}`;
@@ -66,23 +83,21 @@ export const generateAddons = (nodes, options) => {
   const items = [];
 
   nodes.forEach(node => {
-    if(node.background === D_FOREST_BACKGROUND[2][0]) { // forest_base
-      let random = Math.floor(Math.random() * 101);
+    const random = Math.floor(Math.random() * 101);
 
+    if(node.background === D_FOREST_BACKGROUND[2][0]) { // forest_base
       for(let i = 0; i < random; i += options.node_addons) {
         if(random >= i) {
           const item = {};
           item.background = textureBackground([['forestgrass1', 50],['forestgrass2', 100]]);
           item.id = `${node.id}${item.background}`;
           item.scale = (Math.random() * 2) + 1.5;
-          item.x = Math.floor((Math.random() * 180) + node.x);
-          item.y = Math.floor((Math.random() * 180) + node.y);
+          item.x = Math.floor((Math.random() * (options.node_size / 1.25)) + node.x);
+          item.y = Math.floor((Math.random() * (options.node_size / 1.25)) + node.y);
           items.push(item);
         }
       }
     } else if (node.background === D_FOREST_BACKGROUND[0][0]) { // forest_rock.jpg
-      let random = Math.floor(Math.random() * 101);
-
       for(let i = 0; i < random; i += 40) {
         if(random >= i) {
           const item = {};

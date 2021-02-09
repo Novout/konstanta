@@ -51,6 +51,7 @@ export default (options) => {
     ['forestgrass2', 'src/assets/map/forest/forestgrass2.png'],
     ['foreststone1', 'src/assets/map/forest/foreststone1.png'],
     ['foreststone2', 'src/assets/map/forest/foreststone2.png'],
+    ['altar', 'src/assets/map/generics/altar.png'],
     ['tree', 'src/assets/map/forest/tree.png'],
     ['tree2', 'src/assets/map/forest/tree2.png'],
     ['item_unknown', 'src/assets/ui/item_unknown.png']
