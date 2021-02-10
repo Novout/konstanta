@@ -50,22 +50,22 @@ export default (options) => {
   FullContextSize(renderer);
   
   LoaderCache([
-    ['player_ide', 'src/assets/rig/player/player_ide.png'],
-    ['player_run', 'src/assets/rig/player/player_run.png'],
-    ['player_attack', 'src/assets/rig/player/player_attack.png'],
-    ['forest_rock', 'src/assets/map/forest/forest_rock.jpg'],
-    ['forestrock1', 'src/assets/map/forest/forestrock1.png'],
-    ['forest1', 'src/assets/map/forest/forest1.jpg'],
-    ['forest2', 'src/assets/map/forest/forest2.jpg'],
-    ['forestgrass1', 'src/assets/map/forest/forestgrass1.png'],
-    ['forestgrass2', 'src/assets/map/forest/forestgrass2.png'],
-    ['foreststone1', 'src/assets/map/forest/foreststone1.png'],
-    ['foreststone2', 'src/assets/map/forest/foreststone2.png'],
-    ['altar', 'src/assets/map/generics/altar.png'],
-    ['tree', 'src/assets/map/forest/tree.png'],
-    ['tree2', 'src/assets/map/forest/tree2.png'],
-    ['item_unknown', 'src/assets/ui/item_unknown.png']
-  ], setup);
+    ['player_ide', 'rig/player/player_ide.png'],
+    ['player_run', 'rig/player/player_run.png'],
+    ['player_attack', 'rig/player/player_attack.png'],
+    ['forest_rock', 'map/forest/forest_rock.jpg'],
+    ['forestrock1', 'map/forest/forestrock1.png'],
+    ['forest1', 'map/forest/forest1.jpg'],
+    ['forest2', 'map/forest/forest2.jpg'],
+    ['forestgrass1', 'map/forest/forestgrass1.png'],
+    ['forestgrass2', 'map/forest/forestgrass2.png'],
+    ['foreststone1', 'map/forest/foreststone1.png'],
+    ['foreststone2', 'map/forest/foreststone2.png'],
+    ['altar', 'map/generics/altar.png'],
+    ['tree', 'map/forest/tree.png'],
+    ['tree2', 'map/forest/tree2.png'],
+    ['item_unknown', 'ui/item_unknown.png']
+  ], setup, 'src/assets');
   
   const loop = (delta) => {
     Keyboard.update();
