@@ -8,5 +8,5 @@ Forest({
   node_addons: 20, // spawn addons
   node_items: 30, // spawn items
   altar_radius: 100, // radius for spawn monsters
-  altar_chance: 90 // chance spawn
+  altar_chance: 30 // chance spawn
 });

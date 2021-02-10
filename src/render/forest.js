@@ -48,6 +48,9 @@ export const ThirdLayerRender = (stage, resources, nodes, options) => {
   const _items = [];
   items.forEach((item) => {
     let _item = new Sprite(resources[item.background].texture);
+    if(item.background === 'altar') {
+      _item.active = item.active;
+    }
     _item.x = item.x;
     _item.y = item.y;
     _item.scale.set(item?.scale);

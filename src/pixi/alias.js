@@ -11,4 +11,6 @@ export const utils = PIXI.utils,
              Texture = PIXI.Texture,
              BaseTexture = PIXI.BaseTexture,
              AnimatedSprite = PIXI.AnimatedSprite,
+             Text = PIXI.Text,
+             TextStyle = PIXI.TextStyle,
              Rectangle = PIXI.Rectangle;

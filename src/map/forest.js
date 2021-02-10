@@ -1,5 +1,4 @@
 import Keyboard from 'pixi.js-keyboard';
-import Mouse from 'pixi.js-mouse';
 import { FirstLayerRender, SecondLayerRender, ThirdLayerRender } from '@/render/forest';
 import { PlayerLayerRender } from '@/render/player';
 import { GameLoop } from '@/render/loop';
@@ -11,6 +10,9 @@ import { createContext } from '@/pixi/application';
 import { FullContextSize } from '@/utils/context';
 import { BlockScenarioRIG, BlockFixedScenarioRIG } from '@/event/sprite';
 import { CreateUI, RenderUI } from '@/ui';
+import { CreateAltarButton } from '@/ui/altar';
+import { ContainAltarActive } from '@/event/sprite';
+import { resources } from '@/pixi/alias';
 
 let player, 
     items, 
@@ -33,6 +35,12 @@ export default (options) => {
     CameraInitialFixed(stage, renderer);
 
     ui = CreateUI(app, player[0], resources);
+
+    items.forEach(item => {
+      if(item.id.includes('altar')) {
+        item = CreateAltarButton(app, player[0], item);
+      } 
+    })
     
     GameLoop(app, loop);
   }
@@ -68,6 +76,7 @@ export default (options) => {
     RenderUI(app, ui, player[0]);
 
     items.forEach(item => {
+      if(item.id.includes('altar') && item.active) ContainAltarActive(app, player[0], item, resources);
       BlockScenarioRIG(player[0], item);
     });
 

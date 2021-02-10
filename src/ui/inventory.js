@@ -114,3 +114,22 @@ export const removeInventoryItem = (inventory, player) => {
 const addInventoryItem = (inventory, player, app) => {
 
 }
+
+export const CreateInventoryMain = (app, player, resources) => {
+  let main = new Container();
+  main.position.set(player.x - player.width / 2, player.y - player.height / 2);
+  app.stage.addChild(main);
+
+  let bar = new Graphics();
+  bar.beginFill(0x66BD99);
+  bar.drawRect(0, 0, 512, 256);
+  bar.endFill();
+  bar.filters = [InterfaceGlow(), UIAlpha().alpha_main];
+  main.addChild(bar);
+
+  return main;
+}
+
+export const RenderInventoryMain = (inventory, player, key) => {
+  inventory.position.set(player.x - 128, player.y - player.height / 2);
+}
