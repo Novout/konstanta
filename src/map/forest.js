@@ -18,9 +18,6 @@ let player,
     items, 
     ui,
     addons,
-    keyboard = {
-      press1: undefined
-    },
     nodes;
 
 export default (options) => {
