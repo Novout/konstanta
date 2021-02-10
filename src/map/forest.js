@@ -65,7 +65,7 @@ export default (options) => {
     ['tree', 'map/forest/tree.png'],
     ['tree2', 'map/forest/tree2.png'],
     ['item_unknown', 'ui/item_unknown.png']
-  ], setup, 'src/assets');
+  ], setup);
   
   const loop = (delta) => {
     Keyboard.update();

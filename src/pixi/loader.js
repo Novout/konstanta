@@ -2,7 +2,7 @@ import {
   loader,
 } from '@/pixi/alias';
 
-export const LoaderCache = (textures, setup, path) => {
+export const LoaderCache = (textures, setup, path = 'src/assets') => {
   const shared = loader.shared;
   shared.baseUrl = path;
 
