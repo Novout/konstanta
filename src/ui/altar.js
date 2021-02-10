@@ -34,6 +34,7 @@ export const CreateAltarButton = (app, player, item) => {
   button.on('click', () => {
     item.active = false;
     main.visible = false;
+    DeleteAltarButton(main);
   })
   main.visible = false;
 
