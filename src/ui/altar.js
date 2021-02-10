@@ -32,9 +32,7 @@ export const CreateAltarButton = (app, player, item) => {
   button.y = button.y + main.height / 10;
   container.addChild(button);
   button.on('click', () => {
-    item.active = false;
-    main.visible = false;
-    DeleteAltarButton(main);
+    DeleteAltarButton(item, main);
   })
   main.visible = false;
 
@@ -43,6 +41,8 @@ export const CreateAltarButton = (app, player, item) => {
   return main;
 }
 
-export const DeleteAltarButton = (main) => {
+export const DeleteAltarButton = (item, main) => {
+  item.active = false;
+  main.visible = false;
   main.destroy(true);
 }
