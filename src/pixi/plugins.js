@@ -1,3 +1,4 @@
+import * as PIXI from 'pixi.js';
 export class Bump {
   constructor(renderingEngine = PIXI) {
     if (renderingEngine === undefined) throw new Error("Please assign a rendering engine in the constructor before using bump.js"); 
@@ -1204,7 +1205,7 @@ export class Bump {
     if (sprite.y - sprite.yAnchorOffset < container.y - sprite.parent.gy - container.yAnchorOffset) {
       if (bounce) sprite.vy *= -1;
       if (sprite.mass) sprite.vy /= sprite.mass;
-      sprite.y = container.y - sprite.parent.gy - container.yAnchorOffset + sprite.yAnchorOffset;;
+      sprite.y = container.y - sprite.parent.gy - container.yAnchorOffset + sprite.yAnchorOffset;
       collision.add("top");
     }
 

@@ -116,6 +116,12 @@ export const createPlayer = (resources) => {
       leather: 0,
       efrium: 0,
       eletronic_circuit: 0
-    }
+    },
+    conditionals: {
+      poisoning: false,
+      bleeding: false,
+      resistance: false
+    },
+    skills: []
   }
 }
