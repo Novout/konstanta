@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-export class Bump {
+class Bump {
   constructor(renderingEngine = PIXI) {
     if (renderingEngine === undefined) throw new Error("Please assign a rendering engine in the constructor before using bump.js"); 
 
@@ -1429,3 +1429,5 @@ export class Bump {
     }
   }
 }
+
+export default new Bump();
