@@ -1,16 +1,20 @@
 import Keyboard from 'pixi.js-keyboard';
 import { CreateInventoryBar, RenderInventoryBar, CreateInventoryMain, RenderInventoryMain } from './inventory';
+import { CreatePlayerLife, RenderPlayerLife } from './player';
 import { D_OPEN_INVENTORY, D_OPEN_BAR } from '@/defines/keys';
 
 export const CreateUI = (app, player, resources) => {
   const inventory = CreateInventoryBar(app, player, resources);
   const inventory_main = CreateInventoryMain(app, player, resources);
-  return { inventory, inventory_main };
+  const player_life = CreatePlayerLife(app, player, resources);
+  return { inventory, inventory_main, player_life };
 }
 
 export const RenderUI = (app, ui, player) => {
   ui.inventory.visible = false;
   ui.inventory_main.visible = false;
+
+  RenderPlayerLife(ui.player_life, player);
 
   D_OPEN_BAR.forEach(key => {
     if (Keyboard.isKeyDown(key)) {
@@ -30,3 +34,4 @@ export const RenderUI = (app, ui, player) => {
 }
 
 export * from './inventory';
+export * from './player';

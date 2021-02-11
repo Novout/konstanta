@@ -97,6 +97,7 @@ export const createPlayer = (resources) => {
     cheight: 30,
     // habilities
     level: 1,
+    levelHP: 8,
     maxHP: 10,
     HP: 10,
     CA: 0, // % for ignore attack
