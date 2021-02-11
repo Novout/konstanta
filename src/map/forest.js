@@ -44,7 +44,7 @@ export default (options) => {
 
   const [app, stage, renderer] = createContext();
   
-  FullContextSize(renderer);
+  FullContextSize(renderer, stage);
   
   LoaderCache([
     ['player_ide', 'rig/player/player_ide.png'],
@@ -70,8 +70,6 @@ export default (options) => {
 
     CameraFixed(stage, player[0]);
 
-    RenderUI(app, ui, player[0]);
-
     items.forEach(item => {
       if(item.id.includes('altar') && item.active) ContainAltarActive(app, player[0], item, resources);
       BlockScenarioRIG(player[0], item);
@@ -80,5 +78,7 @@ export default (options) => {
     addons.forEach(addon => {
       if(addon.background.includes('rock')) BlockFixedScenarioRIG(player[0], addon);
     })
+
+    RenderUI(app, ui, player[0]);
   }
 }

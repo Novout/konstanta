@@ -4,7 +4,7 @@ import {
   Graphics,
   Text
 } from "@/pixi/alias";
-import { UIAlpha, FXAA, InterfaceGlow } from '@/utils/webgl';
+import { UIAlpha } from '@/utils/webgl';
 
 
 export const CreatePlayerLife = (app, player, resources) => {
@@ -14,9 +14,9 @@ export const CreatePlayerLife = (app, player, resources) => {
 
   const bar = new Graphics();
   bar.beginFill(0xFFFFFF);
-  bar.drawRect(0, 0, 128, 16);
+  bar.drawRect(0, 0, 128, 12);
   bar.endFill();
-  bar.filters = [UIAlpha().alpha_bar];
+  bar.filters = [UIAlpha().alpha_item];
 
   const max_bar = 128;
   const max_hp = player.maxHP;
@@ -25,9 +25,10 @@ export const CreatePlayerLife = (app, player, resources) => {
   const bar_value = max_node_bar * hp;
 
   const health_bar = new Graphics();
-  health_bar.beginFill(0xFF3300);
-  health_bar.drawRect(0, 0, bar_value, 16);
+  health_bar.beginFill(0xBB3131);
+  health_bar.drawRect(0, 0, bar_value, 12);
   health_bar.endFill();
+  /*
   const style = new TextStyle({
     fontFamily: "Poppins",
     fontSize: 12,
@@ -37,15 +38,17 @@ export const CreatePlayerLife = (app, player, resources) => {
   text.filters = [FXAA()];
   text.x = bar.x + (bar.width / 2) - 18;
   health_bar.addChild(text);
+  */
 
-  bar.addChild(health_bar);
   main.addChild(bar);
+  main.addChild(health_bar);
 
   main.health_bar = health_bar;
 
   return main;
 }
 
-export const RenderPlayerLife = (inventory, player) => {
-  inventory.position.set(player.x + 8, player.y + 24);
+export const RenderPlayerLife = (ui, player) => {
+  player.action.interactive_ui ? ui.player_life.visible = false : ui.player_life.visible = true;
+  ui.player_life.position.set(player.x + 8, player.y + 24);
 }

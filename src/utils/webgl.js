@@ -5,7 +5,7 @@ import {
 import { GlowFilter } from 'pixi-filters';
 
 export const UIAlpha = () => {
-  const alpha_bar = new filters.AlphaFilter(0.7);
+  const alpha_bar = new filters.AlphaFilter(0.8);
   const alpha_main = new filters.AlphaFilter(0.5);
   const alpha_item = new filters.AlphaFilter(0.15);
 

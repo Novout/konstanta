@@ -14,8 +14,6 @@ export const RenderUI = (app, ui, player) => {
   ui.inventory.visible = false;
   ui.inventory_main.visible = false;
 
-  RenderPlayerLife(ui.player_life, player);
-
   D_OPEN_BAR.forEach(key => {
     if (Keyboard.isKeyDown(key)) {
       ui.inventory.visible = true;
@@ -25,12 +23,18 @@ export const RenderUI = (app, ui, player) => {
   });
 
   D_OPEN_INVENTORY.forEach(key => {
+    let _interactive = 0;
     if (Keyboard.isKeyDown(key)) {
       ui.inventory_main.visible = true;
       RenderInventoryMain(ui.inventory_main, player, key);
+      _interactive++;
       return;
     }
+
+    if(_interactive === 0) player.action.interactive_ui = false;
   })
+
+  RenderPlayerLife(ui, player);
 }
 
 export * from './inventory';

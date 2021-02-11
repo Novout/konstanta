@@ -15,7 +15,8 @@ export const PlayerLayerRender = (stage, resources) => {
     attack_time: 0,
     distance: false,
     distance_time: 0,
-    interactive: false
+    interactive_ui: false,
+    interactive_item: false
   };
   _player.cwidth = player.cwidth;
   _player.cheight = player.cheight;

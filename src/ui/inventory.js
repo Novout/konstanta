@@ -15,7 +15,7 @@ export const CreateInventoryBar = (app, player, resources) => {
   bar.beginFill(0x66BD99);
   bar.drawRect(0, 0, 256, 64);
   bar.endFill();
-  bar.filters = [InterfaceGlow(), UIAlpha().alpha_main];
+  bar.filters = [InterfaceGlow()];
   inventory.addChild(bar);
 
   let i_primary_weapon = new Graphics();
@@ -124,12 +124,13 @@ export const CreateInventoryMain = (app, player, resources) => {
   bar.beginFill(0x66BD99);
   bar.drawRect(0, 0, 512, 256);
   bar.endFill();
-  bar.filters = [InterfaceGlow(), UIAlpha().alpha_main];
+  bar.filters = [InterfaceGlow()];
   main.addChild(bar);
 
   return main;
 }
 
 export const RenderInventoryMain = (inventory, player, key) => {
-  inventory.position.set(player.x - 128, player.y - player.height / 2);
+  player.action.interactive_ui = true;
+  inventory.position.set(player.x - player.width / 2, player.y - player.height / 2);
 }
