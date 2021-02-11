@@ -4,7 +4,7 @@ import {
   Graphics,
   resources
 } from "@/pixi/alias";
-import { UIAlpha, FXAA, InterfaceGlow } from '@/utils/webgl';
+import { FXAA, InterfaceGlow } from '@/utils/webgl';
 
 export const CreateInventoryBar = (app, player, resources) => {
   let inventory = new Container();

@@ -1,7 +1,7 @@
-import { D_FOREST_BACKGROUND } from "@/defines/forest";
+import FOREST from "@/defines/forest.json";
 import { generateType } from "./altar";
 
-export const textureBackground = (background = D_FOREST_BACKGROUND) => {
+export const textureBackground = (background = FOREST) => {
   let _texture = undefined;
 
   background.every((texture) => {
@@ -41,7 +41,7 @@ export const generateItems = (nodes, options) => {
   const items = [];
 
   nodes.forEach(node => {
-    if(node.background === D_FOREST_BACKGROUND[1][0]) {
+    if(node.background === FOREST[1][0]) {
       if(Math.floor(Math.random() * 101) >= options.altar_chance) {
         const type = generateType();
         const item = {};
@@ -56,7 +56,7 @@ export const generateItems = (nodes, options) => {
         item.cheight = 12.5 * (item.scale + 1.0);
         items.push(item);
       }
-    } else if(node.background === D_FOREST_BACKGROUND[2][0]) { // forest1.jpg
+    } else if(node.background === FOREST[2][0]) { // forest1.jpg
       if(Math.floor(Math.random() * 101) >= options.node_addons) {
         const item = {};
         item.background = textureBackground([['tree', 50], ['tree2', 100]]);
@@ -99,7 +99,7 @@ export const generateAddons = (nodes, options) => {
   nodes.forEach(node => {
     const random = Math.floor(Math.random() * 101);
 
-    if(node.background === D_FOREST_BACKGROUND[2][0]) { // forest_base
+    if(node.background === FOREST[2][0]) { // forest_base
       for(let i = 0; i < random; i += options.node_addons) {
         if(random >= i) {
           const item = {};
@@ -111,7 +111,7 @@ export const generateAddons = (nodes, options) => {
           items.push(item);
         }
       }
-    } else if (node.background === D_FOREST_BACKGROUND[0][0]) { // forest_rock.jpg
+    } else if (node.background === FOREST[0][0]) { // forest_rock.jpg
       for(let i = 0; i < random; i += 40) {
         if(random >= i) {
           const item = {};
