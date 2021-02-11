@@ -1,4 +1,4 @@
-export const BlockScenarioRIG = (r1, r2) => {
+export const BlockScenarioRIG = (r1, r2, options) => {
   let combinedHalfWidths, 
       combinedHalfHeights, 
       vx, 
@@ -23,7 +23,7 @@ export const BlockScenarioRIG = (r1, r2) => {
   if (Math.abs(vx) < combinedHalfWidths) {
     if (Math.abs(vy) < combinedHalfHeights) {
       if(r1.x > r2.x) { 
-        if(r1.x >= 63 * 150) return;
+        if(r1.x >= (options.size - 1) * options.node_size) return;
         r1.x += r1.vx 
       }
 
@@ -33,7 +33,7 @@ export const BlockScenarioRIG = (r1, r2) => {
       }
 
       if(r1.y > r2.y) { 
-        if(r1.y >= 63 * 150) return;
+        if(r1.y >= (options.size - 1) * options.node_size) return;
         r1.y += r1.vy 
       }
 
@@ -45,7 +45,7 @@ export const BlockScenarioRIG = (r1, r2) => {
   }
 };
 
-export const BlockFixedScenarioRIG = (r1, r2) => {
+export const BlockFixedScenarioRIG = (r1, r2, options) => {
   let combinedHalfWidths, 
       combinedHalfHeights, 
       vx, 
@@ -70,7 +70,7 @@ export const BlockFixedScenarioRIG = (r1, r2) => {
   if (Math.abs(vx) < combinedHalfWidths) {
     if (Math.abs(vy) < combinedHalfHeights) {
       if(r1.x > r2.x) { 
-        if(r1.x >= 63 * 150) return;
+        if(r1.x >= (options.size - 1) * options.node_size) return;
         r1.x += r1.vx 
       }
 
@@ -80,7 +80,7 @@ export const BlockFixedScenarioRIG = (r1, r2) => {
       }
 
       if(r1.y > r2.y) { 
-        if(r1.y >= 63 * 150) return;
+        if(r1.y >= (options.size - 1) * options.node_size) return;
         r1.y += r1.vy 
       }
 

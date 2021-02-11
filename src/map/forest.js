@@ -72,11 +72,11 @@ export default (options) => {
 
     items.forEach(item => {
       if(item.id.includes('altar') && item.active) ContainAltarActive(app, player[0], item, resources);
-      BlockScenarioRIG(player[0], item);
+      BlockScenarioRIG(player[0], item, options);
     });
 
     addons.forEach(addon => {
-      if(addon.background.includes('rock')) BlockFixedScenarioRIG(player[0], addon);
+      if(addon.background.includes('rock')) BlockFixedScenarioRIG(player[0], addon, options);
     })
 
     RenderUI(app, ui, player[0]);
