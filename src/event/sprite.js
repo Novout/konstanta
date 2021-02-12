@@ -145,7 +145,8 @@ export const ContainSprite = (r1, r2) => {
 export const ContainAltarActive = (app, player, item, resources) => {
   if(ContainSprite(player, item)) {
     item.ui_altar.visible = true;
-    item.ui_altar.position.set(player.x - player.width / 4, player.y + 200);
+    if(item.choice_skills.visible) item.ui_altar.position.set(player.x - player.width / 2, player.y - (item.choice_skills.height / 4));
+    else item.ui_altar.position.set(player.x - player.width / 4, player.y + 200);
   } else {
     item.ui_altar.visible = false;
   }

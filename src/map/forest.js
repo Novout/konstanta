@@ -35,7 +35,7 @@ export default (options) => {
 
     items.forEach(item => {
       if(item.id.includes('altar')) {
-        item = CreateAltarButton(app, player[0], item);
+        item = CreateAltarButton(app, player[0], item, resources);
       } 
     })
     
