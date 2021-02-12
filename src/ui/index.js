@@ -37,5 +37,3 @@ export const RenderUI = (app, ui, player) => {
   RenderPlayerLife(ui, player);
 }
 
-export * from './inventory';
-export * from './player';

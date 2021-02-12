@@ -68,6 +68,7 @@ export const KGraphics = (
     fill: 0x66BD99,
     rectangle: [0, 0, 256, 256],
     filters: [],
+    button: false
   },
   positional = undefined
 ) => {
@@ -76,6 +77,10 @@ export const KGraphics = (
   if(runner.rectangle) _graphics.drawRect(runner.rectangle[0], runner.rectangle[1], runner.rectangle[2], runner.rectangle[3]);
   if(runner.fill || runner.fake) _graphics.endFill();
   if(runner.filters) _graphics.filters = runner.filters;
+  if(runner.button) {
+    _graphics.interactive = true;
+    _graphics.buttonMode = true;
+  }
   if(positional) {
     _graphics.x = positional.x;
     _graphics.y = positional.y;

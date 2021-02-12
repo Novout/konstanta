@@ -1,22 +1,15 @@
 import { 
   Container,
-  TextStyle, 
   Graphics,
-  Text
-} from "@/pixi/alias";
+} from '@/pixi/alias';
 import { UIAlpha } from '@/utils/webgl';
+import { KContainer, KGraphics } from './material';
 
 
 export const CreatePlayerLife = (app, player, resources) => {
-  const main = new Container();
-  main.position.set(player.x - player.width / 2, player.y - player.height / 2);
-  app.stage.addChild(main);
+  const main = KContainer(app.stage, { x: player.x - player.width / 2, y: player.y - player.height / 2 });
 
-  const bar = new Graphics();
-  bar.beginFill(0xFFFFFF);
-  bar.drawRect(0, 0, 128, 12);
-  bar.endFill();
-  bar.filters = [UIAlpha().alpha_item];
+  const bar = KGraphics(main, { fake: true, rectangle: [0, 0, 128, 12], filters: [UIAlpha().alpha_item] });
 
   const max_bar = 128;
   const max_hp = player.maxHP;
@@ -24,10 +17,7 @@ export const CreatePlayerLife = (app, player, resources) => {
   const max_node_bar = max_bar / max_hp;
   const bar_value = max_node_bar * hp;
 
-  const health_bar = new Graphics();
-  health_bar.beginFill(0xBB3131);
-  health_bar.drawRect(0, 0, bar_value, 12);
-  health_bar.endFill();
+  const health_bar = KGraphics(main, { fill: 0xBB3131, rectangle: [0, 0, bar_value, 12]});
   /*
   const style = new TextStyle({
     fontFamily: "Poppins",
@@ -40,9 +30,7 @@ export const CreatePlayerLife = (app, player, resources) => {
   health_bar.addChild(text);
   */
 
-  main.addChild(bar);
-  main.addChild(health_bar);
-
+  main.fake_bar = bar;
   main.health_bar = health_bar;
 
   return main;

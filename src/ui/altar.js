@@ -1,5 +1,4 @@
-import { 
-  Graphics,
+import {
   Sprite
 } from '@/pixi/alias';
 import { UIAlpha, InterfaceGlow, FXAA } from '@/utils/webgl';
