@@ -29,7 +29,8 @@
     "d": "snowpack dev --polyfill-node",
     "build": "snowpack build --polyfill-node",
     "test": "web-test-runner \"src/**/*.test.js\"",
-    "lint": "eslint --ext .js --ignore-path .gitignore . --fix"
+    "lint": "eslint --ext .js --ignore-path .gitignore . --fix && yarn lint:prettier",
+    "lint:prettier": "prettier --write ."
   },
   "husky": {
     "hooks": {
