@@ -1,13 +1,7 @@
-import { 
-  Container,
-  TextStyle, 
-  Graphics,
-  Sprite,
-  Text
-} from "@/pixi/alias";
+import { Container, TextStyle, Graphics, Sprite, Text } from '@/pixi/alias';
 
 export const KText = (
-  title, 
+  title,
   stage,
   style = {
     fontFamily: 'Poppins',
@@ -25,16 +19,16 @@ export const KText = (
 
   _text.filters = options?.filters;
 
-  if(options.button) {
+  if (options.button) {
     _text.interactive = true;
     _text.buttonMode = true;
   }
 
-  if(options.positional) {
-    if(options.positional.absolute) {
-      if(options.positional.x) _text.x = options.positional.x;
+  if (options.positional) {
+    if (options.positional.absolute) {
+      if (options.positional.x) _text.x = options.positional.x;
 
-      if(options.positional.y) _text.y = options.positional.y;
+      if (options.positional.y) _text.y = options.positional.y;
     } else {
       _text.x = _text.x + options.positional?.x;
       _text.y = _text.y + options.positional?.y;
@@ -44,28 +38,28 @@ export const KText = (
   stage.addChild(_text);
 
   return _text;
-}
+};
 
 export const KContainer = (
   stage,
   positional = { x: 1000, y: 1000 },
-  append = [],
+  append = []
 ) => {
   const _container = new Container();
   _container.position.set(positional.x, positional.y);
-  append?.forEach(item => {
+  append?.forEach((item) => {
     _container[item[0]] = item[1];
   });
   stage.addChild(_container);
 
   return _container;
-}
+};
 
 export const KGraphics = (
   stage,
   runner = {
     fake: false,
-    fill: 0x66BD99,
+    fill: 0x66bd99,
     rectangle: [0, 0, 256, 256],
     filters: [],
     button: false
@@ -73,15 +67,21 @@ export const KGraphics = (
   positional = undefined
 ) => {
   const _graphics = new Graphics();
-  if(runner.fill) _graphics.beginFill(runner.fill);
-  if(runner.rectangle) _graphics.drawRect(runner.rectangle[0], runner.rectangle[1], runner.rectangle[2], runner.rectangle[3]);
-  if(runner.fill || runner.fake) _graphics.endFill();
-  if(runner.filters) _graphics.filters = runner.filters;
-  if(runner.button) {
+  if (runner.fill) _graphics.beginFill(runner.fill);
+  if (runner.rectangle)
+    _graphics.drawRect(
+      runner.rectangle[0],
+      runner.rectangle[1],
+      runner.rectangle[2],
+      runner.rectangle[3]
+    );
+  if (runner.fill || runner.fake) _graphics.endFill();
+  if (runner.filters) _graphics.filters = runner.filters;
+  if (runner.button) {
     _graphics.interactive = true;
     _graphics.buttonMode = true;
   }
-  if(positional) {
+  if (positional) {
     _graphics.x = positional.x;
     _graphics.y = positional.y;
   }
@@ -89,7 +89,7 @@ export const KGraphics = (
   stage.addChild(_graphics);
 
   return _graphics;
-}
+};
 
 export const KImage = (
   stage,
@@ -101,11 +101,11 @@ export const KImage = (
   _image.width = size.width;
   _image.height = size?.height;
 
-  if(positional) {
-    if(positional.absolute) {
-      if(positional.x) _image.x = positional.x;
+  if (positional) {
+    if (positional.absolute) {
+      if (positional.x) _image.x = positional.x;
 
-      if(positional.y) _image.y = positional.y;
+      if (positional.y) _image.y = positional.y;
     } else {
       _image.x = _image.x + positional?.x;
       _image.y = _image.y + positional?.y;
@@ -115,4 +115,4 @@ export const KImage = (
   stage.addChild(_image);
 
   return _image;
-}
+};

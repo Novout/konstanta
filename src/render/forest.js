@@ -1,13 +1,10 @@
-import { 
-  Sprite,
-  Rectangle
-} from '@/pixi/alias';
+import { Sprite } from '@/pixi/alias';
 import { createNodes, generateAddons, generateItems } from '@/generate/forest';
 
 export const FirstLayerRender = (stage, resources, options) => {
   const nodes = createNodes(options);
   const _nodes = [];
-  nodes.forEach(node => {
+  nodes.forEach((node) => {
     let _node = new Sprite(resources[node.background].texture);
     _node.interactive = false;
     _node.buttonMode = false;
@@ -22,7 +19,7 @@ export const FirstLayerRender = (stage, resources, options) => {
   });
 
   return _nodes;
-}
+};
 
 export const SecondLayerRender = (stage, resources, nodes, options) => {
   const items = generateAddons(nodes, options);
@@ -41,14 +38,14 @@ export const SecondLayerRender = (stage, resources, nodes, options) => {
   });
 
   return _items;
-}
+};
 
 export const ThirdLayerRender = (stage, resources, nodes, options) => {
   const items = generateItems(nodes, options);
   const _items = [];
   items.forEach((item) => {
     let _item = new Sprite(resources[item.background].texture);
-    if(item.background === 'altar') {
+    if (item.background === 'altar') {
       _item.active = item.active;
     }
     _item.x = item.x;
@@ -62,4 +59,4 @@ export const ThirdLayerRender = (stage, resources, nodes, options) => {
   });
 
   return _items;
-}
+};

@@ -1,7 +1,9 @@
 {
+  "author": "Novout",
   "name": "konstanta",
   "version": "1.0.0",
   "description": "",
+  "license": "MIT",
   "main": "snowpack.config.js",
   "parser": "babel-eslint",
   "dependencies": {
@@ -18,7 +20,10 @@
     "@snowpack/web-test-runner-plugin": "^0.2.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.19.0",
-    "eslint-watch": "^7.0.0"
+    "eslint-watch": "^7.0.0",
+    "husky": "^5.0.9",
+    "lint-staged": "^10.5.4",
+    "prettier": "2.2.1"
   },
   "scripts": {
     "d": "snowpack dev --polyfill-node",
@@ -26,6 +31,12 @@
     "test": "web-test-runner \"src/**/*.test.js\"",
     "lint": "eslint --ext .js --ignore-path .gitignore . --fix"
   },
-  "author": "Novout",
-  "license": "MIT"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
 }

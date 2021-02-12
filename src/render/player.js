@@ -1,14 +1,12 @@
-import { 
-  AnimatedSprite
-} from '@/pixi/alias';
+import { AnimatedSprite } from '@/pixi/alias';
 import { createPlayer } from '@/rig/player';
 
 export const PlayerLayerRender = (stage, resources) => {
   const player = createPlayer(resources);
   const _player = new AnimatedSprite(player.texture.stand);
-  _player.id = player.id,
-  _player.texture_actually = player.texture_actually,
-  _player.y = player.y; 
+  (_player.id = player.id),
+    (_player.texture_actually = player.texture_actually),
+    (_player.y = player.y);
   _player.x = player.x;
   _player.action = {
     attack: false,
@@ -38,4 +36,4 @@ export const PlayerLayerRender = (stage, resources) => {
   stage.addChild(_player);
 
   return [_player, player];
-}
+};

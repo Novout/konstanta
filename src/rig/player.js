@@ -1,20 +1,16 @@
-import { 
-  Texture,
-  BaseTexture,
-  Rectangle,
-} from '@/pixi/alias';
+import { Texture, BaseTexture, Rectangle } from '@/pixi/alias';
 
 export const createPlayer = (resources) => {
-  let resource_idle = BaseTexture.from(resources["player_ide"].url);
-  let resource_run = BaseTexture.from(resources["player_run"].url);
-  let resource_attack = BaseTexture.from(resources["player_attack"].url);
+  let resource_idle = BaseTexture.from(resources['player_ide'].url);
+  let resource_run = BaseTexture.from(resources['player_run'].url);
+  let resource_attack = BaseTexture.from(resources['player_attack'].url);
   let w = 80;
   let h = 80;
   // localStorage request;
   return {
     //default
     id: 'player',
-    texture_actually: "stand",
+    texture_actually: 'stand',
     texture: {
       stand: [
         new Texture(resource_idle, new Rectangle(0 * w, 0, w, h)),
@@ -34,7 +30,7 @@ export const createPlayer = (resources) => {
         new Texture(resource_idle, new Rectangle(14 * w, 0, w, h)),
         new Texture(resource_idle, new Rectangle(15 * w, 0, w, h)),
         new Texture(resource_idle, new Rectangle(16 * w, 0, w, h)),
-        new Texture(resource_idle, new Rectangle(17 * w, 0, w, h)),
+        new Texture(resource_idle, new Rectangle(17 * w, 0, w, h))
       ],
       run: [
         new Texture(resource_run, new Rectangle(0 * w, 0, w, h)),
@@ -60,7 +56,7 @@ export const createPlayer = (resources) => {
         new Texture(resource_run, new Rectangle(20 * w, 0, w, h)),
         new Texture(resource_run, new Rectangle(21 * w, 0, w, h)),
         new Texture(resource_run, new Rectangle(22 * w, 0, w, h)),
-        new Texture(resource_run, new Rectangle(23 * w, 0, w, h)),
+        new Texture(resource_run, new Rectangle(23 * w, 0, w, h))
       ],
       attack: [
         new Texture(resource_attack, new Rectangle(0 * w, 0, w, h)),
@@ -86,7 +82,7 @@ export const createPlayer = (resources) => {
         new Texture(resource_attack, new Rectangle(20 * w, 0, w, h)),
         new Texture(resource_attack, new Rectangle(21 * w, 0, w, h)),
         new Texture(resource_attack, new Rectangle(22 * w, 0, w, h)),
-        new Texture(resource_attack, new Rectangle(23 * w, 0, w, h)),
+        new Texture(resource_attack, new Rectangle(23 * w, 0, w, h))
       ]
     },
     y: 1500,
@@ -124,5 +120,5 @@ export const createPlayer = (resources) => {
       resistance: false
     },
     skills: []
-  }
-}
+  };
+};

@@ -1,15 +1,18 @@
-import { 
-  Container,
-  Graphics,
-} from '@/pixi/alias';
+import { Container, Graphics } from '@/pixi/alias';
 import { UIAlpha } from '@/utils/webgl';
 import { KContainer, KGraphics } from './material';
 
-
 export const CreatePlayerLife = (app, player, resources) => {
-  const main = KContainer(app.stage, { x: player.x - player.width / 2, y: player.y - player.height / 2 });
+  const main = KContainer(app.stage, {
+    x: player.x - player.width / 2,
+    y: player.y - player.height / 2
+  });
 
-  const bar = KGraphics(main, { fake: true, rectangle: [0, 0, 128, 12], filters: [UIAlpha().alpha_item] });
+  const bar = KGraphics(main, {
+    fake: true,
+    rectangle: [0, 0, 128, 12],
+    filters: [UIAlpha().alpha_item]
+  });
 
   const max_bar = 128;
   const max_hp = player.maxHP;
@@ -17,7 +20,10 @@ export const CreatePlayerLife = (app, player, resources) => {
   const max_node_bar = max_bar / max_hp;
   const bar_value = max_node_bar * hp;
 
-  const health_bar = KGraphics(main, { fill: 0xBB3131, rectangle: [0, 0, bar_value, 12]});
+  const health_bar = KGraphics(main, {
+    fill: 0xbb3131,
+    rectangle: [0, 0, bar_value, 12]
+  });
   /*
   const style = new TextStyle({
     fontFamily: "Poppins",
@@ -34,9 +40,11 @@ export const CreatePlayerLife = (app, player, resources) => {
   main.health_bar = health_bar;
 
   return main;
-}
+};
 
 export const RenderPlayerLife = (ui, player) => {
-  player.action.interactive_ui ? ui.player_life.visible = false : ui.player_life.visible = true;
+  player.action.interactive_ui
+    ? (ui.player_life.visible = false)
+    : (ui.player_life.visible = true);
   ui.player_life.position.set(player.x + 8, player.y + 24);
-}
+};
