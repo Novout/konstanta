@@ -1,6 +1,6 @@
 import { Sprite } from '@/pixi/alias';
 import { UIAlpha, InterfaceGlow, FXAA } from '@/utils/webgl';
-import { KText, KContainer, KGraphics, KImage } from './material';
+import { KText, KContainer, KGraphics } from './material';
 
 export const CreateAltarButton = (app, player, item, resources) => {
   const main = KContainer(

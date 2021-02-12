@@ -1,4 +1,3 @@
-import { Container, Graphics } from '@/pixi/alias';
 import { UIAlpha } from '@/utils/webgl';
 import { KContainer, KGraphics } from './material';
 
