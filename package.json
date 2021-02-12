@@ -14,6 +14,8 @@
     "snowpack": "^3.0.11"
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@snowpack/plugin-babel": "^2.1.6",
     "@snowpack/plugin-run-script": "^2.3.0",
     "@snowpack/plugin-webpack": "^2.3.0",
@@ -34,6 +36,7 @@
   },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
   },
