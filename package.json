@@ -34,6 +34,6 @@
     "build": "snowpack build --polyfill-node",
     "test": "web-test-runner \"src/**/*.test.js\"",
     "lint": "eslint --ext .js --ignore-path .gitignore . --fix && yarn lint:prettier",
-    "lint:prettier": "prettier --write ."
+    "lint:prettier": "prettier --write **/*.js"
   }
 }
