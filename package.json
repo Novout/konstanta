@@ -33,5 +33,5 @@
     "test": "web-test-runner \"src/**/*.test.js\"",
     "lint": "eslint --ext .js --ignore-path .gitignore . --fix && yarn lint:prettier",
     "lint:prettier": "prettier --write ."
-  },
+  }
 }
