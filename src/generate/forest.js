@@ -64,7 +64,7 @@ export const generateItems = (nodes, options) => {
         item.scale = 1;
         if(item.background.includes("tree")) {
           item.wood = 3;
-          item.scale = (Math.random() * 0.7) + 0.4;
+          item.scale = (Math.random() * 0.8) + 0.4;
           item.cwidth = 12.5 * (item.scale + 1.0);
           item.cheight = 12.5 * (item.scale + 1.0);
         }
@@ -74,7 +74,7 @@ export const generateItems = (nodes, options) => {
         } else if(node.x >= (options.size - 1) * options.node_size) {
           item.x = node.x - (Math.random() * options.node_size / 2);
         } else {
-          item.x = node.x;
+          item.x = (Math.random() * options.node_size / 2) + node.x;
         }
 
         if(node.y <= options.node_size) {
@@ -82,7 +82,7 @@ export const generateItems = (nodes, options) => {
         } else if(node.y >= (options.size - 1) * options.node_size) {
           item.y = (node.y - (Math.random() * options.node_size / 2)) - node.height;
         } else {
-          item.y = node.y - node.height;
+          item.y = (Math.random() * options.node_size / 4) + (node.y - node.height);
         }
 
         items.push(item);
