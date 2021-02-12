@@ -71,7 +71,9 @@ export default (options) => {
     CameraFixed(stage, player[0]);
 
     items.forEach(item => {
-      if(item.id.includes('altar') && item.active) ContainAltarActive(app, player[0], item, resources);
+      if(item.id.includes('altar') && item.active) {
+        ContainAltarActive(app, player[0], item, resources);
+      }
       BlockScenarioRIG(player[0], item, options);
     });
 
