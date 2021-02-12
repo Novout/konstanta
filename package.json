@@ -34,13 +34,4 @@
     "lint": "eslint --ext .js --ignore-path .gitignore . --fix && yarn lint:prettier",
     "lint:prettier": "prettier --write ."
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
-  }
 }
