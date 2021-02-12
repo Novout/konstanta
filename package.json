@@ -24,7 +24,7 @@
     "d": "snowpack dev --polyfill-node",
     "build": "snowpack build --polyfill-node",
     "test": "web-test-runner \"src/**/*.test.js\"",
-    "lint": "eslint src --fix *.js"
+    "lint": "eslint --ext .js --ignore-path .gitignore . --fix"
   },
   "author": "Novout",
   "license": "MIT"

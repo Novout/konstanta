@@ -7,7 +7,7 @@ module.exports = {
       "input": ['.js', '.mjs', '.jsx', '.ts', '.tsx'],
     }],
     ["@snowpack/plugin-run-script", {
-      "cmd": "eslint src --ext .js",
+      "cmd": "eslint src --lint .js",
       "watch": "esw -w --clear src --ext .js"
     }]
   ],
