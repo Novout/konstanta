@@ -67,7 +67,7 @@ export const createPlayer = (resources) => {
           new Texture(resource_attack, new Rectangle(4 * w, 0, w, h)),
           new Texture(resource_attack, new Rectangle(5 * w, 0, w, h)),
           new Texture(resource_attack, new Rectangle(6 * w, 0, w, h)),
-          new Texture(resource_attack, new Rectangle(7 * w, 0, w, h)),
+          new Texture(resource_attack, new Rectangle(7 * w, 0, w, h))
         ],
         second: [
           new Texture(resource_attack, new Rectangle(8 * w, 0, w, h)),
@@ -76,7 +76,7 @@ export const createPlayer = (resources) => {
           new Texture(resource_attack, new Rectangle(11 * w, 0, w, h)),
           new Texture(resource_attack, new Rectangle(12 * w, 0, w, h)),
           new Texture(resource_attack, new Rectangle(13 * w, 0, w, h)),
-          new Texture(resource_attack, new Rectangle(14 * w, 0, w, h)),
+          new Texture(resource_attack, new Rectangle(14 * w, 0, w, h))
         ],
         third: [
           new Texture(resource_attack, new Rectangle(15 * w, 0, w, h)),
@@ -88,7 +88,7 @@ export const createPlayer = (resources) => {
           new Texture(resource_attack, new Rectangle(21 * w, 0, w, h)),
           new Texture(resource_attack, new Rectangle(22 * w, 0, w, h)),
           new Texture(resource_attack, new Rectangle(23 * w, 0, w, h))
-        ],
+        ]
       }
     },
     y: 1500,

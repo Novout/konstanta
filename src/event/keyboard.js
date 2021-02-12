@@ -1,3 +1,4 @@
+import Mouse from 'pixi.js-mouse';
 import Keyboard from 'pixi.js-keyboard';
 
 const PlayerIsRun = (player, player_base) => {
@@ -15,6 +16,8 @@ const PlayerIsStop = (player, player_base) => {
 };
 
 export const PlayerKeyboardListener = (delta, player, player_base, options) => {
+  if(Mouse.isButtonDown(Mouse.Button.LEFT) || Mouse.isButtonDown(Mouse.Button.RIGHT)) return;
+  Keyboard.update();
   let stop = true;
 
   if (Keyboard.isKeyDown('ArrowLeft', 'KeyA')) {

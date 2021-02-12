@@ -17,6 +17,7 @@ import { CreateUI, RenderUI } from '@/ui';
 import { CreateAltarButton } from '@/ui/altar';
 import { ContainAltarActive } from '@/event/sprite';
 import { resources } from '@/pixi/alias';
+import { PlayerMouseListener } from '@/event/mouse';
 
 let player, items, ui, addons, nodes;
 
@@ -68,8 +69,8 @@ export default (options) => {
   );
 
   const loop = (delta) => {
-    Keyboard.update();
     PlayerKeyboardListener(delta, player[0], player[1], options);
+    PlayerMouseListener(delta, player[0], player[1], options);
 
     CameraFixed(stage, player[0]);
 
