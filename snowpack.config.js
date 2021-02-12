@@ -12,7 +12,7 @@ module.exports = {
     [
       '@snowpack/plugin-run-script',
       {
-        cmd: 'eslint src --lint .js',
+        cmd: 'eslint src --ext .js',
         watch: 'esw -w --clear src --ext .js'
       }
     ]
