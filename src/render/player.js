@@ -4,15 +4,18 @@ import { createPlayer } from '@/rig/player';
 export const PlayerLayerRender = (stage, resources) => {
   const player = createPlayer(resources);
   const _player = new AnimatedSprite(player.texture.stand);
-  (_player.id = player.id),
-    (_player.texture_actually = player.texture_actually),
+  (_player.id = player.id);
+    (_player.texture_actually = player.texture_actually);
     (_player.y = player.y);
   _player.x = player.x;
   _player.action = {
     attack: false,
     attack_time: 0,
+    attack_hit: false,
+    attack_velocity: 30,
     distance: false,
     distance_time: 0,
+    distance_hit: false,
     interactive_ui: false,
     interactive_item: false
   };
