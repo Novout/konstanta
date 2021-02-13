@@ -21,7 +21,21 @@ export const PlayerKeyboardListener = (delta, player, player_base, options) => {
     Mouse.isButtonDown(Mouse.Button.RIGHT)
   )
     return;
+
   Keyboard.update();
+
+  if (
+    (Keyboard.isKeyDown('ArrowLeft', 'KeyA') &&
+      Keyboard.isKeyDown('ArrowRight', 'KeyD')) ||
+    (Keyboard.isKeyDown('ArrowUp', 'KeyW') &&
+      Keyboard.isKeyDown('ArrowDown', 'KeyS'))
+  ) {
+    PlayerIsStop(player, player_base);
+    player.texture_actually = 'stand';
+    if (!player.playing) player.play();
+    return;
+  }
+
   let stop = true;
 
   if (Keyboard.isKeyDown('ArrowLeft', 'KeyA')) {
