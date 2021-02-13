@@ -123,6 +123,8 @@ export const createPlayer = (resources) => {
     conditionals: {
       poisoning: false,
       bleeding: false,
+      burning: false,
+      freezing: false,
       resistance: false
     },
     skills: []

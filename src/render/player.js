@@ -19,14 +19,24 @@ export const PlayerLayerRender = (stage, resources) => {
     interactive_ui: false,
     interactive_item: false
   };
+  _player.effects = {
+    knockback: 2,
+    damage: {
+      poisoning: 0,
+      bleeding: 0,
+      thunder: 0,
+      fire: 0,
+      cold: 0
+    }
+  };
   _player.cwidth = player.cwidth;
   _player.cheight = player.cheight;
   _player.vx = player.vx;
   _player.vy = player.vy;
   _player.level = player.level;
   _player.levelHP = player.levelHP;
-  _player.maxHP = player.maxHP;
   _player.HP = player.HP;
+  _player.maxHP = player.maxHP;
   _player.CA = player.CA;
   _player.inventory = player.inventory;
   _player.resources = player.resources;
