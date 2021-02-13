@@ -111,7 +111,7 @@ export const createPlayer = (resources) => {
       artefact: undefined,
       general: []
     },
-    //general
+    //knowledge utils
     resources: {
       gold: 0,
       wood: 0,
@@ -127,6 +127,11 @@ export const createPlayer = (resources) => {
       freezing: false,
       resistance: false
     },
-    skills: []
+    skills: {
+      resilience: 0,
+      rage: 0,
+      knowledge: 0,
+      arcane: 0,
+    }
   };
 };
