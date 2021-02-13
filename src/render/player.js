@@ -8,27 +8,8 @@ export const PlayerLayerRender = (stage, resources) => {
   _player.texture_actually = player.texture_actually;
   _player.y = player.y;
   _player.x = player.x;
-  _player.action = {
-    attack: false,
-    attack_time: 0,
-    attack_hit: false,
-    attack_velocity: 30,
-    distance: false,
-    distance_time: 0,
-    distance_hit: false,
-    interactive_ui: false,
-    interactive_item: false
-  };
-  _player.effects = {
-    knockback: 2,
-    damage: {
-      poisoning: 0,
-      bleeding: 0,
-      thunder: 0,
-      fire: 0,
-      cold: 0
-    }
-  };
+  _player.action = player.action;
+  _player.effects = player.effects;
   _player.cwidth = player.cwidth;
   _player.cheight = player.cheight;
   _player.vx = player.vx;

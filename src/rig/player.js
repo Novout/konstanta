@@ -132,6 +132,27 @@ export const createPlayer = (resources) => {
       rage: 0,
       knowledge: 0,
       arcane: 0,
+    },
+    action: {
+      attack: false,
+      attack_time: 0,
+      attack_hit: false,
+      attack_velocity: 30,
+      distance: false,
+      distance_time: 0,
+      distance_hit: false,
+      interactive_ui: false,
+      interactive_item: false
+    },
+    effects: {
+      knockback: 2,
+      damage: {
+        poisoning: 0,
+        bleeding: 0,
+        thunder: 0,
+        fire: 0,
+        cold: 0
+      }
     }
   };
 };
