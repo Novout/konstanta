@@ -16,7 +16,11 @@ const PlayerIsStop = (player, player_base) => {
 };
 
 export const PlayerKeyboardListener = (delta, player, player_base, options) => {
-  if(Mouse.isButtonDown(Mouse.Button.LEFT) || Mouse.isButtonDown(Mouse.Button.RIGHT)) return;
+  if (
+    Mouse.isButtonDown(Mouse.Button.LEFT) ||
+    Mouse.isButtonDown(Mouse.Button.RIGHT)
+  )
+    return;
   Keyboard.update();
   let stop = true;
 
