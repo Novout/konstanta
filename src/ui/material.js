@@ -81,9 +81,15 @@ export const KGraphics = (
     _graphics.interactive = true;
     _graphics.buttonMode = true;
   }
+
   if (positional) {
-    _graphics.x = positional.x;
-    _graphics.y = positional.y;
+    if (positional.absolute) {
+      if (positional.x) _graphics.x = positional.x;
+      if (positional.y) _graphics.y = positional.y;
+    } else {
+      _graphics.x = _graphics.x + positional?.x;
+      _graphics.y = _graphics.y + positional?.y;
+    }
   }
 
   stage.addChild(_graphics);
