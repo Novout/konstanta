@@ -8,8 +8,6 @@ export const PlayerLayerRender = (stage, resources) => {
   _player.texture_actually = player.texture_actually;
   _player.y = player.y;
   _player.x = player.x;
-  _player.action = player.action;
-  _player.effects = player.effects;
   _player.cwidth = player.cwidth;
   _player.cheight = player.cheight;
   _player.vx = player.vx;
@@ -22,6 +20,8 @@ export const PlayerLayerRender = (stage, resources) => {
   _player.inventory = player.inventory;
   _player.resources = player.resources;
   _player.conditionals = player.conditionals;
+  _player.action = player.action;
+  _player.effects = player.effects;
   _player.skills = player.skills;
   _player.animationSpeed = 0.2;
   _player.loop = true;

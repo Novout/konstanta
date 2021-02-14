@@ -99,9 +99,9 @@ export const createPlayer = (resources) => {
     cheight: 30,
     // habilities
     level: 1,
-    levelHP: 8,
-    maxHP: 10,
-    HP: 10,
+    levelHP: 8, // 1d8
+    maxHP: 10, // levelHP value per level
+    HP: 10, // actually hp
     CA: 0, // % for ignore attack
     inventory: {
       actually_item: undefined,
@@ -122,16 +122,19 @@ export const createPlayer = (resources) => {
     },
     conditionals: {
       poisoning: false,
+      poisoning_value: 0,
       bleeding: false,
+      bleeding_value: 0,
       burning: false,
+      burning_value: 0,
       freezing: false,
+      freezing_value: 0,
       resistance: false
     },
     skills: {
-      resilience: 0,
-      rage: 0,
-      knowledge: 0,
-      arcane: 0,
+      resilience: 1,
+      rage: 1,
+      arcane: 1
     },
     action: {
       attack: false,

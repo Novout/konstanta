@@ -1,9 +1,12 @@
 [
   {
     "id": "resilience",
-    "id_cont": 0,
-    "id_type": "altar_resilience",
-    "title": "Test 1",
-    "description": "Test"
+    "id_cont": 1,
+    "title": "Carapaça do Viajante",
+    "description": "+2 de HP Máximo",
+    "effect": {
+      "maxHP": 2,
+      "HP": 2
+    }
   }
 ]
