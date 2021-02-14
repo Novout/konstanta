@@ -10,7 +10,7 @@
         "y": "5"
       }
     },
-    "description": "+1 Slot de\nMagia",
+    "description": "+1 Slot de Magia",
     "effect": {
       "magic_slot_max": 1,
       "magic_slot": 1
