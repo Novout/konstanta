@@ -10,8 +10,8 @@ export const generateType = () => {
 
 export const getAltarChoices = (player) => {
   const _resilience = resilience.filter(item => item.id_cont === player.skills.resilience);
-  const _rage = resilience.filter(item => item.id_cont === player.skills.rage);
-  const _arcane = resilience.filter(item => item.id_cont === player.skills.arcane);
+  const _rage = rage.filter(item => item.id_cont === player.skills.rage);
+  const _arcane = arcane.filter(item => item.id_cont === player.skills.arcane);
 
   const skillsAvailable = [
     ..._resilience,
