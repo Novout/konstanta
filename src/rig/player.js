@@ -152,7 +152,7 @@ export const createPlayer = (resources) => {
         magic_velocity: 30,
         magic_slot_max: 4,
         magic_slot: 4
-      },
+      }
     },
     effects: {
       knockback: 2,

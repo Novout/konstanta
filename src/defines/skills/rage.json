@@ -2,7 +2,7 @@
   {
     "id": "rage",
     "id_cont": 1,
-    "title": "Espaçamento Necessário",
+    "title": "Espaçamento\nNecessário",
     "sprite": {
       "path": "items",
       "positional": {
@@ -10,9 +10,9 @@
         "y": "5"
       }
     },
-    "description": "+2 de HP Máximo",
+    "description": "Dobra o empurrão\n de ataques",
     "effect": {
-      "knockback": 2,
+      "knockback": 2
     },
     "effect_tags": ["hp"],
     "effect_bonus": {

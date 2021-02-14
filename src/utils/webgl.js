@@ -11,12 +11,12 @@ export const UIAlpha = () => {
 
 export const FXAA = () => (new filters.FXAAFilter().enabled = true);
 
-export const InterfaceGlow = () =>
+export const InterfaceGlow = (_color = 0x66bd99) =>
   new GlowFilter({
     distance: 25,
     outerStrength: 4,
     quality: 0.2,
-    color: 0x66bd99,
+    color: _color,
     knockout: false
   });
 
