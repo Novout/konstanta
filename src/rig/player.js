@@ -145,7 +145,14 @@ export const createPlayer = (resources) => {
       distance_time: 0,
       distance_hit: false,
       interactive_ui: false,
-      interactive_item: false
+      interactive_item: false,
+      magic: {
+        magic: false,
+        magic_hit: false,
+        magic_velocity: 30,
+        magic_slot_max: 4,
+        magic_slot: 4
+      },
     },
     effects: {
       knockback: 2,
@@ -156,6 +163,7 @@ export const createPlayer = (resources) => {
         fire: 0,
         cold: 0
       }
-    }
+    },
+    magics: []
   };
 };

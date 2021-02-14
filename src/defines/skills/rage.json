@@ -1,8 +1,8 @@
 [
   {
-    "id": "resilience",
+    "id": "rage",
     "id_cont": 1,
-    "title": "Carapaça do Viajante",
+    "title": "Espaçamento Necessário",
     "sprite": {
       "path": "items",
       "positional": {
@@ -12,9 +12,11 @@
     },
     "description": "+2 de HP Máximo",
     "effect": {
-      "maxHP": 2,
-      "HP": 2
+      "knockback": 2,
     },
-    "effect_tags": ["hp"]
+    "effect_tags": ["hp"],
+    "effect_bonus": {
+      "multi": ["knockback"]
+    }
   }
 ]

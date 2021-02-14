@@ -23,6 +23,7 @@ export const PlayerLayerRender = (stage, resources) => {
   _player.action = player.action;
   _player.effects = player.effects;
   _player.skills = player.skills;
+  _player.magics = player.magics;
   _player.animationSpeed = 0.2;
   _player.loop = true;
   _player.scale.set(2.5, 2.5);

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "arcane",
+    "id_cont": 1,
+    "title": "Virtude Única",
+    "sprite": {
+      "path": "items",
+      "positional": {
+        "x": "2",
+        "y": "5"
+      }
+    },
+    "description": "+1 Slot de Magia",
+    "effect": {
+      "magic_slot_max": 1,
+      "magic_slot": 1
+    },
+    "effect_tags": ["magic", "magic_slot"]
+  }
+]
