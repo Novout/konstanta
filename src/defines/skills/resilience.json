@@ -10,10 +10,10 @@
         "y": "5"
       }
     },
-    "description": "+2 de HP Máximo",
+    "description": "+4 de HP Máximo",
     "effect": {
-      "maxHP": 2,
-      "HP": 2
+      "maxHP": 4,
+      "HP": 4
     },
     "effect_tags": ["hp"]
   }

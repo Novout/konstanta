@@ -2,6 +2,7 @@ import { Sprite } from '@/pixi/alias';
 import { UIAlpha, InterfaceGlow, FXAA } from '@/utils/webgl';
 import { KText, KContainer, KGraphics } from './material';
 import { getAltarChoices } from '@/generate/altar';
+import { setPlayerSkill } from '@/interceptor/player';
 
 export const CreateAltarButton = (app, player, item, resources) => {
   const main = KContainer(
@@ -86,6 +87,7 @@ export const CreateAltarButton = (app, player, item, resources) => {
         }
       );
       item_button_text.on('click', () => {
+        setPlayerSkill(item, player);
         DeleteAltarButton(choice_skills, main);
       });
     });
