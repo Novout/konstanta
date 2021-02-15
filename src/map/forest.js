@@ -18,6 +18,7 @@ import { CreateAltarButton } from '@/ui/altar';
 import { ContainAltarActive } from '@/event/sprite';
 import { resources } from '@/pixi/alias';
 import { PlayerMouseListener } from '@/event/mouse';
+import Forest from '@/defines/loader/forest.json';
 
 let player, items, ui, addons, nodes;
 
@@ -47,26 +48,7 @@ export default (options) => {
 
   FullContextSize(renderer, stage);
 
-  LoaderCache(
-    [
-      ['player_ide', 'rig/player/player_ide.png'],
-      ['player_run', 'rig/player/player_run.png'],
-      ['player_attack', 'rig/player/player_attack.png'],
-      ['forest_rock', 'map/forest/forest_rock.jpg'],
-      ['forestrock1', 'map/forest/forestrock1.png'],
-      ['forest1', 'map/forest/forest1.jpg'],
-      ['forest2', 'map/forest/forest2.jpg'],
-      ['forestgrass1', 'map/forest/forestgrass1.png'],
-      ['forestgrass2', 'map/forest/forestgrass2.png'],
-      ['foreststone1', 'map/forest/foreststone1.png'],
-      ['foreststone2', 'map/forest/foreststone2.png'],
-      ['altar', 'map/generics/altar.png'],
-      ['tree', 'map/forest/tree.png'],
-      ['tree2', 'map/forest/tree2.png'],
-      ['item_unknown', 'ui/item_unknown.png']
-    ],
-    setup
-  );
+  LoaderCache(Forest, setup);
 
   const loop = (delta) => {
     PlayerKeyboardListener(delta, player[0], player[1], options);
