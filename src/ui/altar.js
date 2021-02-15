@@ -21,14 +21,14 @@ export const CreateAltarButton = (app, player, item, resources) => {
     'Ativar Altar',
     container,
     {
-      fontFamily: 'Poppins',
-      fontSize: 36,
+      fontFamily: 'KitchenSink',
+      fontSize: 24,
       fontWeight: 'bold'
     },
     {
       button: true,
       filters: [FXAA()],
-      positional: { x: main.width / 11, y: main.height / 10 }
+      positional: { x: main.width / 11, y: main.height / 4 }
     }
   );
 
@@ -54,14 +54,14 @@ export const CreateAltarButton = (app, player, item, resources) => {
       const item_title = KText(
         item.title,
         item_container,
-        { fontFamily: 'Poppins', fontSize: 20, fontWeight: 'bold' },
+        { fontFamily: 'KitchenSink', fontSize: 20, fontWeight: 'bold' },
         { positional: { y: item_sprite.height + 16, absolute: true } }
       );
 
       const item_description = KText(
         item.description,
         item_container,
-        { fontFamily: 'Poppins', fontSize: 16 },
+        { fontFamily: 'KitchenSink', fontSize: 16 },
         {
           positional: {
             x: 10,
@@ -75,14 +75,14 @@ export const CreateAltarButton = (app, player, item, resources) => {
         'Escolher',
         item_container,
         {
-          fontFamily: 'Poppins',
+          fontFamily: 'KitchenSink',
           fontSize: 18,
           fontWeight: 'bold'
         },
         {
           button: true,
           positional: {
-            x: item_container.width / 3,
+            x: item_container.width / 3.8,
             y: choice_skills.height - 60,
             absolute: true
           }

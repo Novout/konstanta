@@ -2,7 +2,7 @@
   {
     "id": "rage",
     "id_cont": 1,
-    "title": "Espaçamento\nNecessário",
+    "title": "Espacamento\nNecessario",
     "sprite": {
       "path": "items",
       "positional": {
@@ -10,7 +10,7 @@
         "y": "5"
       }
     },
-    "description": "Dobra o empurrão de\nataques",
+    "description": "Dobra o Empurrão de\nAtaques",
     "effect": {
       "knockback": 2
     },

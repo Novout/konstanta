@@ -1,9 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@font-face {
+   font-family: 'KitchenSink';
+   src: url("./src/assets/fonts/KitchenSink.ttf");
+}
 
 * {
   padding: 0;
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'KitchenSink', sans-serif;
   font-weight: 400;
 }
 
