@@ -26,8 +26,8 @@ const applyResilienceSkill = (skill, player) => {
 
 const applyRageSkill = (skill, player) => {
   if (skill.effect_tags.includes('knockback')) {
-    if (skill.effect_bonus?.multi.includes('knockback')) {
-      player.effects.knockback * skill.effect.knockback;
+    if (skill.effect_bonus?.multi?.includes('knockback')) {
+      player.effects.knockback *= skill.effect.knockback;
     } else {
       player.effects.knockback += skill.effect.knockback;
     }
