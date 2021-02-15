@@ -4,13 +4,9 @@
     "id_cont": 1,
     "title": "Carapaca do\nViajante",
     "sprite": {
-      "path": "items",
-      "positional": {
-        "x": "2",
-        "y": "5"
-      }
+      "path": "skill36"
     },
-    "description": "+4 de HP Máximo",
+    "description": "+4 de HP Maximo",
     "effect": {
       "maxHP": 4,
       "HP": 4

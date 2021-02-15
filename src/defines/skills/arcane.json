@@ -4,11 +4,7 @@
     "id_cont": 1,
     "title": "\tVirtude Unica",
     "sprite": {
-      "path": "items",
-      "positional": {
-        "x": "2",
-        "y": "5"
-      }
+      "path": "skill21"
     },
     "description": "+1 Slot de Magia",
     "effect": {

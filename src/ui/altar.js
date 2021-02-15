@@ -44,7 +44,7 @@ export const CreateAltarButton = (app, player, item, resources) => {
       });
       item_container.x = item_container.x + item.x;
 
-      const item_sprite = new Sprite(resources.item_unknown.texture);
+      const item_sprite = new Sprite(resources[item.sprite.path].texture);
       item_sprite.width = 64;
       item_sprite.height = 64;
       item_sprite.y = item_sprite.y + 8;

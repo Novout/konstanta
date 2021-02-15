@@ -18,7 +18,8 @@ import { CreateAltarButton } from '@/ui/altar';
 import { ContainAltarActive } from '@/event/sprite';
 import { resources } from '@/pixi/alias';
 import { PlayerMouseListener } from '@/event/mouse';
-import Forest from '@/defines/loader/forest.json';
+import FOREST from '@/defines/loader/forest.json';
+import SKILLS from '@/defines/loader/skills.json';
 
 let player, items, ui, addons, nodes;
 
@@ -48,7 +49,7 @@ export default (options) => {
 
   FullContextSize(renderer, stage);
 
-  LoaderCache(Forest, setup);
+  LoaderCache([...FOREST, ...SKILLS], setup);
 
   const loop = (delta) => {
     PlayerKeyboardListener(delta, player[0], player[1], options);
