@@ -15,6 +15,6 @@
       "maxHP": 4,
       "HP": 4
     },
-    "effect_tags": ["hp"]
+    "effect_tags": ["hp", "max_hp"]
   }
 ]

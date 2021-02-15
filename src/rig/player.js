@@ -134,7 +134,8 @@ export const createPlayer = (resources) => {
     skills: {
       resilience: 1,
       rage: 1,
-      arcane: 1
+      arcane: 1,
+      list: []
     },
     action: {
       attack: false,

@@ -14,7 +14,7 @@
     "effect": {
       "knockback": 2
     },
-    "effect_tags": ["hp"],
+    "effect_tags": ["knockback"],
     "effect_bonus": {
       "multi": ["knockback"]
     }
