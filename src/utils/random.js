@@ -9,3 +9,7 @@ export const getChancePercentage = (item, value = 100) => {
 export const getPercentage = (value = 100) => {
   return Math.floor(Math.random() * (value + 1));
 };
+
+export const getDice = (dice = 20) => {
+  return Math.floor((Math.random() * dice) + 1);
+}
