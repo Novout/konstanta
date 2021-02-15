@@ -8,22 +8,18 @@ export const CreatePlayerLife = (app, player, resources) => {
   });
 
   const level = KGraphics(main, {
-    fill: 0xFFFFFF,
+    fill: 0xffffff,
     rectangle: [0, 0, 32, 32],
     filters: [UIAlpha().alpha_bar]
   });
   level.x -= main.width;
   level.y -= main.height - 12;
 
-  const level_text = KText(
-    player.level,
-    level,
-    {
-      fontFamily: "KitchenSink",
-      fontSize: 18,
-      fontWeight: "bold"
-    }
-  );
+  const level_text = KText(player.level, level, {
+    fontFamily: 'KitchenSink',
+    fontSize: 18,
+    fontWeight: 'bold'
+  });
   level_text.x += level.width / 3;
   level_text.y += level.height / 4;
 
