@@ -28,20 +28,20 @@ export const getAltarChoices = (player) => {
     const random = Math.floor(Math.random() * skillsAvailable.length);
     const skill = skillsAvailable[random];
 
-    if(!skill) return;
+    if (!skill) return;
 
     if (skill.id === 'resilience' && !_resilience_choice) {
-      skill.background = 0x2ABE10;
+      skill.background = 0x2abe10;
       skills.push(skill);
       _resilience_choice = true;
       player.skills.resilience++;
     } else if (skill.id === 'rage' && !_rage_choice) {
-      skill.background = 0xBE1010;
+      skill.background = 0xbe1010;
       skills.push(skill);
       _rage_choice = true;
       player.skills.rage++;
     } else if (skill.id === 'arcane' && !_arcane_choice) {
-      skill.background = 0x10A1BE;
+      skill.background = 0x10a1be;
       skills.push(skill);
       _arcane_choice = true;
       player.skills.arcane++;

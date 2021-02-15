@@ -62,10 +62,12 @@ export const CreateAltarButton = (app, player, item, resources) => {
         item.description,
         item_container,
         { fontFamily: 'Poppins', fontSize: 16 },
-        { positional: {
-          x: 10,
-          y: item_title.y + item_container.height / 3,
-          absolute: true }
+        {
+          positional: {
+            x: 10,
+            y: item_title.y + item_container.height / 3,
+            absolute: true
+          }
         }
       );
 
