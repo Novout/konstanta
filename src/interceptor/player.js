@@ -1,4 +1,5 @@
 export const setPlayerSkill = (skill, player) => {
+  player.level++;
   player.skills.list.push(skill);
 
   if (skill.id === 'resilience') {
