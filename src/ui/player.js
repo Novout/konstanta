@@ -1,4 +1,4 @@
-import { UIAlpha } from '@/utils/webgl';
+import { UIAlpha, FXAA } from '@/utils/webgl';
 import { KContainer, KGraphics, KText } from './material';
 
 export const CreatePlayerLife = (app, player, resources) => {
@@ -40,20 +40,17 @@ export const CreatePlayerLife = (app, player, resources) => {
     rectangle: [0, 0, bar_value, 12]
   });
 
-  /*
-  const style = new TextStyle({
-    fontFamily: "Poppins",
-    fontSize: 12,
-    fontWeight: "bold"
+  const health_text = KText(`${player.HP}  /  ${player.maxHP}`, health_bar, {
+    fontFamily: 'KitchenSink',
+    fontSize: 10,
+    fontWeight: 'bold'
   });
-  const text = new Text(`${player.HP}  /  ${player.maxHP}`, style);
-  text.filters = [FXAA()];
-  text.x = bar.x + (bar.width / 2) - 18;
-  health_bar.addChild(text);
-  */
+  health_text.filters = [FXAA()];
+  health_text.x = bar.x + bar.width / 2 - 18;
 
   main.fake_bar = bar;
   main.health_bar = health_bar;
+  main.health_text = health_text;
   main.level_bar = level;
   main.level_text = level_text;
 
@@ -74,4 +71,5 @@ export const RenderPlayerLife = (ui, player) => {
   const bar_value = max_node_bar * hp;
 
   ui.player_life.health_bar.width = bar_value;
+  ui.player_life.health_text.text = `${player.HP}  /  ${player.maxHP}`;
 };

@@ -1,19 +1,9 @@
-export const setPlayerSkill = (skill, player) => {
+const upLevel = (player) => {
   player.level++;
-  player.skills.list.push(skill);
 
-  if (skill.id === 'resilience') {
-    player.skills.resilience++;
-    applyResilienceSkill(skill, player);
-  } else if (skill.id === 'rage') {
-    player.skills.rage++;
-    applyRageSkill(skill, player);
-  } else if (skill.id === 'arcane') {
-    player.skills.arcane++;
-    applyArcaneSkill(skill, player);
-  } else {
-    throw new Error('Skill id not exists.');
-  }
+  const _hp = Math.floor(Math.random() * player.levelHP + 1);
+  player.HP += _hp;
+  player.maxHP += _hp;
 };
 
 const applyResilienceSkill = (skill, player) => {
@@ -41,5 +31,24 @@ const applyArcaneSkill = (skill, player) => {
       player.action.magic.magic_slot += skill.effect.magic_slot;
       player.action.magic.magic_slot_max += skill.effect.magic_slot_max;
     }
+  }
+};
+
+export const setPlayerSkill = (skill, player) => {
+  upLevel(player);
+
+  player.skills.list.push(skill);
+
+  if (skill.id === 'resilience') {
+    player.skills.resilience++;
+    applyResilienceSkill(skill, player);
+  } else if (skill.id === 'rage') {
+    player.skills.rage++;
+    applyRageSkill(skill, player);
+  } else if (skill.id === 'arcane') {
+    player.skills.arcane++;
+    applyArcaneSkill(skill, player);
+  } else {
+    throw new Error('Skill id not exists.');
   }
 };
