@@ -43,7 +43,8 @@ export const CreatePlayerLife = (app, player, resources) => {
   const health_text = KText(`${player.HP}  /  ${player.maxHP}`, health_bar, {
     fontFamily: 'KitchenSink',
     fontSize: 10,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fill: 0xffffff
   });
   health_text.filters = [FXAA()];
   health_text.x = bar.x + bar.width / 2 - 18;
@@ -61,6 +62,7 @@ export const RenderPlayerLife = (ui, player) => {
   player.action.interactive_ui
     ? (ui.player_life.visible = false)
     : (ui.player_life.visible = true);
+
   ui.player_life.position.set(player.x + 8, player.y + 24);
   ui.player_life.level_text.text = player.level;
 
