@@ -1,11 +1,16 @@
 import FOREST from '@/defines/forest.json';
+import {
+  getItemPercentage,
+  getChancePercentage,
+  getPercentage
+} from '@/utils/random';
 import { generateType } from './altar';
 
 export const textureBackground = (background = FOREST) => {
   let _texture = undefined;
 
   background.every((texture) => {
-    if (Math.floor(Math.random() * 101) <= texture[1]) {
+    if (getItemPercentage(texture[1])) {
       _texture = texture[0];
       return false;
     }
@@ -42,7 +47,7 @@ export const generateItems = (nodes, options) => {
 
   nodes.forEach((node) => {
     if (node.background === FOREST[1][0]) {
-      if (Math.floor(Math.random() * 101) >= options.altar_chance) {
+      if (getChancePercentage(options.altar_chance)) {
         const type = generateType();
         const item = {};
         item.background = 'altar';
@@ -58,7 +63,7 @@ export const generateItems = (nodes, options) => {
       }
     } else if (node.background === FOREST[2][0]) {
       // forest1.jpg
-      if (Math.floor(Math.random() * 101) >= options.node_addons) {
+      if (getChancePercentage(options.node_addons)) {
         const item = {};
         item.background = textureBackground([
           ['tree', 50],
@@ -104,7 +109,7 @@ export const generateAddons = (nodes, options) => {
   const items = [];
 
   nodes.forEach((node) => {
-    const random = Math.floor(Math.random() * 101);
+    const random = getPercentage();
 
     if (node.background === FOREST[2][0]) {
       // forest_base
