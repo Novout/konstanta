@@ -29,7 +29,9 @@ export const SecondLayerRender = (stage, resources, nodes, options) => {
     let _item;
 
     if (item.background === 'chests') {
-      _item = new Sprite(new Texture(_resource.texture, new Rectangle(0,0,16,16)));
+      _item = new Sprite(
+        new Texture(_resource.texture, new Rectangle(0, 0, 16, 16))
+      );
       _item.active = item.active;
     } else {
       _item = new Sprite(_resource.texture);
@@ -58,12 +60,14 @@ export const ThirdLayerRender = (stage, resources, nodes, options) => {
     if (item.background === 'altar') {
       _item = new Sprite(_resource.texture);
       _item.active = item.active;
-    } else if(item.background === 'chests') {
-      _item = new Sprite(new Texture(_resource.texture, new Rectangle(0,0,16,16)));
+    } else if (item.background === 'chests') {
+      _item = new Sprite(
+        new Texture(_resource.texture, new Rectangle(0, 0, 16, 16))
+      );
     } else {
       _item = new Sprite(_resource.texture);
     }
-    
+
     _item.x = item.x;
     _item.y = item.y;
     _item.scale.set(item?.scale);

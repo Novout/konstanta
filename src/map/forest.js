@@ -15,7 +15,8 @@ import { FullContextSize } from '@/utils/context';
 import { BlockScenarioRIG, BlockFixedScenarioRIG } from '@/event/sprite';
 import { CreateUI, RenderUI } from '@/ui';
 import { CreateAltarButton } from '@/ui/altar';
-import { ContainAltarActive } from '@/event/sprite';
+import { ContainAltarActive, ContainChestActive } from '@/event/sprite';
+import { CreateChestButton } from '@/ui/chests';
 import { resources } from '@/pixi/alias';
 import { PlayerMouseListener } from '@/event/mouse';
 import FOREST from '@/defines/loader/forest.json';
@@ -39,6 +40,12 @@ export default (options) => {
     items.forEach((item) => {
       if (item.id.includes('altar')) {
         item = CreateAltarButton(app, player[0], item, resources);
+      }
+    });
+
+    addons.forEach((addon) => {
+      if (addon.id.includes('chests')) {
+        addon = CreateChestButton(app, player[0], addon, resources);
       }
     });
 
@@ -67,6 +74,8 @@ export default (options) => {
     addons.forEach((addon) => {
       if (addon.background.includes('rock'))
         BlockFixedScenarioRIG(player[0], addon, options);
+      else if (addon.id.includes('chests') && addon.active)
+        ContainChestActive(app, player[0], addon, resources);
     });
 
     RenderUI(app, ui, player[0]);

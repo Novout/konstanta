@@ -10,6 +10,6 @@ Forest({
   altar_radius: 100, // radius for spawn monsters
   altar_chance: 30, // chance spawn
   spawn: {
-    simple_chest: 20
+    simple_chest: 30
   }
 });

@@ -128,3 +128,15 @@ export const ContainAltarActive = (app, player, item, resources) => {
     item.ui_altar.visible = false;
   }
 };
+
+export const ContainChestActive = (app, player, item, resources) => {
+  if (ContainSprite(player, item) && !player.action.interactive_item) {
+    item.ui_chest.position.set(
+      player.x - player.width / 2 + 50,
+      player.y + player.height * 1.5
+    );
+    item.ui_chest.visible = true;
+  } else {
+    item.ui_chest.visible = false;
+  }
+};

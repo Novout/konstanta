@@ -111,27 +111,24 @@ export const generateAddons = (nodes, options) => {
   nodes.forEach((node) => {
     const random = getPercentage();
 
-    if(node.background === FOREST[1][0]) {
+    if (node.background === FOREST[1][0]) {
       if (getChancePercentage(options.spawn.simple_chest)) {
         const item = {};
-        const _position = Math.floor((Math.random() * 3) + 1);
+        const _position = Math.floor(Math.random() * 3 + 1);
         item.background = 'chests';
         item.id = 'defaultchests';
         item.active = true;
         item.scale = 3;
-        if(_position === 1) {
+        if (_position === 1) {
           item.x = node.x;
           item.y = node.y;
-        }
-        else if(_position === 2) {
+        } else if (_position === 2) {
           item.x = node.x + node.width / 2;
           item.y = node.y;
-        }
-        else if(_position === 3) {
+        } else if (_position === 3) {
           item.x = node.x + node.width / 2;
           item.y = node.y + node.height / 2;
-        }
-        else if(_position === 4) {
+        } else if (_position === 4) {
           item.x = node.x;
           item.y = node.y + node.height / 2;
         }
