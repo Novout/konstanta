@@ -13,5 +13,6 @@
   ["altar", "map/generics/altar.png"],
   ["tree", "map/forest/tree.png"],
   ["tree2", "map/forest/tree2.png"],
-  ["item_unknown", "ui/item_unknown.png"]
+  ["item_unknown", "ui/item_unknown.png"],
+  ["chests", "map/generics/chests.png"]
 ]

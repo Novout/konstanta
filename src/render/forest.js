@@ -1,4 +1,4 @@
-import { Sprite } from '@/pixi/alias';
+import { Sprite, Rectangle, Texture } from '@/pixi/alias';
 import { createNodes, generateAddons, generateItems } from '@/generate/forest';
 
 export const FirstLayerRender = (stage, resources, options) => {
@@ -25,7 +25,15 @@ export const SecondLayerRender = (stage, resources, nodes, options) => {
   const items = generateAddons(nodes, options);
   const _items = [];
   items.forEach((item) => {
-    let _item = new Sprite(resources[item.background].texture);
+    let _resource = resources[item.background];
+    let _item;
+
+    if (item.background === 'chests') {
+      _item = new Sprite(new Texture(_resource.texture, new Rectangle(0,0,16,16)));
+      _item.active = item.active;
+    } else {
+      _item = new Sprite(_resource.texture);
+    }
     _item.background = item.background;
     _item.x = item.x;
     _item.y = item.y;
@@ -44,10 +52,18 @@ export const ThirdLayerRender = (stage, resources, nodes, options) => {
   const items = generateItems(nodes, options);
   const _items = [];
   items.forEach((item) => {
-    let _item = new Sprite(resources[item.background].texture);
+    let _resource = resources[item.background];
+    let _item;
+
     if (item.background === 'altar') {
+      _item = new Sprite(_resource.texture);
       _item.active = item.active;
+    } else if(item.background === 'chests') {
+      _item = new Sprite(new Texture(_resource.texture, new Rectangle(0,0,16,16)));
+    } else {
+      _item = new Sprite(_resource.texture);
     }
+    
     _item.x = item.x;
     _item.y = item.y;
     _item.scale.set(item?.scale);
