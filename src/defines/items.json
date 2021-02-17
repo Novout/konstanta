@@ -1,9 +1,19 @@
 [{
-  "id": "",
-  "id_cont": "",
-  "type": "",
-  "type_tags": [],
-  "effects": "",
-  "effects_tags": [],
-  "rarity": ""
+  "id": "item",
+  "id_cont": "1",
+  "type": "weapon",
+  "type_tags": ["simple", "melee"],
+  "effects": {
+    "damage": {
+      "roll": [1, 4],
+      "bonus": 0
+    }
+  },
+  "effects_tags": ["initial"],
+  "rarity": "common",
+  "sprite": {
+    "path": "item_transparency",
+    "size": [16, 16],
+    "positional": [1, 5]
+  }
 }]

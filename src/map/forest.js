@@ -19,10 +19,17 @@ import { ContainAltarActive, ContainChestActive } from '@/event/sprite';
 import { CreateChestButton } from '@/ui/chests';
 import { resources } from '@/pixi/alias';
 import { PlayerMouseListener } from '@/event/mouse';
+import { SpawnInitialItem } from '@/emitter/items';
 import FOREST from '@/defines/loader/forest.json';
 import SKILLS from '@/defines/loader/skills.json';
+import ITEMS from '@/defines/loader/items.json';
 
-let player, items, ui, addons, nodes;
+let player,
+  items,
+  ui,
+  addons,
+  nodes,
+  reactive = [];
 
 export default (options) => {
   OnlyWEBGL();
@@ -31,6 +38,7 @@ export default (options) => {
     nodes = FirstLayerRender(stage, resources, options);
     addons = SecondLayerRender(stage, resources, nodes, options);
     player = PlayerLayerRender(stage, resources);
+    reactive.push(SpawnInitialItem(stage, player, resources));
     items = ThirdLayerRender(stage, resources, nodes, options);
 
     CameraInitialFixed(stage, renderer);
@@ -56,7 +64,7 @@ export default (options) => {
 
   FullContextSize(renderer, stage);
 
-  LoaderCache([...FOREST, ...SKILLS], setup);
+  LoaderCache([...FOREST, ...SKILLS, ...ITEMS], setup);
 
   const loop = (delta) => {
     PlayerKeyboardListener(delta, player[0], player[1], options);
@@ -77,6 +85,8 @@ export default (options) => {
       else if (addon.id.includes('chests') && addon.active)
         ContainChestActive(app, player[0], addon, resources);
     });
+
+    reactive.forEach((react) => {});
 
     RenderUI(app, ui, player[0]);
   };
