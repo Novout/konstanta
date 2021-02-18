@@ -20,4 +20,4 @@ export const setInitialPlayerItem = (resources) => {
   _item.height = 64;
 
   return _item;
-}
+};
