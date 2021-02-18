@@ -2,9 +2,9 @@ import { KContainer, KText } from './material';
 
 export const CreateUIDebugger = (stage, player) => {
   const context = KContainer(stage, { x: player.x, y: player.y + 200 });
-  const _framerate = KText(0, context, {
+  const _framerate = KText(0.0, context, {
     fontFamily: 'KitchenSink',
-    fontSize: 24,
+    fontSize: 14,
     fill: 0xffffff
   });
 
