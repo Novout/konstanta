@@ -1,6 +1,7 @@
-import { Sprite, resources } from '@/pixi/alias';
+import { Sprite, Rectangle, Texture, resources } from '@/pixi/alias';
 import { FXAA, InterfaceGlow } from '@/utils/webgl';
 import { KContainer, KGraphics } from './material';
+import { UnknownInventorySprite } from '@/rig/items';
 
 export const CreateInventoryBar = (app, player, resources) => {
   const inventory = KContainer(app.stage, { x: player.x, y: player.y - 100 });
@@ -27,7 +28,7 @@ export const CreateInventoryBar = (app, player, resources) => {
   });
   i_second_weapon.x = 64;
 
-  let s_second_weapon = new Sprite(resources.item_unknown.texture);
+  let s_second_weapon = UnknownInventorySprite(resources);
   s_second_weapon.width = 64;
   s_second_weapon.height = 64;
   i_second_weapon.addChild(s_second_weapon);
@@ -40,7 +41,7 @@ export const CreateInventoryBar = (app, player, resources) => {
   });
   i_activate.x = 128;
 
-  let s_activate = new Sprite(resources.item_unknown.texture);
+  let s_activate = UnknownInventorySprite(resources);
   s_activate.width = 64;
   s_activate.height = 64;
   i_activate.addChild(s_activate);
@@ -53,7 +54,7 @@ export const CreateInventoryBar = (app, player, resources) => {
   });
   i_artefact.x = 192;
 
-  let s_artefact = new Sprite(resources.item_unknown.texture);
+  let s_artefact = UnknownInventorySprite(resources);
   s_artefact.width = 64;
   s_artefact.height = 64;
   i_artefact.addChild(s_artefact);

@@ -1,9 +1,9 @@
 import ITEMS from '@/defines/items.json';
-import { Sprite, Texture, Rectangle } from '@/pixi/alias';
+import { Sprite, Texture, Rectangle, resources } from '@/pixi/alias';
 
-export const SpawnInitialItem = (stage, player, resources) => {
+export const SpawnInitialItem = (stage, player) => {
   const [item] = ITEMS.filter((item) => item.effects_tags.includes('initial'));
-  let _resource = resources[item.sprite.path];
+  const _resource = resources.shared[item.sprite.path];
   const _item = new Sprite(
     new Texture(
       _resource.texture,

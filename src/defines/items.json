@@ -1,20 +1,36 @@
-[{
-  "id": "item",
-  "id_cont": "1",
-  "type": "weapon",
-  "type_tags": ["simple", "melee"],
-  "effects": {
-    "damage": {
-      "roll": [1, 4],
-      "bonus": 0
+[
+  {
+    "id": "item",
+    "id_cont": "1",
+    "type": "weapon",
+    "type_tags": ["simple", "melee"],
+    "effects": {
+      "damage": {
+        "roll": [1, 4],
+        "bonus": 0
+      }
+    },
+    "effects_tags": ["initial"],
+    "rarity": "common",
+    "sprite": {
+      "path_emitter": "item_transparency",
+      "path_inventory": "item_inventory",
+      "size": [32, 32],
+      "positional": [1, 5]
     }
   },
-  "effects_tags": ["initial"],
-  "rarity": "common",
-  "sprite": {
-    "path_emitter": "item_transparency",
-    "path_inventory": "item_inventory",
-    "size": [32, 32],
-    "positional": [1, 5]
+  {
+    "id": "item",
+    "id_cont": "1",
+    "type": "weapon",
+    "type_tags": ["unknown"],
+    "effects_tags": [],
+    "rarity": "common",
+    "sprite": {
+      "path_emitter": "item_transparency",
+      "path_inventory": "item_inventory",
+      "size": [32, 32],
+      "positional": [5, 1]
+    }
   }
-}]
+]
