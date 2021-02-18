@@ -15,12 +15,12 @@ export const SpawnInitialItem = (stage, player, resources) => {
       )
     )
   );
-  _item.x = 1000;
-  _item.y = 1000;
-  _item.width = 100;
-  _item.height = 100;
+  _item.x = 1500;
+  _item.y = 1500;
+  _item.width = 50;
+  _item.height = 50;
 
   stage.addChild(_item);
-  
+
   return _item;
 };

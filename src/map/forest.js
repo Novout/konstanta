@@ -38,7 +38,6 @@ export default (options) => {
     nodes = FirstLayerRender(stage, resources, options);
     addons = SecondLayerRender(stage, resources, nodes, options);
     player = PlayerLayerRender(stage, resources);
-    reactive.push(SpawnInitialItem(stage, player, resources));
     items = ThirdLayerRender(stage, resources, nodes, options);
 
     CameraInitialFixed(stage, renderer);
@@ -85,8 +84,6 @@ export default (options) => {
       else if (addon.id.includes('chests') && addon.active)
         ContainChestActive(app, player[0], addon, resources);
     });
-
-    reactive.forEach((react) => {});
 
     RenderUI(app, ui, player[0]);
   };

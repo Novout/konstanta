@@ -13,7 +13,7 @@
   "rarity": "common",
   "sprite": {
     "path": "item_transparency",
-    "size": [16, 16],
+    "size": [32, 32],
     "positional": [1, 5]
   }
 }]
