@@ -17,10 +17,7 @@ export const CreateInventoryBar = (app, player, resources) => {
     filters: [FXAA()]
   });
 
-  let s_primary_weapon = new Sprite(resources.item_unknown.texture);
-  s_primary_weapon.width = 64;
-  s_primary_weapon.height = 64;
-  i_primary_weapon.addChild(s_primary_weapon);
+  i_primary_weapon.addChild(player.inventory.primary_weapon);
 
   const i_second_weapon = KGraphics(inventory, {
     fake: true,

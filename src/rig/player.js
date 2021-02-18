@@ -1,4 +1,5 @@
 import { Texture, BaseTexture, Rectangle } from '@/pixi/alias';
+import { setInitialPlayerItem } from '@/generate/items';
 
 export const createPlayer = (resources) => {
   let resource_idle = BaseTexture.from(resources['player_ide'].url);
@@ -104,8 +105,8 @@ export const createPlayer = (resources) => {
     HP: 10, // actually hp
     CA: 0, // % for ignore attack
     inventory: {
-      actually_item: undefined,
-      primary_weapon: undefined,
+      actually_item: setInitialPlayerItem(resources),
+      primary_weapon: setInitialPlayerItem(resources),
       second_weapon: undefined,
       activate: undefined,
       artefact: undefined,

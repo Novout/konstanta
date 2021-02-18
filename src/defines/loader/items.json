@@ -1,3 +1,4 @@
 [
-  ["item_transparency", "items/item_transparency.png"]
+  ["item_transparency", "items/item_transparency.png"],
+  ["item_inventory", "items/item_inventory.png"]
 ]

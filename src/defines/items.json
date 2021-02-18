@@ -12,7 +12,8 @@
   "effects_tags": ["initial"],
   "rarity": "common",
   "sprite": {
-    "path": "item_transparency",
+    "path_emitter": "item_transparency",
+    "path_inventory": "item_inventory",
     "size": [32, 32],
     "positional": [1, 5]
   }

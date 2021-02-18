@@ -2,8 +2,7 @@ import Mouse from 'pixi.js-mouse';
 
 export const PlayerMouseListener = (delta, player, player_base, options) => {
   if (Mouse.isButtonDown(Mouse.Button.LEFT)) {
-    if (true) {
-      // player.inventory.actually_item?.type_general === 'primary_weapon_melee'
+    if (player.inventory.actually_item.base.type_tags.includes('melee')) {
       if (
         player.action.attack_time >= 0 &&
         player.action.attack_time <= player.action.attack_velocity
