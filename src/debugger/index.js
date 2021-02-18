@@ -16,6 +16,6 @@ export const RenderFrameRate = (ui, player, renderer) => {
     player.y - renderer.screen.height / 4
   );
 
-  const _framerate = ticker.shared.FPS;
-  ui.framerate.text = `FPS: ${ticker.shared.FPS.toFixed(1)}`;
+  const _framerate = ticker.shared.FPS.toFixed(1);
+  ui.framerate.text = `FPS: ${_framerate}`;
 };
