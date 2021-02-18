@@ -20,6 +20,7 @@ import { CreateChestButton } from '@/ui/chests';
 import { resources } from '@/pixi/alias';
 import { PlayerMouseListener } from '@/event/mouse';
 import { SpawnInitialItem } from '@/emitter/items';
+import * as Debugger from '@/debugger';
 import FOREST from '@/defines/loader/forest.json';
 import SKILLS from '@/defines/loader/skills.json';
 import ITEMS from '@/defines/loader/items.json';
@@ -86,5 +87,6 @@ export default (options) => {
     });
 
     RenderUI(app, ui, player[0]);
+    Debugger.RenderFrameRate();
   };
 };
