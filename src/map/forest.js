@@ -30,6 +30,7 @@ let player,
   ui,
   addons,
   nodes,
+  debug,
   reactive = [];
 
 export default (options) => {
@@ -56,6 +57,8 @@ export default (options) => {
         addon = CreateChestButton(app, player[0], addon, resources);
       }
     });
+
+    debug = Debugger.Create(stage, player);
 
     GameLoop(app, loop);
   };
@@ -87,6 +90,6 @@ export default (options) => {
     });
 
     RenderUI(app, ui, player[0]);
-    Debugger.RenderFrameRate();
+    Debugger.RenderFrameRate(debug, player[0], renderer);
   };
 };
