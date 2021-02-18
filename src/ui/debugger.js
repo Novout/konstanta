@@ -8,7 +8,14 @@ export const CreateUIDebugger = (stage, player) => {
     fill: 0xffffff
   });
 
+  const _delta = KText(0.0, context, {
+    fontFamily: 'KitchenSink',
+    fontSize: 14,
+    fill: 0xffffff
+  });
+
   context.framerate = _framerate;
+  context.deltatime = _delta;
 
   return context;
 };

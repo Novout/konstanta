@@ -17,5 +17,9 @@ export const RenderFrameRate = (ui, player, renderer) => {
   );
 
   const _framerate = ticker.shared.FPS.toFixed(1);
+  const _delta = ticker.shared.deltaMS.toFixed(1);
+  ui.deltatime.y = ui.framerate.y + 15;
+
   ui.framerate.text = `FPS: ${_framerate}`;
+  ui.deltatime.text = `MS: ${_delta}ms`;
 };
