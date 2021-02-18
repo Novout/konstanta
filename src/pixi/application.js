@@ -1,16 +1,16 @@
-import { 
+import {
   Application,
 } from '@/pixi/alias';
 
 export const createContext = () => {
-  const app = new Application({ 
-    width: window.innerWidth, 
-    height: window.innerHeight,   
-    backgroundAlpha: 0,                    
-    antialias: true, 
-    transparent: false, 
+  const app = new Application({
+    width: window.innerWidth,
+    height: window.innerHeight,
+    backgroundAlpha: 0,
+    antialias: true,
+    transparent: true, 
     resolution: 1
-  }); 
+  });
 
   if(!app) {
     throw new Error("Application not created!");
@@ -20,6 +20,6 @@ export const createContext = () => {
   const renderer = app?.renderer;
 
   document.body.appendChild(app.view);
-  
+
   return [app, stage, renderer];
 }
