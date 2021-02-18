@@ -14,4 +14,5 @@ export const utils = PIXI.utils,
              AnimatedSprite = PIXI.AnimatedSprite,
              Text = PIXI.Text,
              TextStyle = PIXI.TextStyle,
+             InteractionEvent = PIXI.InteractionEvent,
              Rectangle = PIXI.Rectangle;

@@ -11,4 +11,9 @@ export const FullContextSize = (renderer, stage) => {
     renderer.resize(window.innerWidth, window.innerHeight);
     stage.position.set(renderer.screen.width / 2, renderer.screen.height / 2);
   });
+  
+  window.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+  });
 };
