@@ -19,7 +19,7 @@ export const textureBackground = (background = FOREST) => {
     return true;
   });
 
-  if (!_texture) Debugger.Error('Texture not exists.');
+  if (!_texture) Debugger.ThrowError('Texture not exists.');
   return _texture;
 };
 

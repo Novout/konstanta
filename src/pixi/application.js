@@ -14,7 +14,7 @@ export const createContext = () => {
   });
 
   if(!app) {
-    Debugger.Error("Application not created!");
+    Debugger.ThrowError("Application not created!");
   }
 
   const stage = app?.stage;

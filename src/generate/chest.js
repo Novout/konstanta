@@ -7,7 +7,7 @@ export const getGenerateItem = (player) => {
 
   const _item = _items[_random];
 
-  if (_item) Debugger.Error('Item not exists in generate');
+  if (_item) Debugger.ThrowError('Item not exists in generate');
 
   return _item;
 };

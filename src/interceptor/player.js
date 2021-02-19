@@ -51,6 +51,6 @@ export const setPlayerSkill = (skill, player) => {
     player.skills.arcane++;
     applyArcaneSkill(skill, player);
   } else {
-    Debugger.Error('Skill id not exists.');
+    Debugger.ThrowError('Skill id not exists.');
   }
 };
