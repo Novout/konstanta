@@ -35,6 +35,7 @@ export const createNodes = (options) => {
       node.x = options.node_size * x;
       node.y = options.node_size * y;
       node.background = texture;
+      node.parent_quantity = 0;
 
       nodes.push(node);
     }
@@ -49,6 +50,7 @@ export const generateItems = (nodes, options) => {
   nodes.forEach((node) => {
     if (node.background === FOREST[1][0]) {
       if (getChancePercentage(options.altar_chance)) {
+        node.parent_quantity++;
         const type = generateType();
         const item = {};
         item.background = 'altar';
@@ -62,9 +64,14 @@ export const generateItems = (nodes, options) => {
         item.cheight = 12.5 * (item.scale + 1.0);
         items.push(item);
       }
-    } else if (node.background === FOREST[2][0]) {
+    }
+  });
+
+  nodes.forEach((node) => {
+    if (node.background === FOREST[2][0]) {
       // forest1.jpg
       if (getChancePercentage(options.node_addons)) {
+        node.parent_quantity++;
         const item = {};
         item.background = textureBackground([
           ['tree', 50],

@@ -17,7 +17,6 @@ export const CreateInventoryBar = (app, player, resources) => {
     rectangle: [0, 0, 64, 64],
     filters: [FXAA()]
   });
-
   i_primary_weapon.addChild(player.inventory.primary_weapon);
 
   const i_second_weapon = KGraphics(inventory, {
