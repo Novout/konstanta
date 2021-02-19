@@ -1,3 +1,5 @@
+import * as Debugger from '@/debugger';
+
 const upLevel = (player) => {
   player.level++;
 
@@ -49,6 +51,6 @@ export const setPlayerSkill = (skill, player) => {
     player.skills.arcane++;
     applyArcaneSkill(skill, player);
   } else {
-    throw new Error('Skill id not exists.');
+    Debugger.Error('Skill id not exists.');
   }
 };

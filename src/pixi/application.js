@@ -1,6 +1,7 @@
 import {
   Application,
 } from '@/pixi/alias';
+import * as Debugger from '@/debugger';
 
 export const createContext = () => {
   const app = new Application({
@@ -8,12 +9,12 @@ export const createContext = () => {
     height: window.innerHeight,
     backgroundAlpha: 0,
     antialias: true,
-    transparent: true, 
+    transparent: true,
     resolution: 1
   });
 
   if(!app) {
-    throw new Error("Application not created!");
+    Debugger.Error("Application not created!");
   }
 
   const stage = app?.stage;

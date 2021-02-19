@@ -5,6 +5,7 @@ import {
   getPercentage
 } from '@/utils/random';
 import { generateType } from './altar';
+import * as Debugger from '@/debugger';
 
 export const textureBackground = (background = FOREST) => {
   let _texture = undefined;
@@ -18,7 +19,7 @@ export const textureBackground = (background = FOREST) => {
     return true;
   });
 
-  if (!_texture) throw Error('Texture not exists.');
+  if (!_texture) Debugger.Error('Texture not exists.');
   return _texture;
 };
 

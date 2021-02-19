@@ -6,7 +6,7 @@ export const Warning = (text) => {
   console.log(`%c [KONSTANTA]: ${text}`, DEBUGGER.STYLES_WARNING);
 };
 export const Error = (text) => {
-  console.log(`%c [KONSTANTA]: ${text}`, DEBUGGER.STYLES_ERROR);
+  throw new Error(text);
 };
 export const Success = (text) => {
   console.log(`%c [KONSTANTA]: ${text}`, DEBUGGER.STYLES_DEFAULT);
