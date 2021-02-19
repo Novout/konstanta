@@ -61,6 +61,8 @@ export default (options) => {
 
     debug = Debugger.Create(stage, player);
 
+    Debugger.Success('Mapa Floresta foi inicializado!');
+
     GameLoop(app, loop);
   };
 

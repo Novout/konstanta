@@ -105,7 +105,7 @@ export const KImage = (
 ) => {
   const _image = new Sprite(item.resources[item.title].texture);
   _image.width = size.width;
-  _image.height = size?.height;
+  _image.height = size.height;
 
   if (positional) {
     if (positional.absolute) {

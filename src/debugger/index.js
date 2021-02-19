@@ -1,9 +1,16 @@
 import { ticker } from '@/pixi/alias';
 import { CreateUIDebugger } from '@/ui/debugger';
+import DEBUGGER from '@/defines/debugger.json';
 
-export const Warning = () => {};
-export const Error = () => {};
-export const Success = () => {};
+export const Warning = (text) => {
+  console.log(`%c [KONSTANTA]: ${text}`, DEBUGGER.STYLES_WARNING);
+};
+export const Error = (text) => {
+  console.log(`%c [KONSTANTA]: ${text}`, DEBUGGER.STYLES_ERROR);
+};
+export const Success = (text) => {
+  console.log(`%c [KONSTANTA]: ${text}`, DEBUGGER.STYLES_DEFAULT);
+};
 
 export const Create = (stage, player) => {
   const ui = CreateUIDebugger(stage, player);

@@ -1,0 +1,5 @@
+{
+  "STYLES_DEFAULT": "background: #66bd99; color: black; padding: 0.5rem",
+  "STYLES_ERROR": "background: #66bd99; color: red; padding: 0.5rem",
+  "STYLES_WARNING": "background: #66bd99; color: yellow; padding: 0.5rem"
+}
