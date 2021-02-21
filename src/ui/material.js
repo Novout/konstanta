@@ -5,7 +5,8 @@ import {
   Rectangle,
   Graphics,
   Sprite,
-  Text
+  Text,
+  SBox
 } from '@/pixi/alias';
 
 export const KText = (
@@ -153,7 +154,7 @@ export const KTileset = (
     )
   );
   _image.base = item;
-  _image.anchor.set(0.5);
+  if(!positional.anchor) _image.anchor.set(0.5);
   _image.width = size.width;
   _image.height = size.height;
 
@@ -172,3 +173,21 @@ export const KTileset = (
 
   return _image;
 };
+
+export const KScrollBox = (stage, positional = { x: 1000, y: 1000 }, size = { width: 500, height: 200 }) => {
+  const _box = new SBox({ boxWidth: size.width, boxHeight: size.height});
+
+  if (positional) {
+    if (positional.absolute) {
+      if (positional.x) _box.x = positional.x;
+      if (positional.y) _box.y = positional.y;
+    } else {
+      _box.x = _box.x + positional?.x;
+      _box.y = _box.y + positional?.y;
+    }
+  }
+  
+  stage.addChild(_box);
+
+  return _box;
+}

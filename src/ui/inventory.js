@@ -1,6 +1,6 @@
 import { Sprite, Rectangle, Texture, resources } from '@/pixi/alias';
 import { FXAA, InterfaceGlow } from '@/utils/webgl';
-import { KContainer, KGraphics } from './material';
+import { KContainer, KGraphics, KScrollBox, KTileset } from './material';
 import { UnknownInventorySprite } from '@/rig/items';
 
 export const CreateInventoryBar = (app, player, resources) => {
@@ -105,15 +105,55 @@ export const removeInventoryItem = (inventory, player) => {
 const addInventoryItem = (inventory, player, app) => {};
 
 export const CreateInventoryMain = (app, player, resources) => {
-  const main = KContainer(app.stage, {
-    x: player.x - player.width / 2,
-    y: player.y - player.height / 2
-  });
+  const _x_set = 80;
+  const _y_set = 80;
 
-  const container = KGraphics(main, {
-    fill: 0x66bd99,
-    rectangle: [0, 0, 512, 256],
-    filters: [InterfaceGlow()]
+  const main = KScrollBox(app.stage, {
+    x: player.x,
+    y: player.y
+  }, {
+    width: _x_set * 5,
+    height: _y_set * 2
+  });
+  main.overflowY = "scroll";
+
+  const item_container = KGraphics(
+    main.content,
+    {
+      fill: 0x75513C,
+      rectangle: [0, 0, _x_set * 5, _y_set * 2]
+    },
+    {
+      x: 0,
+      y: 0
+    }
+  );
+
+  let _x = 0;
+  let _y = 0;
+  player.inventory.general?.forEach((item) => {
+    const item_sprite = KTileset(
+      item_container,
+      item,
+      resources,
+      {
+        width: _x_set,
+        height: _y_set
+      },
+      {
+        x: _x_set * _x,
+        y: _y_set * _y,
+        anchor: true
+      },
+      item.sprite.path_inventory_main
+    );
+
+    // fuck this logic
+    _x++;
+    if(_x > 4) {
+      _x = 0;
+      _y++;
+    }
   });
 
   return main;

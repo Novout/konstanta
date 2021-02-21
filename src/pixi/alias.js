@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import { Scrollbox } from 'pixi-scrollbox'
 export const utils = PIXI.utils,
              Application = PIXI.Application,
              Container = PIXI.Container,
@@ -15,4 +16,5 @@ export const utils = PIXI.utils,
              Text = PIXI.Text,
              TextStyle = PIXI.TextStyle,
              InteractionEvent = PIXI.InteractionEvent,
+             SBox = Scrollbox,
              Rectangle = PIXI.Rectangle;
