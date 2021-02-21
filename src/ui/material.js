@@ -1,4 +1,4 @@
-import { Container, TextStyle, Graphics, Sprite, Text } from '@/pixi/alias';
+import { Container, TextStyle, Texture, Rectangle, Graphics, Sprite, Text } from '@/pixi/alias';
 
 export const KText = (
   title,
@@ -100,10 +100,50 @@ export const KGraphics = (
 export const KImage = (
   stage,
   item,
+  resources,
   size = { width: 100, height: 100 },
   positional = undefined
 ) => {
-  const _image = new Sprite(item.resources[item.title].texture);
+  const _image = new Sprite(resources[item.sprite.path_inventory].texture);
+  _image.width = size.width;
+  _image.height = size.height;
+
+  if (positional) {
+    if (positional.absolute) {
+      if (positional.x) _image.x = positional.x;
+
+      if (positional.y) _image.y = positional.y;
+    } else {
+      _image.x = _image.x + positional?.x;
+      _image.y = _image.y + positional?.y;
+    }
+  }
+
+  stage.addChild(_image);
+
+  return _image;
+};
+
+export const KTileset = (
+  stage,
+  item,
+  resources,
+  size = { width: 100, height: 100 },
+  positional = undefined
+) => {
+  let _resource = resources[item.sprite.path_inventory];
+  const _image = new Sprite(
+    new Texture(
+      _resource.texture,
+      new Rectangle(
+        item.sprite.positional[0] * item.sprite.size[0],
+        item.sprite.positional[1] * item.sprite.size[1],
+        item.sprite.size[0],
+        item.sprite.size[1]
+      )
+    )
+  );
+  _image.base = item;
   _image.width = size.width;
   _image.height = size.height;
 
