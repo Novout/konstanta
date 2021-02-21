@@ -159,9 +159,9 @@ export const CreateInventoryMain = (app, player, resources) => {
   return main;
 };
 
-export const RenderInventoryMain = (inventory, player, key) => {
+export const RenderInventoryMain = (ui, player, key) => {
   player.action.interactive_ui = true;
-  inventory.position.set(
+  ui.inventory_main.position.set(
     player.x - player.width / 2,
     player.y - player.height / 2
   );

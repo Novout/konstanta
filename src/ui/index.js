@@ -31,9 +31,12 @@ export const RenderUI = (app, ui, player) => {
     let _interactive = 0;
     if (Keyboard.isKeyDown(key)) {
       ui.inventory_main.visible = true;
-      RenderInventoryMain(ui.inventory_main, player, key);
+      ui.player_life.visible = false;
+      RenderInventoryMain(ui, player, key);
       _interactive++;
       return;
+    } else {
+      ui.player_life.visible = true;
     }
 
     if (_interactive === 0) player.action.interactive_ui = false;
