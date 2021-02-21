@@ -80,7 +80,8 @@ export const CreateChestButton = (app, player, item, resources) => {
       {
         x: item_container_center.width / 2,
         y: item_container_center.height / 2
-      }
+      },
+      _item.sprite.path_emitter
     );
 
     const item_container_pick = KText(

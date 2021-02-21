@@ -137,9 +137,10 @@ export const KTileset = (
   item,
   resources,
   size = { width: 100, height: 100 },
-  positional = undefined
+  positional = undefined,
+  path = "item_inventory_main"
 ) => {
-  let _resource = resources[item.sprite.path_inventory];
+  let _resource = resources[path];
   const _image = new Sprite(
     new Texture(
       _resource.texture,

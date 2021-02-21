@@ -17,6 +17,7 @@
     "sprite": {
       "path_emitter": "item_transparency",
       "path_inventory": "item_inventory",
+      "path_main": "item_inventory_main",
       "size": [32, 32],
       "positional": [1, 5]
     }
@@ -33,6 +34,7 @@
     "sprite": {
       "path_emitter": "item_transparency",
       "path_inventory": "item_inventory",
+      "path_main": "item_inventory_main",
       "size": [32, 32],
       "positional": [5, 1]
     }
