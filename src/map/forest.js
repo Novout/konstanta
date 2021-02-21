@@ -45,7 +45,6 @@ export default (options) => {
 
     CameraInitialFixed(stage, renderer);
 
-    ui = CreateUI(app, player[0], resources);
 
     items.forEach((item) => {
       if (item.id.includes('altar')) {
@@ -60,6 +59,8 @@ export default (options) => {
     });
 
     debug = Debugger.Create(stage, player);
+
+    ui = CreateUI(app, player[0], resources);
 
     Debugger.Success('Mapa Floresta foi inicializado!');
 
