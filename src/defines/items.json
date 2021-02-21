@@ -4,6 +4,7 @@
     "id_cont": "1",
     "title": "\tEspada Afiada",
     "type": "weapon",
+    "type_inventory": "primary_weapon",
     "type_tags": ["simple", "melee"],
     "effects": {
       "damage": {

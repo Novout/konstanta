@@ -15,5 +15,5 @@ export const getGenerateItem = (player) => {
     "legendary": 0xFF8C4B
   }[_item.rarity] || "")
 
-  return _item;
+  return Object.freeze(_item);
 };

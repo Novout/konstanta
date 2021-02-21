@@ -34,6 +34,7 @@ export const CreateChestButton = (app, player, item, resources) => {
   );
 
   button.on('click', () => {
+    container.visible = false;
     const _item = getGenerateItem(player);
 
     const item_container = KGraphics(main, {
@@ -78,11 +79,14 @@ export const CreateChestButton = (app, player, item, resources) => {
       }
     );
     item_container_pick.on('click', () => {
+      player.inventory[_item.type_inventory] = _item;
+      player.inventory['actually_item'] = _item;
+      console.log(player);
       DeleteChestButton(item, item_container);
     });
 
     const item_container_discart = KText(
-      'Descartar Item',
+      'Recusar Item',
       item_container_center,
       {
         fontFamily: 'KitchenSink',
