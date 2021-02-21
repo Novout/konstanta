@@ -38,19 +38,23 @@ export const CreateChestButton = (app, player, item, resources) => {
     container.visible = false;
     const _item = getGenerateItem(player);
 
-    const item_container = KGraphics(main, {
-      fill: 0x66bd99,
-      rectangle: [0, 0, 256, app.renderer.screen.height / 3],
-    }, {
-      x: 0,
-      y: -(app.renderer.screen.height / 2)
-    })
+    const item_container = KGraphics(
+      main,
+      {
+        fill: 0x66bd99,
+        rectangle: [0, 0, 256, app.renderer.screen.height / 3]
+      },
+      {
+        x: 0,
+        y: -(app.renderer.screen.height / 2)
+      }
+    );
 
     const item_container_center = KGraphics(item_container, {
       fill: _item.colorBackground,
       rectangle: [0, 0, 256, app.renderer.screen.height / 3],
       filters: [InterfaceGlow(_item.colorBackground)]
-    })
+    });
 
     const item_container_title = KText(
       _item.title,
@@ -90,13 +94,20 @@ export const CreateChestButton = (app, player, item, resources) => {
       {
         button: true,
         filters: [FXAA()],
-        positional: { x: item_container_center.width / 10, y: item_container_center.height - 80 }
+        positional: {
+          x: item_container_center.width / 10,
+          y: item_container_center.height - 80
+        }
       }
     );
     item_container_pick.on('click', () => {
-      player.inventory[_item.type_inventory] = setPlayerSprite(_item, resources);
+      player.inventory[_item.type_inventory] = setPlayerSprite(
+        _item,
+        resources
+      );
       player.inventory[_item.type_inventory].base = _item;
-      player.inventory['actually_item'] = player.inventory[_item.type_inventory];
+      player.inventory['actually_item'] =
+        player.inventory[_item.type_inventory];
       DeleteChestButton(item, item_container);
     });
 
@@ -111,7 +122,10 @@ export const CreateChestButton = (app, player, item, resources) => {
       {
         button: true,
         filters: [FXAA()],
-        positional: { x: item_container_center.width / 10, y: item_container_center.height - 40 }
+        positional: {
+          x: item_container_center.width / 10,
+          y: item_container_center.height - 40
+        }
       }
     );
     item_container_discart.on('click', () => {

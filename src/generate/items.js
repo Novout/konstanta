@@ -40,4 +40,4 @@ export const setPlayerSprite = (item, resources) => {
   _item.height = 64;
 
   return _item;
-}
+};

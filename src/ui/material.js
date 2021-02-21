@@ -1,4 +1,12 @@
-import { Container, TextStyle, Texture, Rectangle, Graphics, Sprite, Text } from '@/pixi/alias';
+import {
+  Container,
+  TextStyle,
+  Texture,
+  Rectangle,
+  Graphics,
+  Sprite,
+  Text
+} from '@/pixi/alias';
 
 export const KText = (
   title,
