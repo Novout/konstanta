@@ -2,6 +2,7 @@
   {
     "id": "item",
     "id_cont": "1",
+    "title": "\tEspada Afiada",
     "type": "weapon",
     "type_tags": ["simple", "melee"],
     "effects": {
@@ -11,7 +12,7 @@
       }
     },
     "effects_tags": ["initial"],
-    "rarity": "common",
+    "rarity": "legendary",
     "sprite": {
       "path_emitter": "item_transparency",
       "path_inventory": "item_inventory",
@@ -22,6 +23,7 @@
   {
     "id": "item",
     "id_cont": "1",
+    "title": "UNKNOWN",
     "type": "weapon",
     "type_tags": ["unknown"],
     "effects_tags": [],
