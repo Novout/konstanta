@@ -15,5 +15,7 @@ export const getGenerateItem = (player) => {
     "legendary": 0xFF8C4B
   }[_item.rarity] || "")
 
+  if (!_item.colorBackground) Debugger.ThrowError('Item rarity not exists in generate.');
+
   return Object.freeze(_item);
 };
