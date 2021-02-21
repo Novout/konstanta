@@ -78,8 +78,8 @@ export const CreateChestButton = (app, player, item, resources) => {
         height: app.renderer.screen.height / 10
       },
       {
-        x: item_container_center.width / 3.5,
-        y: item_container_center.height / 4
+        x: item_container_center.width / 2,
+        y: item_container_center.height / 2
       }
     );
 

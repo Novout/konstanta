@@ -152,6 +152,7 @@ export const KTileset = (
     )
   );
   _image.base = item;
+  _image.anchor.set(0.5);
   _image.width = size.width;
   _image.height = size.height;
 
