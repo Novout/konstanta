@@ -1,6 +1,6 @@
 import { Sprite } from '@/pixi/alias';
 import { UIAlpha, InterfaceGlow, FXAA } from '@/utils/webgl';
-import { KText, KContainer, KGraphics } from './material';
+import { KText, KContainer, KGraphics, KTileset } from './material';
 import { getAltarChoices } from '@/generate/altar';
 import { getGenerateItem } from '@/generate/chest';
 import { setPlayerSprite } from '@/generate/items';
@@ -40,7 +40,7 @@ export const CreateChestButton = (app, player, item, resources) => {
 
     const item_container = KGraphics(main, {
       fill: 0x66bd99,
-      rectangle: [0, 0, 256, 512],
+      rectangle: [0, 0, 256, app.renderer.screen.height / 3],
     }, {
       x: 0,
       y: -(app.renderer.screen.height / 2)
@@ -48,7 +48,7 @@ export const CreateChestButton = (app, player, item, resources) => {
 
     const item_container_center = KGraphics(item_container, {
       fill: _item.colorBackground,
-      rectangle: [0, 0, 256, 512],
+      rectangle: [0, 0, 256, app.renderer.screen.height / 3],
       filters: [InterfaceGlow(_item.colorBackground)]
     })
 
@@ -62,6 +62,20 @@ export const CreateChestButton = (app, player, item, resources) => {
       },
       {
         positional: { x: 0, y: item_container_center.height / 10 }
+      }
+    );
+
+    const item_container_sprite = KTileset(
+      item_container_center,
+      _item,
+      resources,
+      {
+        width: app.renderer.screen.height / 10,
+        height: app.renderer.screen.height / 10
+      },
+      {
+        x: item_container_center.width / 3.5,
+        y: item_container_center.height / 4
       }
     );
 
