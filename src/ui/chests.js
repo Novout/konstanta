@@ -102,13 +102,15 @@ export const CreateChestButton = (app, player, item, resources) => {
       }
     );
     item_container_pick.on('click', () => {
-      player.inventory[_item.type_inventory] = setPlayerSprite(
+      const new_item = setPlayerSprite(
         _item,
         resources
       );
-      player.inventory[_item.type_inventory].base = _item;
-      player.inventory['actually_item'] =
-        player.inventory[_item.type_inventory];
+      new_item.base = _item;
+
+      player.inventory[_item.type_inventory] = new_item;
+      player.inventory['actually_item'] = new_item;
+      if(_item.type_tags.includes('generic')) player.inventory.general.push(new_item);
       DeleteChestButton(item, item_container);
     });
 

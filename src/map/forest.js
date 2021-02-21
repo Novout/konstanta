@@ -45,6 +45,7 @@ export default (options) => {
 
     CameraInitialFixed(stage, renderer);
 
+    ui = CreateUI(app, player[0], resources);
 
     items.forEach((item) => {
       if (item.id.includes('altar')) {
@@ -60,7 +61,6 @@ export default (options) => {
 
     debug = Debugger.Create(stage, player);
 
-    ui = CreateUI(app, player[0], resources);
 
     Debugger.Success('Mapa Floresta foi inicializado!');
 
@@ -91,7 +91,7 @@ export default (options) => {
     addons.forEach((addon) => {
       if (addon.background.includes('rock'))
         BlockFixedScenarioRIG(player[0], addon, options);
-      else if (addon.id.includes('chests') && addon.active)
+      else if (addon.id.includes('chests') && addon.active && !player.interactive_ui)
         ContainChestActive(app, player[0], addon, resources);
     });
 
