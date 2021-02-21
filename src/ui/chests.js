@@ -3,6 +3,7 @@ import { UIAlpha, InterfaceGlow, FXAA } from '@/utils/webgl';
 import { KText, KContainer, KGraphics } from './material';
 import { getAltarChoices } from '@/generate/altar';
 import { getGenerateItem } from '@/generate/chest';
+import { setPlayerSprite } from '@/generate/items';
 import { setPlayerSkill } from '@/interceptor/player';
 
 export const CreateChestButton = (app, player, item, resources) => {
@@ -79,9 +80,10 @@ export const CreateChestButton = (app, player, item, resources) => {
       }
     );
     item_container_pick.on('click', () => {
-      player.inventory[_item.type_inventory] = _item;
-      player.inventory['actually_item'] = _item;
-      console.log(player);
+      player.inventory[_item.type_inventory] = setPlayerSprite(_item, resources);
+      player.inventory[_item.type_inventory].base = _item;
+      player.inventory['actually_item'] = setPlayerSprite(_item, resources);
+      player.inventory['actually_item'].base = _item;
       DeleteChestButton(item, item_container);
     });
 

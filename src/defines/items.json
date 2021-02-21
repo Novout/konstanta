@@ -13,7 +13,7 @@
       }
     },
     "effects_tags": ["initial"],
-    "rarity": "legendary",
+    "rarity": "common",
     "sprite": {
       "path_emitter": "item_transparency",
       "path_inventory": "item_inventory",
@@ -26,6 +26,7 @@
     "id_cont": "1",
     "title": "UNKNOWN",
     "type": "weapon",
+    "type_inventory": "primary_weapon",
     "type_tags": ["unknown"],
     "effects_tags": [],
     "rarity": "common",
