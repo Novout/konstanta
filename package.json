@@ -31,6 +31,10 @@
     "prettier": "2.2.1",
     "pretty-quick": "^3.1.0"
   },
+  "gitHooks": {
+    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+    "pre-commit": "lint-staged"
+  },
   "scripts": {
     "d": "snowpack dev --polyfill-node",
     "build": "snowpack build --polyfill-node",
