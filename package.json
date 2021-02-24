@@ -6,6 +6,13 @@
   "license": "MIT",
   "main": "snowpack.config.js",
   "parser": "babel-eslint",
+  "scripts": {
+    "d": "snowpack dev --polyfill-node",
+    "build": "snowpack build --polyfill-node",
+    "test": "web-test-runner \"src/**/*.test.js\"",
+    "lint": "eslint --ext .js --ignore-path .gitignore . --fix && yarn lint:prettier",
+    "lint:prettier": "prettier --write **/*.js"
+  },
   "dependencies": {
     "pixi-filters": "^3.2.2",
     "pixi-scrollbox": "^2.2.3",
@@ -35,11 +42,4 @@
     "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
     "pre-commit": "lint-staged"
   },
-  "scripts": {
-    "d": "snowpack dev --polyfill-node",
-    "build": "snowpack build --polyfill-node",
-    "test": "web-test-runner \"src/**/*.test.js\"",
-    "lint": "eslint --ext .js --ignore-path .gitignore . --fix && yarn lint:prettier",
-    "lint:prettier": "prettier --write **/*.js"
-  }
 }
