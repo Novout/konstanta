@@ -9,11 +9,11 @@
   "scripts": {
     "d": "snowpack dev --polyfill-node",
     "build": "snowpack build --polyfill-node",
-    "test": "web-test-runner \"src/**/*.test.js\"",
     "lint": "eslint --ext .js --ignore-path .gitignore . --fix && yarn lint:prettier",
     "lint:prettier": "prettier --write **/*.js"
   },
   "dependencies": {
+    "gsap": "^3.6.0",
     "pixi-filters": "^3.2.2",
     "pixi-scrollbox": "^2.2.3",
     "pixi-viewport": "^4.20.1",
@@ -32,7 +32,6 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.19.0",
     "eslint-watch": "^7.0.0",
-    "husky": "^5.0.9",
     "lint-staged": "^10.5.4",
     "pre-commit": "^1.2.2",
     "prettier": "2.2.1",
@@ -41,5 +40,11 @@
   "gitHooks": {
     "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
     "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write **/*.js",
+      "git add -A"
+    ]
   }
 }
