@@ -63,7 +63,10 @@ export const CreateChestButton = (app, player, item, resources) => {
         fontWeight: 'bold'
       },
       {
-        positional: { x: item_container_center.width / 2, y: item_container_center.height / 10 }
+        positional: {
+          x: item_container_center.width / 2,
+          y: item_container_center.height / 10
+        }
       }
     );
 
@@ -108,10 +111,12 @@ export const CreateChestButton = (app, player, item, resources) => {
       const new_item = setPlayerSprite(_item, resources);
       new_item.base = _item;
 
-      player.inventory[_item.type_inventory] = new_item;
-      player.inventory['actually_item'] = new_item;
       if (_item.type_tags.includes('generic'))
         player.inventory.general.push(new_item);
+      else {
+        player.inventory[_item.type_inventory] = new_item;
+        player.inventory['actually_item'] = new_item;
+      }
 
       OpacityContainerLeave(item_container, () =>
         DeleteChestButton(item, item_container)
