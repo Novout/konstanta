@@ -38,10 +38,14 @@ export const KText = (
       if (options.positional.x) _text.x = options.positional.x;
 
       if (options.positional.y) _text.y = options.positional.y;
-    } else {
-      _text.x = _text.x + options.positional?.x;
-      _text.y = _text.y + options.positional?.y;
+    } else if(options.positional.center) {
+      _text.x += stage.width / 2;
+      _text.y += stage.height / 2;
     }
+    else {
+      _text.x += options.positional?.x;
+      _text.y += options.positional?.y;
+    } 
   }
   _text.pivot.x = _text.width / 2;
   _text.pivot.y = _text.height / 2;

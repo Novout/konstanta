@@ -28,7 +28,7 @@ export const CreateChestButton = (app, player, item, resources) => {
     {
       button: true,
       filters: [FXAA()],
-      positional: { x: main.width / 11, y: main.height / 4 }
+      positional: { center: true }
     }
   );
 
@@ -63,7 +63,7 @@ export const CreateChestButton = (app, player, item, resources) => {
         fontWeight: 'bold'
       },
       {
-        positional: { x: 0, y: item_container_center.height / 10 }
+        positional: { x: item_container_center.width / 2, y: item_container_center.height / 10 }
       }
     );
 
@@ -94,7 +94,7 @@ export const CreateChestButton = (app, player, item, resources) => {
         button: true,
         filters: [FXAA()],
         positional: {
-          x: item_container_center.width / 10,
+          x: item_container_center.width / 2,
           y: item_container_center.height - 80
         }
       }
@@ -130,7 +130,7 @@ export const CreateChestButton = (app, player, item, resources) => {
         button: true,
         filters: [FXAA()],
         positional: {
-          x: item_container_center.width / 10,
+          x: item_container_center.width / 2,
           y: item_container_center.height - 40
         }
       }

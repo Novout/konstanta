@@ -33,7 +33,9 @@ export const CreateAltarButton = (app, player, item, resources) => {
     {
       button: true,
       filters: [FXAA()],
-      positional: { x: main.width / 11, y: main.height / 4 }
+      positional: {
+        center: true
+      }
     }
   );
 
@@ -59,7 +61,7 @@ export const CreateAltarButton = (app, player, item, resources) => {
         item.title,
         item_container,
         { fontFamily: 'KitchenSink', fontSize: 20, fontWeight: 'bold' },
-        { positional: { y: item_sprite.height + 16, absolute: true } }
+        { positional: { y: item_sprite.height + 36, x: item_container.width / 2, absolute: true } }
       );
 
       const item_description = KText(
@@ -68,7 +70,7 @@ export const CreateAltarButton = (app, player, item, resources) => {
         { fontFamily: 'KitchenSink', fontSize: 16 },
         {
           positional: {
-            x: 10,
+            x: item_container.width / 2,
             y: item_title.y + item_container.height / 3,
             absolute: true
           }
@@ -86,7 +88,7 @@ export const CreateAltarButton = (app, player, item, resources) => {
         {
           button: true,
           positional: {
-            x: item_container.width / 3.8,
+            x: item_container.width / 2,
             y: choice_skills.height - 60,
             absolute: true
           }
