@@ -9,8 +9,7 @@
   "scripts": {
     "d": "snowpack dev --polyfill-node",
     "build": "snowpack build --polyfill-node",
-    "lint": "eslint --ext .js --ignore-path .gitignore . --fix && yarn pretty-quick",
-    "pretty-quick": "pretty-quick"
+    "lint": "eslint --ext .js --ignore-path .gitignore . --fix && pretty-quick"
   },
   "dependencies": {
     "gsap": "^3.6.0",

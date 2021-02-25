@@ -1,4 +1,3 @@
-import Keyboard from 'pixi.js-keyboard';
 import {
   FirstLayerRender,
   SecondLayerRender,
@@ -19,7 +18,6 @@ import { ContainAltarActive, ContainChestActive } from '@/event/sprite';
 import { CreateChestButton } from '@/ui/chests';
 import { resources } from '@/pixi/alias';
 import { PlayerMouseListener } from '@/event/mouse';
-import { SpawnInitialItem } from '@/emitter/items';
 import { setBackground } from '@/utils/dom';
 import * as Debugger from '@/debugger';
 import FOREST from '@/defines/loader/forest.json';

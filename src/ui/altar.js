@@ -3,6 +3,11 @@ import { UIAlpha, InterfaceGlow, FXAA } from '@/utils/webgl';
 import { KText, KContainer, KGraphics } from './material';
 import { getAltarChoices } from '@/generate/altar';
 import { setPlayerSkill } from '@/interceptor/player';
+import {
+  FloatingItem,
+  OpacityContainerLeave,
+  OpacityContainerSwitch
+} from '@/gsap/timeline';
 
 export const CreateAltarButton = (app, player, item, resources) => {
   const main = KContainer(
@@ -33,7 +38,6 @@ export const CreateAltarButton = (app, player, item, resources) => {
   );
 
   button.on('click', () => {
-    choice_skills.visible = true;
     const skills = getAltarChoices(player);
 
     skills.forEach((item) => {
@@ -88,14 +92,29 @@ export const CreateAltarButton = (app, player, item, resources) => {
           }
         }
       );
+
+      const floating = FloatingItem(item_container);
+      floating.start();
+
       item_button_text.on('click', () => {
+        floating.pause();
         setPlayerSkill(item, player);
-        DeleteAltarButton(choice_skills, main);
+        OpacityContainerLeave(choice_skills, () =>
+          DeleteAltarButton(choice_skills, main)
+        ).start();
       });
     });
 
-    main.choice_skills = true;
-    container.visible = false;
+    OpacityContainerSwitch(
+      choice_skills,
+      container,
+      () => {},
+      () => {
+        choice_skills.visible = true;
+        container.visible = false;
+        main.choice_skills = true;
+      }
+    ).start();
   });
   main.visible = false;
 
@@ -104,6 +123,7 @@ export const CreateAltarButton = (app, player, item, resources) => {
     rectangle: [0, 0, 800, 370]
   });
   choice_skills.visible = false;
+  choice_skills.alpha = 0;
   choice_skills.x -= 150;
 
   const item_container = KGraphics(choice_skills, {
