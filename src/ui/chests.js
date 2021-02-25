@@ -15,8 +15,6 @@ export const CreateChestButton = (app, player, item, resources) => {
     fill: 0x66bd99,
     rectangle: [0, 0, 256, 64],
     filters: [UIAlpha().alpha_main]
-  }, {
-    center: true
   });
 
   const button = KText(
