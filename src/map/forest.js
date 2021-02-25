@@ -23,6 +23,7 @@ import * as Debugger from '@/debugger';
 import FOREST from '@/defines/loader/forest.json';
 import SKILLS from '@/defines/loader/skills.json';
 import ITEMS from '@/defines/loader/items.json';
+import { PlayerKeyboardWatcher } from '@/watch/keyboard';
 
 let player,
   items,
@@ -44,6 +45,8 @@ export default (options) => {
     CameraInitialFixed(stage, renderer);
 
     ui = CreateUI(app, player[0], resources);
+
+    PlayerKeyboardWatcher(player[0]);
 
     items.forEach((item) => {
       if (item.id.includes('altar')) {

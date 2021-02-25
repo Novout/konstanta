@@ -146,6 +146,7 @@ export const createPlayer = (resources) => {
       distance: false,
       distance_time: 0,
       distance_hit: false,
+      interactive_inventory: false,
       interactive_ui: false,
       interactive_item: false,
       magic: {

@@ -116,7 +116,7 @@ export const CreateInventoryMain = (app, player, resources) => {
     },
     {
       width: _x_set * 5,
-      height: _y_set * 2
+      height: _y_set * 3
     },
     {
       filters: [InterfaceGlow(0x75513c)],
@@ -128,7 +128,7 @@ export const CreateInventoryMain = (app, player, resources) => {
     main.content,
     {
       fill: 0x75513c,
-      rectangle: [0, 0, _x_set * 5, _y_set * 2]
+      rectangle: [0, 0, _x_set * 5, _y_set * 3]
     },
     {
       x: 0,
@@ -166,7 +166,7 @@ export const CreateInventoryMain = (app, player, resources) => {
   return main;
 };
 
-export const RenderInventoryMain = (ui, player, key) => {
+export const RenderInventoryMain = (ui, player) => {
   player.action.interactive_ui = true;
   ui.inventory_main.position.set(
     player.x - player.width / 2,
