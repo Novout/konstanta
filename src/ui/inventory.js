@@ -111,8 +111,8 @@ export const CreateInventoryMain = (app, player, resources) => {
   const main = KScrollBox(
     app.stage,
     {
-      x: player.x,
-      y: player.y
+      x: 0,
+      y: 0
     },
     {
       width: _x_set * 5,
@@ -170,6 +170,6 @@ export const RenderInventoryMain = (ui, player, key) => {
   player.action.interactive_ui = true;
   ui.inventory_main.position.set(
     player.x - player.width / 2,
-    player.y - player.height / 2
+    player.y
   );
 };
