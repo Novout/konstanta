@@ -17,4 +17,5 @@ export const utils = PIXI.utils,
              TextStyle = PIXI.TextStyle,
              InteractionEvent = PIXI.InteractionEvent,
              SBox = Scrollbox,
+             Interact = PIXI.InteractionManager,
              Rectangle = PIXI.Rectangle;

@@ -46,7 +46,6 @@ export const FloatingItem = (container) => {
   const pause = () => {
     tl.pause();
   };
-
   const resume = () => {
     tl.resume();
   };

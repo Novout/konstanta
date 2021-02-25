@@ -95,7 +95,7 @@ export const CreateAltarButton = (app, player, item, resources) => {
 
       const floating = FloatingItem(item_container);
       floating.start();
-
+      
       item_button_text.on('click', () => {
         floating.pause();
         setPlayerSkill(item, player);
