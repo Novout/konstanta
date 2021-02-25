@@ -20,11 +20,11 @@ import { resources } from '@/pixi/alias';
 import { PlayerMouseListener } from '@/event/mouse';
 import { setBackground } from '@/utils/dom';
 import { PlayerKeyboardWatcher } from '@/watch/keyboard';
+import { PlayerMouseWatcher } from '@/watch/mouse';
 import * as Debugger from '@/debugger';
 import FOREST from '@/defines/loader/forest.json';
 import SKILLS from '@/defines/loader/skills.json';
 import ITEMS from '@/defines/loader/items.json';
-import { MouseKeyboardWatcher } from '@/watch/mouse';
 
 let player,
   items,
@@ -48,7 +48,7 @@ export default (options) => {
     ui = CreateUI(app, player[0], resources);
 
     PlayerKeyboardWatcher(player[0]);
-    MouseKeyboardWatcher(app, player[0]);
+    PlayerMouseWatcher(app, player[0]);
 
     items.forEach((item) => {
       if (item.id.includes('altar')) {

@@ -1,6 +1,6 @@
 import Mouse from 'pixi.js-mouse';
 
-export const MouseKeyboardWatcher = (app, player) => {
+export const PlayerMouseWatcher = (app, player) => {
   Mouse.events.on(
     'pressed',
     null,
