@@ -61,12 +61,12 @@ export default (options) => {
 
     Debugger.Success('Mapa Floresta foi inicializado!');
 
+    setBackground('forest');
+
     GameLoop(app, loop);
   };
 
   const [app, stage, renderer] = createContext();
-
-  setBackground('forest');
 
   FullContextSize(renderer, stage);
 
