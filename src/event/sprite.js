@@ -119,8 +119,8 @@ export const ContainAltarActive = (app, player, item, resources) => {
     item.ui_altar.visible = true;
     if (item.choice_skills.visible)
       item.ui_altar.position.set(
-        player.x - player.width / 2,
-        player.y - item.choice_skills.height / 4
+        player.x + item.width / 2,
+        player.y + item.height / 2
       );
     else
       item.ui_altar.position.set(player.x - player.width / 4, player.y + 200);

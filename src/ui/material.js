@@ -99,6 +99,11 @@ export const KGraphics = (
       _graphics.x = _graphics.x + positional?.x;
       _graphics.y = _graphics.y + positional?.y;
     }
+
+    if(positional.center) {
+      _graphics.pivot.x = runner.rectangle[2] / 2;
+      _graphics.pivot.y = runner.rectangle[3] / 2;
+    }
   }
 
   stage.addChild(_graphics);

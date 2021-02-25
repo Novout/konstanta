@@ -121,10 +121,13 @@ export const CreateAltarButton = (app, player, item, resources) => {
   const choice_skills = KGraphics(main, {
     fake: true,
     rectangle: [0, 0, 800, 370]
+  }, {
+    x: 0,
+    y: 0,
+    center: true
   });
   choice_skills.visible = false;
   choice_skills.alpha = 0;
-  choice_skills.x -= 150;
 
   const item_container = KGraphics(choice_skills, {
     fake: true,
