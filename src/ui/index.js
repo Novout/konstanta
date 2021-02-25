@@ -34,5 +34,6 @@ export const RenderUI = (app, ui, player) => {
     RenderInventoryMain(ui, player);
   } else {
     ui.inventory_main.visible = false;
+    player.action.interactive_ui = false;
   }
 };

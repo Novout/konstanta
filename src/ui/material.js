@@ -27,6 +27,7 @@ export const KText = (
   const _text = new Text(title, _style);
 
   _text.filters = options?.filters;
+  _text.style.align = 'center';
 
   if (options.button) {
     _text.interactive = true;
