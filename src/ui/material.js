@@ -193,8 +193,8 @@ export const KScrollBox = (
   }
 
   _box.filters = options?.filters;
-  _box.overflowY = options?.scrollableY ? 'scroll' : 'auto';
-  _box.overflowX = options?.scrollableX ? 'scroll' : 'auto';
+  _box.overflowY = options?.scrollableY ? 'auto' : 'hidden';
+  _box.overflowX = options?.scrollableX ? 'auto' : 'hidden';
 
   stage.addChild(_box);
 
