@@ -18,8 +18,8 @@ export const OpacityContainerSwitch = (
 
 export const OpacityContainerLeave = (container, cb) => {
   const start = () => {
-    const tl = new GSAP.timeline();
-    tl.to(container, 0.2, { alpha: 0, ease: Expo.easeOut }).call(cb);
+    const tl = new GSAP.timeline({ onComplete: cb });
+    tl.to(container, 0.2, { alpha: 0, ease: Expo.easeOut });
   };
 
   return { start };
@@ -27,7 +27,7 @@ export const OpacityContainerLeave = (container, cb) => {
 
 export const OpacityContainerEnter = (container, cb) => {
   const start = () => {
-    const tl = new GSAP.timeline();
+    const tl = new GSAP.timeline({ onStart: cb });
     tl.call(cb).to(container, 0.2, { alpha: 1, ease: Expo.easeIn });
   };
 
@@ -51,4 +51,26 @@ export const FloatingItem = (container) => {
   };
 
   return { start, pause, resume };
+};
+
+export const EffectText = (
+  container,
+  options = { color_default: 0xffffff, color_effect: 0xb53728 }
+) => {
+  const tl = new GSAP.timeline();
+
+  const start = () => {
+    tl.to(container.style, 0.3, {
+        fill: 0xaaaaaa,
+        fontSize: 18,
+        ease: Expo.easeInOut
+      })
+      .to(container.style, 0.1, {
+        fill: options.color_default,
+        fontSize: 10,
+        ease: Expo.easeIn
+      });
+  };
+
+  return { start };
 };

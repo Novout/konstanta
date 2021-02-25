@@ -60,6 +60,10 @@ export default (options) => {
       }
     });
 
+    setInterval(() => {
+      player[0].HP -= 1
+    }, 3000);
+
     debug = Debugger.Create(stage, player);
 
     Debugger.Success('Mapa Floresta foi inicializado!');

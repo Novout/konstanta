@@ -43,6 +43,8 @@ export const KText = (
       _text.y = _text.y + options.positional?.y;
     }
   }
+  _text.pivot.x = _text.width / 2;
+  _text.pivot.y = _text.height / 2;
 
   stage.addChild(_text);
 
