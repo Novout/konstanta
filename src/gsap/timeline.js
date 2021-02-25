@@ -55,21 +55,25 @@ export const FloatingItem = (container) => {
 
 export const EffectText = (
   container,
-  options = { color_default: 0xffffff, color_effect: 0xb53728 }
+  options = { color_default: 0xffffff, color_effect: 0x66bd99 }
 ) => {
-  const tl = new GSAP.timeline();
+  const tl = new GSAP.timeline({
+    onStart: () => {
+      container.style.fill = options.color_effect;
+    },
+    onComplete: () => {
+      container.style.fill = options.color_default;
+    }
+  });
 
   const start = () => {
     tl.to(container.style, 0.3, {
-        fill: 0xaaaaaa,
-        fontSize: 18,
-        ease: Expo.easeInOut
-      })
-      .to(container.style, 0.1, {
-        fill: options.color_default,
-        fontSize: 10,
-        ease: Expo.easeIn
-      });
+      fontSize: 18,
+      ease: Expo.easeInOut
+    }).to(container.style, 0.1, {
+      fontSize: 10,
+      ease: Expo.easeIn
+    });
   };
 
   return { start };
