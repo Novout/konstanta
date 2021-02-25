@@ -1,10 +1,8 @@
-import { Sprite } from '@/pixi/alias';
 import { UIAlpha, InterfaceGlow, FXAA } from '@/utils/webgl';
 import { KText, KContainer, KGraphics, KTileset } from './material';
-import { getAltarChoices } from '@/generate/altar';
 import { getGenerateItem } from '@/generate/chest';
 import { setPlayerSprite } from '@/generate/items';
-import { setPlayerSkill } from '@/interceptor/player';
+import { OpacityContainerSwitch, OpacityContainerLeave } from '@/gsap/timeline';
 
 export const CreateChestButton = (app, player, item, resources) => {
   const main = KContainer(
@@ -35,7 +33,6 @@ export const CreateChestButton = (app, player, item, resources) => {
   );
 
   button.on('click', () => {
-    container.visible = false;
     const _item = getGenerateItem(player);
 
     const item_container = KGraphics(
@@ -49,6 +46,7 @@ export const CreateChestButton = (app, player, item, resources) => {
         y: -(app.renderer.screen.height / 2)
       }
     );
+    item_container.alpha = 0;
 
     const item_container_center = KGraphics(item_container, {
       fill: _item.colorBackground,
@@ -101,17 +99,23 @@ export const CreateChestButton = (app, player, item, resources) => {
         }
       }
     );
+
+    OpacityContainerSwitch(item_container, container, () => {
+      container.visible = false;
+    }).start();
+
     item_container_pick.on('click', () => {
-      const new_item = setPlayerSprite(
-        _item,
-        resources
-      );
+      const new_item = setPlayerSprite(_item, resources);
       new_item.base = _item;
 
       player.inventory[_item.type_inventory] = new_item;
       player.inventory['actually_item'] = new_item;
-      if(_item.type_tags.includes('generic')) player.inventory.general.push(new_item);
-      DeleteChestButton(item, item_container);
+      if (_item.type_tags.includes('generic'))
+        player.inventory.general.push(new_item);
+
+      OpacityContainerLeave(item_container, () =>
+        DeleteChestButton(item, item_container)
+      ).start();
     });
 
     const item_container_discart = KText(
@@ -132,7 +136,9 @@ export const CreateChestButton = (app, player, item, resources) => {
       }
     );
     item_container_discart.on('click', () => {
-      DeleteChestButton(item, item_container);
+      OpacityContainerLeave(item_container, () =>
+        DeleteChestButton(item, item_container)
+      ).start();
     });
   });
 

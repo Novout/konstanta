@@ -139,7 +139,7 @@ export const KTileset = (
   resources,
   size = { width: 100, height: 100 },
   positional = undefined,
-  path = "item_inventory_main"
+  path = 'item_inventory_main'
 ) => {
   let _resource = resources[path];
   const _image = new Sprite(
@@ -154,7 +154,7 @@ export const KTileset = (
     )
   );
   _image.base = item;
-  if(!positional.anchor) _image.anchor.set(0.5);
+  if (!positional.anchor) _image.anchor.set(0.5);
   _image.width = size.width;
   _image.height = size.height;
 
@@ -174,8 +174,12 @@ export const KTileset = (
   return _image;
 };
 
-export const KScrollBox = (stage, positional = { x: 1000, y: 1000 }, size = { width: 500, height: 200 }) => {
-  const _box = new SBox({ boxWidth: size.width, boxHeight: size.height});
+export const KScrollBox = (
+  stage,
+  positional = { x: 1000, y: 1000 },
+  size = { width: 500, height: 200 }
+) => {
+  const _box = new SBox({ boxWidth: size.width, boxHeight: size.height });
 
   if (positional) {
     if (positional.absolute) {
@@ -186,8 +190,8 @@ export const KScrollBox = (stage, positional = { x: 1000, y: 1000 }, size = { wi
       _box.y = _box.y + positional?.y;
     }
   }
-  
+
   stage.addChild(_box);
 
   return _box;
-}
+};

@@ -61,7 +61,6 @@ export default (options) => {
 
     debug = Debugger.Create(stage, player);
 
-
     Debugger.Success('Mapa Floresta foi inicializado!');
 
     GameLoop(app, loop);
@@ -91,7 +90,11 @@ export default (options) => {
     addons.forEach((addon) => {
       if (addon.background.includes('rock'))
         BlockFixedScenarioRIG(player[0], addon, options);
-      else if (addon.id.includes('chests') && addon.active && !player.interactive_ui)
+      else if (
+        addon.id.includes('chests') &&
+        addon.active &&
+        !player.interactive_ui
+      )
         ContainChestActive(app, player[0], addon, resources);
     });
 

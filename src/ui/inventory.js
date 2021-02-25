@@ -108,19 +108,23 @@ export const CreateInventoryMain = (app, player, resources) => {
   const _x_set = 80;
   const _y_set = 80;
 
-  const main = KScrollBox(app.stage, {
-    x: player.x,
-    y: player.y
-  }, {
-    width: _x_set * 5,
-    height: _y_set * 2
-  });
-  main.overflowY = "scroll";
+  const main = KScrollBox(
+    app.stage,
+    {
+      x: player.x,
+      y: player.y
+    },
+    {
+      width: _x_set * 5,
+      height: _y_set * 2
+    }
+  );
+  main.overflowY = 'scroll';
 
   const item_container = KGraphics(
     main.content,
     {
-      fill: 0x75513C,
+      fill: 0x75513c,
       rectangle: [0, 0, _x_set * 5, _y_set * 2]
     },
     {
@@ -150,7 +154,7 @@ export const CreateInventoryMain = (app, player, resources) => {
 
     // fuck this logic
     _x++;
-    if(_x > 4) {
+    if (_x > 4) {
       _x = 0;
       _y++;
     }
