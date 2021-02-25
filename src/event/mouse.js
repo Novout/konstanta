@@ -2,6 +2,14 @@ import Mouse from 'pixi.js-mouse';
 
 export const PlayerMouseListener = (delta, player, player_base, options) => {
   if (Mouse.isButtonDown(Mouse.Button.LEFT)) {
+    if (player.action.position.x === 'left') {
+      player.anchor.x = 0.75;
+      player.scale.x = -2.5;
+    } else {
+      player.anchor.x = 0;
+      player.scale.x = 2.5;
+    }
+
     if (player.inventory.actually_item.base.type_tags.includes('melee')) {
       if (
         player.action.attack_time >= 0 &&

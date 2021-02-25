@@ -149,6 +149,10 @@ export const createPlayer = (resources) => {
       interactive_inventory: false,
       interactive_ui: false,
       interactive_item: false,
+      position: {
+        x: 'left',
+        y: 'left'
+      },
       magic: {
         magic: false,
         magic_hit: false,
