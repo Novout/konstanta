@@ -177,7 +177,8 @@ export const KTileset = (
 export const KScrollBox = (
   stage,
   positional = { x: 1000, y: 1000 },
-  size = { width: 500, height: 200 }
+  size = { width: 500, height: 200 },
+  options = {}
 ) => {
   const _box = new SBox({ boxWidth: size.width, boxHeight: size.height });
 
@@ -190,6 +191,10 @@ export const KScrollBox = (
       _box.y = _box.y + positional?.y;
     }
   }
+
+  _box.filters = options?.filters;
+  _box.overflowY = options?.scrollableY ? 'scroll' : 'auto';
+  _box.overflowX = options?.scrollableX ? 'scroll' : 'auto';
 
   stage.addChild(_box);
 

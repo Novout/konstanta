@@ -117,9 +117,12 @@ export const CreateInventoryMain = (app, player, resources) => {
     {
       width: _x_set * 5,
       height: _y_set * 2
+    },
+    {
+      filters: [InterfaceGlow(0x75513c)],
+      scrollableY: true
     }
   );
-  main.overflowY = 'scroll';
 
   const item_container = KGraphics(
     main.content,
