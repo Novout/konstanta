@@ -76,8 +76,6 @@ export default (options) => {
     PlayerKeyboardListener(delta, player[0], player[1], options);
     PlayerMouseListener(delta, player[0], player[1], options);
 
-    CameraFixed(stage, player[0]);
-
     items.forEach((item) => {
       if (item.id.includes('altar') && item.active) {
         ContainAltarActive(app, player[0], item, resources);
@@ -97,6 +95,7 @@ export default (options) => {
     });
 
     RenderUI(app, ui, player[0]);
+    CameraFixed(stage, player[0]);
     Debugger.RenderFrameRate(debug, player[0], renderer);
   };
 };
