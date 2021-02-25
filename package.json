@@ -10,11 +10,11 @@
     "d": "snowpack dev --polyfill-node",
     "build": "snowpack build --polyfill-node",
     "lint": "eslint --ext .js --ignore-path .gitignore . --fix && yarn lint:prettier",
-    "lint:prettier": "prettier --write **/*.js"
+    "lint:prettier": "prettier --write **/*.js",
+    "pretty-quick": "pretty-quick"
   },
   "dependencies": {
     "gsap": "^3.6.0",
-    "husky": "^5.1.1",
     "pixi-filters": "^3.2.2",
     "pixi-scrollbox": "^2.2.3",
     "pixi-viewport": "^4.20.1",
@@ -29,22 +29,17 @@
     "@snowpack/plugin-babel": "^2.1.6",
     "@snowpack/plugin-run-script": "^2.3.0",
     "@snowpack/plugin-webpack": "^2.3.0",
-    "@snowpack/web-test-runner-plugin": "^0.2.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.19.0",
     "eslint-watch": "^7.0.0",
-    "lint-staged": "^10.5.4",
+    "husky": "^5.1.1",
     "prettier": "2.2.1",
     "pretty-quick": "^3.1.0"
   },
-  "gitHooks": {
-    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "git add"
-    ]
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
