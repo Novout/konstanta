@@ -23,3 +23,17 @@ export const PlayerMouseWatcher = (app, player) => {
     }
   );
 };
+
+export const WindowScrollWatcher = (app) => {
+  window.document.addEventListener('mousewheel', (event) => { 
+    if(event.wheelDelta >= 0) {
+      if(app.stage.scale.x >= 1.6 || app.stage.scale.y >= 1.6) return;
+      app.stage.scale.x += 0.1
+      app.stage.scale.y += 0.1
+    } else {
+      if(app.stage.scale.x <= 0.8 || app.stage.scale.y <= 0.8) return;
+      app.stage.scale.x -= 0.1
+      app.stage.scale.y -= 0.1
+    }
+  }, false);
+}

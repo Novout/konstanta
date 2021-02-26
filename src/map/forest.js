@@ -20,7 +20,7 @@ import { resources } from '@/pixi/alias';
 import { PlayerMouseListener } from '@/event/mouse';
 import { setBackground } from '@/utils/dom';
 import { PlayerKeyboardWatcher } from '@/watch/keyboard';
-import { PlayerMouseWatcher } from '@/watch/mouse';
+import { PlayerMouseWatcher, WindowScrollWatcher } from '@/watch/mouse';
 import * as Debugger from '@/debugger';
 import FOREST from '@/defines/loader/forest.json';
 import SKILLS from '@/defines/loader/skills.json';
@@ -47,6 +47,7 @@ export default (options) => {
 
     ui = CreateUI(app, player[0], resources);
 
+    WindowScrollWatcher(app);
     PlayerKeyboardWatcher(player[0]);
     PlayerMouseWatcher(app, player[0]);
 
