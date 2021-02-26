@@ -1,12 +1,13 @@
 {
   "difficult": "hard",
-  "size": "32",
-  "node_size": "200",
-  "node_items": "30",
-  "altar_radius": "100",
-  "altar_chance": "30",
+  "size": 32,
+  "node_size": 200,
+  "node_items": 30,
+  "node_addons": 20,
+  "altar_radius": 100,
+  "altar_chance": 30,
   "spawn": {
-    "simple_chest": "30",
-    "store": "99.9"
+    "simple_chest": 30,
+    "store": 99.9
   }
 }
