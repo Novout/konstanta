@@ -34,7 +34,12 @@ export const SecondLayerRender = (stage, resources, nodes, options) => {
         new Texture(_resource.texture, new Rectangle(0, 0, 16, 16))
       );
       _item.active = item.active;
-    } else {
+    } else if(item.background.includes('house'))  {
+      _item = new Sprite(_resource.texture);
+      _item.anchor.set(0.5, 1);
+    }
+    
+    else {
       _item = new Sprite(_resource.texture);
     }
     _item.background = item.background;
@@ -58,10 +63,10 @@ export const ThirdLayerRender = (stage, resources, nodes, options) => {
     let _resource = resources[item.background];
     let _item;
 
-    if (item.background === 'altar') {
+    if (item.background.includes('altar')) {
       _item = new Sprite(_resource.texture);
       _item.active = item.active;
-    } else if (item.background === 'chests') {
+    } else if (item.background.includes('chests')) {
       _item = new Sprite(
         new Texture(_resource.texture, new Rectangle(0, 0, 16, 16))
       );

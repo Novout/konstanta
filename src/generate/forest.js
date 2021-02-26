@@ -2,7 +2,8 @@ import FOREST from '@/defines/forest.json';
 import {
   getItemPercentage,
   getChancePercentage,
-  getPercentage
+  getPercentage,
+  generateStore
 } from '@/utils/random';
 import * as Debugger from '@/debugger';
 
@@ -47,6 +48,24 @@ export const generateItems = (nodes, options) => {
   const items = [];
 
   nodes.forEach((node) => {
+    if (node.background === FOREST[2][0]) {
+      if(generateStore(options?.spawn?.store) && node.parent_quantity === 0) {
+        node.parent_quantity++;
+        console.log('amigo estou aqui')
+        const item = {};
+        item.background = 'foresthouse';
+        item.id = `${item.background}${node.id}`;
+        item.x = node.x + node.width / 2;
+        item.y = node.y + node.height / 2;
+        item.cwidth = 60.0;
+        item.cheight = 50.0;
+        item.scale = 2;
+        items.push(item);
+      }
+    }
+  })
+
+  nodes.forEach((node) => {
     if (node.background === FOREST[1][0]) {
       if (getChancePercentage(options.altar_chance)) {
         node.parent_quantity++;
@@ -67,7 +86,7 @@ export const generateItems = (nodes, options) => {
   nodes.forEach((node) => {
     if (node.background === FOREST[2][0]) {
       // forest1.jpg
-      if (getChancePercentage(options.node_addons)) {
+      if (getChancePercentage(options.node_addons) && node.parent_quantity === 0) {
         node.parent_quantity++;
         const item = {};
         item.background = textureBackground([
@@ -166,6 +185,7 @@ export const generateAddons = (nodes, options) => {
       // forest_rock.jpg
       for (let i = 0; i < random; i += 40) {
         if (random >= i) {
+          node.parent_quantity++;
           const item = {};
           item.background = textureBackground([
             ['forestrock1', 30],
