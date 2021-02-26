@@ -99,7 +99,7 @@ export const KGraphics = (
     _graphics.buttonMode = true;
   }
 
-  runner.alpha ? _graphics.alpha = runner.alpha : _graphics.alpha = 1
+  runner.alpha ? _graphics.alpha = 0 : _graphics.alpha = 1
 
   if (positional) {
     if (positional.absolute) {

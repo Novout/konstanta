@@ -40,7 +40,7 @@ export const CreateChestButton = (app, player, item, resources) => {
       {
         fill: 0x66bd99,
         rectangle: [0, 0, 256, app.renderer.screen.height / 3],
-        alpha: 0
+        alpha: true
       },
       {
         x: 0,
