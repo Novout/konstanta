@@ -98,6 +98,9 @@ export const createPlayer = (resources) => {
     vy: 3,
     cwidth: 18,
     cheight: 30,
+    lucky: {
+      items: 0
+    },
     // habilities
     level: 1,
     levelHP: 8, // 1d8

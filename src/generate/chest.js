@@ -4,7 +4,8 @@ import * as Debugger from '@/debugger';
 export const getGenerateItem = (player) => {
   const _items = ITEMS.filter(
     (item) =>
-      player.level == item.id_cont && !item.type_tags.includes('unknown')
+      player.level + player.lucky.items == item.id_cont &&
+      !item.type_tags.includes('unknown')
   );
   const _random = Math.floor(Math.random() * _items.length);
 
