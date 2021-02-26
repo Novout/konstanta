@@ -14,6 +14,7 @@ export const FirstLayerRender = (stage, resources, options) => {
     _node.width = node.size;
     _node.height = node.size;
     _node.id = node.id;
+    _node.parent_quantity = node.parent_quantity;
     _nodes.push(_node);
     stage.addChild(_node);
   });

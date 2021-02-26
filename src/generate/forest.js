@@ -118,6 +118,7 @@ export const generateAddons = (nodes, options) => {
 
     if (node.background === FOREST[1][0]) {
       if (getChancePercentage(options.spawn.simple_chest)) {
+        node.parent_quantity++;
         const item = {};
         const _position = Math.floor(Math.random() * 3 + 1);
         item.background = 'chests';
