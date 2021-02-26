@@ -16,6 +16,8 @@ export const PlayerLayerRender = (stage, resources) => {
   _player.levelHP = player.levelHP;
   _player.HP = player.HP;
   _player.maxHP = player.maxHP;
+  _player.minHP = player.minHP;
+  _player.temporaryHP = player.temporaryHP;
   _player.CA = player.CA;
   _player.inventory = player.inventory;
   _player.resources = player.resources;

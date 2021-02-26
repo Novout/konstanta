@@ -39,14 +39,14 @@ export const CreateChestButton = (app, player, item, resources) => {
       main,
       {
         fill: 0x66bd99,
-        rectangle: [0, 0, 256, app.renderer.screen.height / 3]
+        rectangle: [0, 0, 256, app.renderer.screen.height / 3],
+        alpha: 0
       },
       {
         x: 0,
         y: -(app.renderer.screen.height / 2)
       }
     );
-    item_container.alpha = 0;
 
     const item_container_center = KGraphics(item_container, {
       fill: _item.colorBackground,

@@ -103,6 +103,8 @@ export const createPlayer = (resources) => {
     levelHP: 8, // 1d8
     maxHP: 10, // levelHP value per level
     HP: 10, // actually hp
+    minHP: 0,
+    temporaryHP: 0,
     CA: 0, // % for ignore attack
     inventory: {
       actually_item: setInitialPlayerItem(resources),
@@ -151,7 +153,8 @@ export const createPlayer = (resources) => {
       interactive_item: false,
       position: {
         x: 'left',
-        y: 'left'
+        y: 'up',
+        area: false
       },
       magic: {
         magic: false,

@@ -13,14 +13,19 @@ const PlayerIsStop = (player, player_base) => {
   if (player.texture_actually !== 'stand') {
     player.textures = player_base.texture.stand;
   }
+  player.texture_actually = 'stand';
+  if (!player.playing) player.play();
 };
 
 export const PlayerKeyboardListener = (delta, player, player_base, options) => {
-  if (
-    Mouse.isButtonDown(Mouse.Button.LEFT) ||
-    Mouse.isButtonDown(Mouse.Button.RIGHT)
-  )
-    return;
+  if (Mouse.isButtonDown(Mouse.Button.LEFT)) return;
+
+  if(Mouse.isButtonDown(Mouse.Button.RIGHT)) {
+    if(!player.action.position.area) {
+      PlayerIsStop(player, player_base);
+      return;
+    }
+  }
 
   Keyboard.update();
 
@@ -72,7 +77,5 @@ export const PlayerKeyboardListener = (delta, player, player_base, options) => {
 
   if (stop) {
     PlayerIsStop(player, player_base);
-    player.texture_actually = 'stand';
-    if (!player.playing) player.play();
   }
 };

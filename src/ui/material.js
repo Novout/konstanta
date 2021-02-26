@@ -78,7 +78,8 @@ export const KGraphics = (
     fill: 0x66bd99,
     rectangle: [0, 0, 256, 256],
     filters: [],
-    button: false
+    button: false,
+    alpha: 1
   },
   positional = undefined
 ) => {
@@ -97,6 +98,8 @@ export const KGraphics = (
     _graphics.interactive = true;
     _graphics.buttonMode = true;
   }
+
+  runner.alpha ? _graphics.alpha = runner.alpha : _graphics.alpha = 1
 
   if (positional) {
     if (positional.absolute) {

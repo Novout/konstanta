@@ -18,8 +18,8 @@ export const PlayerMouseWatcher = (app, player) => {
         ? (player.action.position.x = 'right')
         : (player.action.position.x = 'left');
       mouseY >= app.renderer.screen.height / 2
-        ? (player.action.position.y = 'right')
-        : (player.action.position.y = 'left');
+        ? (player.action.position.y = 'down')
+        : (player.action.position.y = 'up');
     }
   );
 };
