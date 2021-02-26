@@ -106,8 +106,8 @@ export const KGraphics = (
       if (positional.x) _graphics.x = positional.x;
       if (positional.y) _graphics.y = positional.y;
     } else {
-      _graphics.x = _graphics.x + positional?.x;
-      _graphics.y = _graphics.y + positional?.y;
+      _graphics.x += positional?.x;
+      _graphics.y += positional?.y;
     }
 
     if(positional.center) {
@@ -138,8 +138,8 @@ export const KImage = (
 
       if (positional.y) _image.y = positional.y;
     } else {
-      _image.x = _image.x + positional?.x;
-      _image.y = _image.y + positional?.y;
+      _image.x += positional?.x;
+      _image.y += positional?.y;
     }
   }
 
@@ -179,8 +179,8 @@ export const KTileset = (
 
       if (positional.y) _image.y = positional.y;
     } else {
-      _image.x = _image.x + positional?.x;
-      _image.y = _image.y + positional?.y;
+      _image.x += positional?.x;
+      _image.y += positional?.y;
     }
   }
 
@@ -202,8 +202,8 @@ export const KScrollBox = (
       if (positional.x) _box.x = positional.x;
       if (positional.y) _box.y = positional.y;
     } else {
-      _box.x = _box.x + positional?.x;
-      _box.y = _box.y + positional?.y;
+      _box.x += positional?.x;
+      _box.y += positional?.y;
     }
   }
 
