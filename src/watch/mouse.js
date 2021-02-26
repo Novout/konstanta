@@ -31,7 +31,7 @@ export const WindowScrollWatcher = (app) => {
       app.stage.scale.x += 0.1
       app.stage.scale.y += 0.1
     } else {
-      if(app.stage.scale.x <= 0.8 || app.stage.scale.y <= 0.8) return;
+      if(app.stage.scale.x <= 0.85 || app.stage.scale.y <= 0.85) return;
       app.stage.scale.x -= 0.1
       app.stage.scale.y -= 0.1
     }
