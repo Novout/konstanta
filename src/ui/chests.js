@@ -39,7 +39,7 @@ export const CreateChestButton = (app, player, item, resources) => {
       main,
       {
         fill: 0x66bd99,
-        rectangle: [0, 0, 256, app.renderer.screen.height / 3],
+        rectangle: [0, 0, 256, app.renderer.screen.height / 2],
         alpha: true
       },
       {
@@ -50,7 +50,7 @@ export const CreateChestButton = (app, player, item, resources) => {
 
     const item_container_center = KGraphics(item_container, {
       fill: _item.colorBackground,
-      rectangle: [0, 0, 256, app.renderer.screen.height / 3],
+      rectangle: [0, 0, 256, app.renderer.screen.height / 2],
       filters: [InterfaceGlow(_item.colorBackground)]
     });
 
@@ -84,6 +84,46 @@ export const CreateChestButton = (app, player, item, resources) => {
       },
       _item.sprite.path_emitter
     );
+
+    let _description;
+    let _type;
+    if(_item.type === 'weapon') {
+      if(_item.type_tags.includes('melee')) _type = 'Arma Corpo-A-Corpo'
+      else if(_item.type_tags.includes('distance')) _type = 'Arma de Longa Distância'
+      _description = `${_item.effects.damage.roll[0]}d${_item.effects.damage.roll[1]} + ${_item.effects.damage.bonus}`
+    }
+
+    if(_description) {
+      const item_container_type = KText(
+        _type,
+        item_container_center,
+        {
+          fontFamily: 'KitchenSink',
+          fontSize: 18,
+        },
+        {
+          positional: {
+            x: item_container_center.width / 2,
+            y: item_container_center.height / 3 - 25
+          }
+        }
+      );
+
+      const item_container_description = KText(
+        _description,
+        item_container_center,
+        {
+          fontFamily: 'KitchenSink',
+          fontSize: 18,
+        },
+        {
+          positional: {
+            x: item_container_center.width / 2,
+            y: item_container_center.height / 3
+          }
+        }
+      );
+    }
 
     const item_container_pick = KText(
       'Pegar Item',
