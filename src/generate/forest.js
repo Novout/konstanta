@@ -4,7 +4,6 @@ import {
   getChancePercentage,
   getPercentage
 } from '@/utils/random';
-import { generateType } from './altar';
 import * as Debugger from '@/debugger';
 
 export const textureBackground = (background = FOREST) => {
@@ -51,12 +50,10 @@ export const generateItems = (nodes, options) => {
     if (node.background === FOREST[1][0]) {
       if (getChancePercentage(options.altar_chance)) {
         node.parent_quantity++;
-        const type = generateType();
         const item = {};
         item.background = 'altar';
         item.active = true;
-        item.id = type.id;
-        item.id_color = type.id_color;
+        item.id = 'altar';
         item.scale = 2;
         item.x = node.x - node.width / 4;
         item.y = node.y - node.height / 2;

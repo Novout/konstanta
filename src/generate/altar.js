@@ -3,11 +3,6 @@ import resilience from '@/defines/skills/resilience.json';
 import rage from '@/defines/skills/rage.json';
 import arcane from '@/defines/skills/arcane.json';
 
-export const generateType = () => {
-  const actually = origin[0];
-  return actually;
-};
-
 export const getAltarChoices = (player) => {
   const _resilience = resilience.filter(
     (item) => item.id_cont === player.skills.resilience
