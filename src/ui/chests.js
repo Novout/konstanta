@@ -1,6 +1,6 @@
 import { UIAlpha, InterfaceGlow, FXAA } from '@/utils/webgl';
 import { KText, KContainer, KGraphics, KTileset } from './material';
-import { getGenerateItem } from '@/generate/chest';
+import { getGenerateItem } from '@/generate/map/chest';
 import { setPlayerSprite } from '@/generate/items';
 import { OpacityContainerSwitch, OpacityContainerLeave } from '@/gsap/timeline';
 

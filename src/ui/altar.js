@@ -1,7 +1,7 @@
 import { Sprite } from '@/pixi/alias';
 import { UIAlpha, InterfaceGlow, FXAA } from '@/utils/webgl';
 import { KText, KContainer, KGraphics } from './material';
-import { getAltarChoices } from '@/generate/altar';
+import { getAltarChoices } from '@/generate/map/altar';
 import { setPlayerSkill } from '@/interceptor/player';
 import {
   FloatingItem,
