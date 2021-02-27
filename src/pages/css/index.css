@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'KitchenSink';
-  src: url('../../assets/fonts/KitchenSink.ttf');
+  src: url('/src/assets/fonts/KitchenSink.ttf');
 }
 
 * {
