@@ -1,5 +1,6 @@
 import { Sprite, Rectangle, Texture } from '@/pixi/alias';
-import { createNodes, generateAddons, generateItems } from '@/generate/forest';
+import { generateAddons, generateItems } from '@/generate/forest';
+import { createNodes } from '@/generate/map/node';
 
 export const FirstLayerRender = (stage, resources, options) => {
   const nodes = createNodes(options);
@@ -34,12 +35,10 @@ export const SecondLayerRender = (stage, resources, nodes, options) => {
         new Texture(_resource.texture, new Rectangle(0, 0, 16, 16))
       );
       _item.active = item.active;
-    } else if(item.background.includes('house'))  {
+    } else if (item.background.includes('house')) {
       _item = new Sprite(_resource.texture);
       _item.anchor.set(0.5, 1);
-    }
-    
-    else {
+    } else {
       _item = new Sprite(_resource.texture);
     }
     _item.background = item.background;

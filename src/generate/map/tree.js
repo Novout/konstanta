@@ -1,5 +1,5 @@
 import { getChancePercentage } from '@/utils/random';
-import { textureBackground } from '../forest';
+import { textureBackground } from './node';
 
 export const createTrees = (nodes, FOREST, options) => {
   const items = [];
