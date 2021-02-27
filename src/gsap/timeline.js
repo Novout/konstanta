@@ -36,10 +36,16 @@ export const OpacityContainerLeave = (
           ? especific_container.scale.y + value
           : container.scale.y + value,
         ease: Expo.easeOut
-      }, 'item'
-    )
-    if(spin) {
-      tl.to(especific_container ? especific_container : container, 1, { rotation: 6, ease: Expo.easeOut }, 'item+=0.3')
+      },
+      'item'
+    );
+    if (spin) {
+      tl.to(
+        especific_container ? especific_container : container,
+        1,
+        { rotation: 2 * Math.PI, ease: Expo.easeOut },
+        'item+=0.3'
+      );
     }
     tl.to(container, 0.4, { alpha: 0, ease: Expo.easeOut });
   };
