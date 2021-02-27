@@ -1,5 +1,6 @@
 .idea
 .vscode
+docs/.obsidian
 node_modules
 build
 GENERICS.md
