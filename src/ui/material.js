@@ -68,6 +68,8 @@ export const KContainer = (
   });
   stage.addChild(_container);
 
+  positional.invisible ? _container.visible = false : _container.visible = true
+
   return _container;
 };
 
@@ -100,6 +102,7 @@ export const KGraphics = (
   }
 
   runner.alpha ? _graphics.alpha = 0 : _graphics.alpha = 1
+  runner.invisible ? _graphics.visible = 0 : _graphics.visible = 1
 
   if (positional) {
     if (positional.absolute) {

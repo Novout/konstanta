@@ -149,6 +149,11 @@ export const CreateChestButton = (app, player, item, resources) => {
     }).start();
 
     item_container_pick.on('click', () => {
+      item_container_pick.interactive = false;
+      item_container_pick.buttonMode = false;
+      item_container_discart.interactive = false;
+      item_container_discart.buttonMode = false;
+
       const new_item = setPlayerSprite(_item, resources);
       new_item.base = _item;
 
@@ -187,6 +192,11 @@ export const CreateChestButton = (app, player, item, resources) => {
       }
     );
     item_container_discart.on('click', () => {
+      item_container_pick.interactive = false;
+      item_container_pick.buttonMode = false;
+      item_container_discart.interactive = false;
+      item_container_discart.buttonMode = false;
+
       OpacityContainerLeave(item_container, () =>
         DeleteChestButton(item, item_container)
       ).start();

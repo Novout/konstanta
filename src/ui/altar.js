@@ -12,7 +12,7 @@ import {
 export const CreateAltarButton = (app, player, item, resources) => {
   const main = KContainer(
     app.stage,
-    { x: player.x - player.width / 2, y: player.y - player.height / 2 },
+    { x: player.x - player.width / 2, y: player.y - player.height / 2, invisible: true },
     [['id_parent', item.id]]
   );
 
@@ -40,6 +40,9 @@ export const CreateAltarButton = (app, player, item, resources) => {
   );
 
   button.on('click', () => {
+    button.interactive = false;
+    button.buttonMode = false;
+    
     const skills = getAltarChoices(player);
 
     skills.forEach((item) => {
@@ -129,13 +132,14 @@ export const CreateAltarButton = (app, player, item, resources) => {
       }
     ).start();
   });
-  main.visible = false;
 
   const choice_skills = KGraphics(
     main,
     {
       fake: true,
-      rectangle: [0, 0, 800, 370]
+      rectangle: [0, 0, 800, 370],
+      alpha: true,
+      invisible: true
     },
     {
       x: 0,
@@ -143,8 +147,6 @@ export const CreateAltarButton = (app, player, item, resources) => {
       center: true
     }
   );
-  choice_skills.visible = false;
-  choice_skills.alpha = 0;
 
   const item_container = KGraphics(choice_skills, {
     fake: true,
