@@ -12,7 +12,11 @@ import {
 export const CreateAltarButton = (app, player, item, resources) => {
   const main = KContainer(
     app.stage,
-    { x: player.x - player.width / 2, y: player.y - player.height / 2, invisible: true },
+    {
+      x: player.x - player.width / 2,
+      y: player.y - player.height / 2,
+      invisible: true
+    },
     [['id_parent', item.id]]
   );
 
@@ -42,20 +46,22 @@ export const CreateAltarButton = (app, player, item, resources) => {
   button.on('click', () => {
     button.interactive = false;
     button.buttonMode = false;
-    
+
     const skills = getAltarChoices(player);
     const _skills = [];
     skills.forEach((item) => {
-      const item_container = KGraphics(choice_skills, {
-        fill: item.background,
-        rectangle: [0, 0, 233, 350],
-        filters: [InterfaceGlow(item.background)]
-      },
-      {
-        y: 0,
-        x: item.x,
-        center: true,
-      }
+      const item_container = KGraphics(
+        choice_skills,
+        {
+          fill: item.background,
+          rectangle: [0, 0, 233, 350],
+          filters: [InterfaceGlow(item.background)]
+        },
+        {
+          y: 0,
+          x: item.x,
+          center: true
+        }
       );
 
       const item_sprite = new Sprite(resources[item.sprite.path].texture);
@@ -108,7 +114,6 @@ export const CreateAltarButton = (app, player, item, resources) => {
           }
         }
       );
-
       _skills.push(item_button_text);
 
       const floating = FloatingItem(item_container);
@@ -118,7 +123,7 @@ export const CreateAltarButton = (app, player, item, resources) => {
         _skills.forEach((skill) => {
           skill.interactive = false;
           skill.buttonMode = false;
-        })
+        });
 
         floating.pause();
         setPlayerSkill(item, player);
@@ -127,7 +132,10 @@ export const CreateAltarButton = (app, player, item, resources) => {
           () => {
             DeleteAltarButton(choice_skills, main);
           },
-          item_container
+          item_container,
+          0.1,
+          false,
+          item_button_text
         ).start();
       });
     });
@@ -164,15 +172,19 @@ export const CreateAltarButton = (app, player, item, resources) => {
     rectangle: [0, 0, 128, 256]
   });
 
-  const choice_skills_fake = KGraphics(choice_skills, {
-    fill: 0x66bd99,
-    rectangle: [0, 0, 800, 370],
-    filters: [InterfaceGlow(), UIAlpha().alpha_bar]
-  }, {
-    x: 0,
-    y: 0,
-    center: true
-  });
+  const choice_skills_fake = KGraphics(
+    choice_skills,
+    {
+      fill: 0x66bd99,
+      rectangle: [0, 0, 800, 370],
+      filters: [InterfaceGlow(), UIAlpha().alpha_bar]
+    },
+    {
+      x: 0,
+      y: 0,
+      center: true
+    }
+  );
 
   item.choice_skills = choice_skills;
   item.ui_altar = main;
