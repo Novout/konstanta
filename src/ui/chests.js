@@ -87,19 +87,20 @@ export const CreateChestButton = (app, player, item, resources) => {
 
     let _description;
     let _type;
-    if(_item.type === 'weapon') {
-      if(_item.type_tags.includes('melee')) _type = 'Arma Corpo-A-Corpo'
-      else if(_item.type_tags.includes('distance')) _type = 'Arma de Longa Distância'
-      _description = `${_item.effects.damage.roll[0]}d${_item.effects.damage.roll[1]} + ${_item.effects.damage.bonus}`
+    if (_item.type === 'weapon') {
+      if (_item.type_tags.includes('melee')) _type = 'Arma Corpo-A-Corpo';
+      else if (_item.type_tags.includes('distance'))
+        _type = 'Arma de Longa Distância';
+      _description = `${_item.effects.damage.roll[0]}d${_item.effects.damage.roll[1]} + ${_item.effects.damage.bonus}`;
     }
 
-    if(_description) {
+    if (_description) {
       const item_container_type = KText(
         _type,
         item_container_center,
         {
           fontFamily: 'KitchenSink',
-          fontSize: 18,
+          fontSize: 18
         },
         {
           positional: {
@@ -114,7 +115,7 @@ export const CreateChestButton = (app, player, item, resources) => {
         item_container_center,
         {
           fontFamily: 'KitchenSink',
-          fontSize: 18,
+          fontSize: 18
         },
         {
           positional: {
@@ -158,8 +159,13 @@ export const CreateChestButton = (app, player, item, resources) => {
         player.inventory['actually_item'] = new_item;
       }
 
-      OpacityContainerLeave(item_container, () =>
-        DeleteChestButton(item, item_container)
+      OpacityContainerLeave(
+        item_container,
+        () => {
+          DeleteChestButton(item, item_container);
+        },
+        item_container_sprite,
+        1.5
       ).start();
     });
 

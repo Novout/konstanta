@@ -49,6 +49,7 @@ export const CreateAltarButton = (app, player, item, resources) => {
         filters: [InterfaceGlow(item.background)]
       });
       item_container.x = item_container.x + item.x;
+      item_container.pivot.set(0.5, 0.5);
 
       const item_sprite = new Sprite(resources[item.sprite.path].texture);
       item_sprite.width = 64;
@@ -61,7 +62,13 @@ export const CreateAltarButton = (app, player, item, resources) => {
         item.title,
         item_container,
         { fontFamily: 'KitchenSink', fontSize: 20, fontWeight: 'bold' },
-        { positional: { y: item_sprite.height + 36, x: item_container.width / 2, absolute: true } }
+        {
+          positional: {
+            y: item_sprite.height + 36,
+            x: item_container.width / 2,
+            absolute: true
+          }
+        }
       );
 
       const item_description = KText(
@@ -97,12 +104,16 @@ export const CreateAltarButton = (app, player, item, resources) => {
 
       const floating = FloatingItem(item_container);
       floating.start();
-      
+
       item_button_text.on('click', () => {
         floating.pause();
         setPlayerSkill(item, player);
-        OpacityContainerLeave(choice_skills, () =>
-          DeleteAltarButton(choice_skills, main)
+        OpacityContainerLeave(
+          choice_skills,
+          () => {
+            DeleteAltarButton(choice_skills, main);
+          },
+          item_container
         ).start();
       });
     });
@@ -120,14 +131,18 @@ export const CreateAltarButton = (app, player, item, resources) => {
   });
   main.visible = false;
 
-  const choice_skills = KGraphics(main, {
-    fake: true,
-    rectangle: [0, 0, 800, 370]
-  }, {
-    x: 0,
-    y: 0,
-    center: true
-  });
+  const choice_skills = KGraphics(
+    main,
+    {
+      fake: true,
+      rectangle: [0, 0, 800, 370]
+    },
+    {
+      x: 0,
+      y: 0,
+      center: true
+    }
+  );
   choice_skills.visible = false;
   choice_skills.alpha = 0;
 

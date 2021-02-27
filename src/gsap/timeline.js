@@ -16,10 +16,27 @@ export const OpacityContainerSwitch = (
   return { start };
 };
 
-export const OpacityContainerLeave = (container, cb) => {
+export const OpacityContainerLeave = (
+  container,
+  cb,
+  especific_container = false,
+  value = 0.1
+) => {
   const start = () => {
     const tl = new GSAP.timeline({ onComplete: cb });
-    tl.to(container, 0.2, { alpha: 0, ease: Expo.easeOut });
+    tl.to(
+      especific_container ? especific_container.scale : container.scale,
+      0.5,
+      {
+        x: especific_container
+          ? especific_container.scale.x + value
+          : container.scale.x + value,
+        y: especific_container
+          ? especific_container.scale.y + value
+          : container.scale.y + value,
+        ease: Expo.easeOut
+      }
+    ).to(container, 0.4, { alpha: 0, ease: Expo.easeOut });
   };
 
   return { start };
