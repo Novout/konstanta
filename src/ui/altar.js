@@ -44,7 +44,7 @@ export const CreateAltarButton = (app, player, item, resources) => {
     button.buttonMode = false;
     
     const skills = getAltarChoices(player);
-
+    const _skills = [];
     skills.forEach((item) => {
       const item_container = KGraphics(choice_skills, {
         fill: item.background,
@@ -109,10 +109,17 @@ export const CreateAltarButton = (app, player, item, resources) => {
         }
       );
 
+      _skills.push(item_button_text);
+
       const floating = FloatingItem(item_container);
       floating.start();
 
       item_button_text.on('click', () => {
+        _skills.forEach((skill) => {
+          skill.interactive = false;
+          skill.buttonMode = false;
+        })
+
         floating.pause();
         setPlayerSkill(item, player);
         OpacityContainerLeave(
