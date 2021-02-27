@@ -20,13 +20,14 @@ export const OpacityContainerLeave = (
   container,
   cb,
   especific_container = false,
-  value = 0.1
+  value = 0.1,
+  spin = false
 ) => {
   const start = () => {
     const tl = new GSAP.timeline({ onComplete: cb });
     tl.to(
       especific_container ? especific_container.scale : container.scale,
-      0.5,
+      0.3,
       {
         x: especific_container
           ? especific_container.scale.x + value
@@ -35,8 +36,12 @@ export const OpacityContainerLeave = (
           ? especific_container.scale.y + value
           : container.scale.y + value,
         ease: Expo.easeOut
-      }
-    ).to(container, 0.4, { alpha: 0, ease: Expo.easeOut });
+      }, 'item'
+    )
+    if(spin) {
+      tl.to(especific_container ? especific_container : container, 1, { rotation: 6, ease: Expo.easeOut }, 'item+=0.3')
+    }
+    tl.to(container, 0.4, { alpha: 0, ease: Expo.easeOut });
   };
 
   return { start };

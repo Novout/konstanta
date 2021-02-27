@@ -170,7 +170,8 @@ export const CreateChestButton = (app, player, item, resources) => {
           DeleteChestButton(item, item_container);
         },
         item_container_sprite,
-        1.5
+        1.5,
+        true
       ).start();
     });
 
