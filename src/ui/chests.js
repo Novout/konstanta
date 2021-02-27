@@ -7,7 +7,7 @@ import { OpacityContainerSwitch, OpacityContainerLeave } from '@/gsap/timeline';
 export const CreateChestButton = (app, player, item, resources) => {
   const main = KContainer(
     app.stage,
-    { x: player.x - player.width / 2, y: player.y - player.height / 1.5 },
+    { x: player.x - player.width / 2, y: player.y - player.height / 1.5, invisible: true },
     [['id_parent', item.id]]
   );
 
@@ -202,9 +202,6 @@ export const CreateChestButton = (app, player, item, resources) => {
       ).start();
     });
   });
-
-  main.visible = false;
-
   item.ui_chest = main;
   item.ui_chest_button = container;
 
