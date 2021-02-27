@@ -5,7 +5,10 @@
       "@/*": [
         "src/core/*"
       ],
-      "exclude": ["node_modules", "build"]
+      "~/*": [
+        "src/pages/*"
+      ],
+      "exclude": ["node_modules", "build/*"]
     }
   }
 }
