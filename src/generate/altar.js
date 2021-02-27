@@ -40,9 +40,9 @@ export const getAltarChoices = (player) => {
     }
   }
 
-  skills[0].x = 10;
-  skills[1].x = 285;
-  skills[2].x = 555;
+  skills[0].x = -266;
+  skills[1].x = 0;
+  skills[2].x = 266;
 
   return skills;
 };

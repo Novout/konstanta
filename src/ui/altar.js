@@ -50,9 +50,13 @@ export const CreateAltarButton = (app, player, item, resources) => {
         fill: item.background,
         rectangle: [0, 0, 233, 350],
         filters: [InterfaceGlow(item.background)]
-      });
-      item_container.x = item_container.x + item.x;
-      item_container.pivot.set(0.5, 0.5);
+      },
+      {
+        y: 0,
+        x: item.x,
+        center: true,
+      }
+      );
 
       const item_sprite = new Sprite(resources[item.sprite.path].texture);
       item_sprite.width = 64;
@@ -99,7 +103,7 @@ export const CreateAltarButton = (app, player, item, resources) => {
           button: true,
           positional: {
             x: item_container.width / 2,
-            y: choice_skills.height - 60,
+            y: item_container.height - 60,
             absolute: true
           }
         }
@@ -144,7 +148,7 @@ export const CreateAltarButton = (app, player, item, resources) => {
     {
       x: 0,
       y: 0,
-      center: true
+      center: false
     }
   );
 
@@ -157,6 +161,10 @@ export const CreateAltarButton = (app, player, item, resources) => {
     fill: 0x66bd99,
     rectangle: [0, 0, 800, 370],
     filters: [InterfaceGlow(), UIAlpha().alpha_bar]
+  }, {
+    x: 0,
+    y: 0,
+    center: true
   });
 
   item.choice_skills = choice_skills;

@@ -109,8 +109,8 @@ export const KGraphics = (
       if (positional.x) _graphics.x = positional.x;
       if (positional.y) _graphics.y = positional.y;
     } else {
-      _graphics.x += positional?.x;
-      _graphics.y += positional?.y;
+      _graphics.x += positional.x;
+      _graphics.y += positional.y;
     }
 
     if(positional.center) {
