@@ -2,10 +2,12 @@ import FOREST from '@/defines/forest.json';
 import {
   getItemPercentage,
   getChancePercentage,
-  getPercentage,
-  generateStore
+  getPercentage
 } from '@/utils/random';
 import * as Debugger from '@/debugger';
+import { createStores } from './store';
+import { createAltars } from './altar';
+import { createTrees } from './map/tree';
 
 export const textureBackground = (background = FOREST) => {
   let _texture = undefined;
@@ -45,85 +47,13 @@ export const createNodes = (options) => {
 };
 
 export const generateItems = (nodes, options) => {
-  const items = [];
+  let items = [];
 
-  nodes.forEach((node) => {
-    if (node.background === FOREST[2][0]) {
-      if(generateStore(options?.spawn?.store) && node.parent_quantity === 0) {
-        node.parent_quantity++;
-        const item = {};
-        item.background = 'foresthouse';
-        item.id = `${item.background}${node.id}`;
-        item.x = node.x + node.width / 2;
-        item.y = node.y + node.height / 2;
-        item.cwidth = 80.0;
-        item.cheight = 25.0;
-        item.scale = 2;
-        items.push(item);
-      }
-    }
-  })
+  items = [...items, ...createStores(nodes, FOREST, options)];
 
-  nodes.forEach((node) => {
-    if (node.background === FOREST[1][0]) {
-      if (getChancePercentage(options.altar_chance)) {
-        node.parent_quantity++;
-        const item = {};
-        item.background = 'altar';
-        item.active = true;
-        item.id = 'altar';
-        item.scale = 2;
-        item.x = node.x - node.width / 4;
-        item.y = node.y - node.height / 2;
-        item.cwidth = 12.5 * (item.scale + 1.0);
-        item.cheight = 12.5 * (item.scale + 1.0);
-        items.push(item);
-      }
-    }
-  });
+  items = [...items, ...createAltars(nodes, FOREST, options)];
 
-  nodes.forEach((node) => {
-    if (node.background === FOREST[2][0]) {
-      // forest1.jpg
-      if (getChancePercentage(options.node_addons) && node.parent_quantity === 0) {
-        node.parent_quantity++;
-        const item = {};
-        item.background = textureBackground([
-          ['tree', 50],
-          ['tree2', 100]
-        ]);
-        item.id = `${node.id}${item.background}`;
-        item.scale = 1;
-        if (item.background.includes('tree')) {
-          item.wood = 3;
-          item.scale = Math.random() * 0.8 + 0.4;
-          item.cwidth = 12.5 * (item.scale + 1.0);
-          item.cheight = 12.5 * (item.scale + 1.0);
-        }
-
-        if (node.x <= options.node_size) {
-          item.x = (Math.random() * options.node_size) / 2 + node.x;
-        } else if (node.x >= (options.size - 1) * options.node_size) {
-          item.x = node.x - (Math.random() * options.node_size) / 2;
-        } else {
-          item.x = (Math.random() * options.node_size) / 2 + node.x;
-        }
-
-        if (node.y <= options.node_size) {
-          item.y =
-            (Math.random() * options.node_size) / 2 + node.y - node.height;
-        } else if (node.y >= (options.size - 1) * options.node_size) {
-          item.y =
-            node.y - (Math.random() * options.node_size) / 2 - node.height;
-        } else {
-          item.y =
-            (Math.random() * options.node_size) / 4 + (node.y - node.height);
-        }
-
-        items.push(item);
-      }
-    }
-  });
+  items = [...items, ...createTrees(nodes, FOREST, options)];
 
   return items;
 };

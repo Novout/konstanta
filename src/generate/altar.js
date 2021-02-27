@@ -1,7 +1,7 @@
-import origin from '@/defines/origin.json';
 import resilience from '@/defines/skills/resilience.json';
 import rage from '@/defines/skills/rage.json';
 import arcane from '@/defines/skills/arcane.json';
+import { getChancePercentage } from '@/utils/random';
 
 export const getAltarChoices = (player) => {
   const _resilience = resilience.filter(
@@ -45,4 +45,28 @@ export const getAltarChoices = (player) => {
   skills[2].x = 266;
 
   return skills;
+};
+
+export const createAltars = (nodes, FOREST, options) => {
+  const items = [];
+
+  nodes.forEach((node) => {
+    if (node.background === FOREST[1][0]) {
+      if (getChancePercentage(options.altar_chance)) {
+        node.parent_quantity++;
+        const item = {};
+        item.background = 'altar';
+        item.active = true;
+        item.id = 'altar';
+        item.scale = 2;
+        item.x = node.x - node.width / 4;
+        item.y = node.y - node.height / 2;
+        item.cwidth = 12.5 * (item.scale + 1.0);
+        item.cheight = 12.5 * (item.scale + 1.0);
+        items.push(item);
+      }
+    }
+  });
+
+  return items;
 };
