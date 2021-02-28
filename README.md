@@ -1,12 +1,5 @@
-# Snowpack PixiJS Boilerplate
+# Konstanta
 
-![Snowpack and PixiJS render](https://i.imgur.com/ESBp2s7.gif)
+[DEMO](konstanta.novout.vercel.app)
+[API Docs](novout.github.io/konstanta)
 
-### Tecnologies
-
-- Yarn
-- Snowpack
-- PixiJS 5
-- Babel
-- Eslint
-- WebRunner
