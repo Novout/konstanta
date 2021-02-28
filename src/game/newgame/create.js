@@ -6,6 +6,10 @@ import FOREST_CONFIG from '@/defines/map/forest.json';
 export const NewGame = () => {
   OnlyWEBGL();
 
-  const context = createSave({ id: 'test001', chunk: [1, 1] });
+  const context = createSave({
+    id: 'test001',
+    chunk: [1, 1],
+    user: { deaths: 0 }
+  });
   Forest(context, FOREST_CONFIG);
 };

@@ -8,7 +8,7 @@ import {
   ContainAltarActive,
   ContainChestActive
 } from '@/event/global/active';
-import { PlayerLayerRender } from '@/render/player';
+import { LoadPlayerLayerRender, PlayerLayerRender } from '@/render/player';
 import { GameLoop } from '@/render/loop';
 import { CameraFixed, CameraInitialFixed } from '@/utils/context';
 import { PlayerKeyboardListener } from '@/event/keyboard';
@@ -25,11 +25,11 @@ import { setBackground } from '@/utils/dom';
 import { PlayerKeyboardWatcher } from '@/watcher/keyboard';
 import { PlayerMouseWatcher, WindowScrollWatcher } from '@/watcher/mouse';
 import { CreateStoreButton } from '@/ui/store';
+import { saveAll } from '@/serialize';
 import * as Debugger from '@/debugger';
 import FOREST from '@/defines/loader/forest.json';
 import SKILLS from '@/defines/loader/skills.json';
 import ITEMS from '@/defines/loader/items.json';
-import { saveAll } from '@/serialize';
 
 let player,
   items,
@@ -41,10 +41,17 @@ let player,
 
 export default (context, options) => {
   const setup = (loader, resources) => {
-    nodes = FirstLayerRender(container, resources, options);
-    addons = SecondLayerRender(container, resources, nodes, options);
-    player = PlayerLayerRender(container, resources);
-    items = ThirdLayerRender(container, resources, nodes, options);
+    if (context.chunk[0] !== 1 && context.chunk[0] !== 1) {
+      nodes = FirstLayerRender(container, resources, options);
+      addons = SecondLayerRender(container, resources, nodes, options);
+      player = LoadPlayerLayerRender(container, resources);
+      items = ThirdLayerRender(container, resources, nodes, options);
+    } else {
+      nodes = FirstLayerRender(container, resources, options);
+      addons = SecondLayerRender(container, resources, nodes, options);
+      player = PlayerLayerRender(container, resources);
+      items = ThirdLayerRender(container, resources, nodes, options);
+    }
 
     CameraInitialFixed(container, renderer);
 
