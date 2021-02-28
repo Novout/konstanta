@@ -39,3 +39,5 @@ export const PlayerLayerRender = (stage, resources) => {
 
   return [_player, player];
 };
+
+export const LoadPlayerLayerRender = (stage, resources) => {};

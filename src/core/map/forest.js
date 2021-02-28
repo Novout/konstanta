@@ -39,7 +39,7 @@ let player,
   debug,
   reactive = [];
 
-export default (options) => {
+export default (context, options) => {
   OnlyWEBGL();
 
   const setup = (loader, resources) => {
@@ -79,7 +79,7 @@ export default (options) => {
     GameLoop(app, loop);
   };
 
-  const [app, stage, renderer, container] = createContext();
+  const [app, stage, renderer, container] = createContext(context);
 
   FullContextSize(renderer, container);
 

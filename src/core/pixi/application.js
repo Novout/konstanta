@@ -1,7 +1,7 @@
 import { Application, Container } from '@/pixi/alias';
 import * as Debugger from '@/debugger';
 
-export const createContext = () => {
+export const createContext = ({ id }) => {
   const app = new Application({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -18,6 +18,7 @@ export const createContext = () => {
   const container = new Container();
   container.width = window.innerWidth;
   container.height = window.innerHeight;
+  container.id_context = id;
 
   const stage = app?.stage;
   const renderer = app?.renderer;
