@@ -81,7 +81,7 @@ export default (options) => {
 
   const [app, stage, renderer, container] = createContext();
 
-  FullContextSize(renderer, stage);
+  FullContextSize(renderer, container);
 
   LoaderCache([...FOREST, ...SKILLS, ...ITEMS], setup);
 
