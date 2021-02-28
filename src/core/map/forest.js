@@ -10,7 +10,6 @@ import {
 } from '@/event/global/active';
 import { PlayerLayerRender } from '@/render/player';
 import { GameLoop } from '@/render/loop';
-import { OnlyWEBGL } from '@/utils/webgl';
 import { CameraFixed, CameraInitialFixed } from '@/utils/context';
 import { PlayerKeyboardListener } from '@/event/keyboard';
 import { LoaderCache } from '@/pixi/loader';
@@ -30,6 +29,7 @@ import * as Debugger from '@/debugger';
 import FOREST from '@/defines/loader/forest.json';
 import SKILLS from '@/defines/loader/skills.json';
 import ITEMS from '@/defines/loader/items.json';
+import { saveAll } from '@/serialize';
 
 let player,
   items,
@@ -40,8 +40,6 @@ let player,
   reactive = [];
 
 export default (context, options) => {
-  OnlyWEBGL();
-
   const setup = (loader, resources) => {
     nodes = FirstLayerRender(container, resources, options);
     addons = SecondLayerRender(container, resources, nodes, options);
@@ -75,6 +73,8 @@ export default (context, options) => {
     Debugger.Success('Mapa Floresta foi inicializado!');
 
     setBackground('forest');
+
+    saveAll({ player: player[0] }, context);
 
     GameLoop(app, loop);
   };
