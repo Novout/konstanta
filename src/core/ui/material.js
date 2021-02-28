@@ -8,6 +8,7 @@ import {
   Text,
   SBox
 } from '@/pixi/alias';
+import { FXAA, UIAlpha } from '@/utils/webgl';
 
 export const KText = (
   title,
@@ -39,14 +40,13 @@ export const KText = (
       if (options.positional.x) _text.x = options.positional.x;
 
       if (options.positional.y) _text.y = options.positional.y;
-    } else if(options.positional.center) {
+    } else if (options.positional.center) {
       _text.x += stage.width / 2;
       _text.y += stage.height / 2;
-    }
-    else {
+    } else {
       _text.x += options.positional?.x;
       _text.y += options.positional?.y;
-    } 
+    }
   }
   _text.pivot.x = _text.width / 2;
   _text.pivot.y = _text.height / 2;
@@ -68,7 +68,9 @@ export const KContainer = (
   });
   stage.addChild(_container);
 
-  positional.invisible ? _container.visible = false : _container.visible = true
+  positional.invisible
+    ? (_container.visible = false)
+    : (_container.visible = true);
 
   return _container;
 };
@@ -101,8 +103,8 @@ export const KGraphics = (
     _graphics.buttonMode = true;
   }
 
-  runner.alpha ? _graphics.alpha = 0 : _graphics.alpha = 1
-  runner.invisible ? _graphics.visible = 0 : _graphics.visible = 1
+  runner.alpha ? (_graphics.alpha = 0) : (_graphics.alpha = 1);
+  runner.invisible ? (_graphics.visible = 0) : (_graphics.visible = 1);
 
   if (positional) {
     if (positional.absolute) {
@@ -113,7 +115,7 @@ export const KGraphics = (
       _graphics.y += positional.y;
     }
 
-    if(positional.center) {
+    if (positional.center) {
       _graphics.pivot.x = runner.rectangle[2] / 2;
       _graphics.pivot.y = runner.rectangle[3] / 2;
     }
@@ -217,4 +219,29 @@ export const KScrollBox = (
   stage.addChild(_box);
 
   return _box;
+};
+
+export const KInteractiveButton = (title, stage) => {
+  const container = KGraphics(stage, {
+    fill: 0x66bd99,
+    rectangle: [0, 0, 256, 64],
+    filters: [UIAlpha().alpha_main]
+  });
+
+  const text = KText(
+    title,
+    stage,
+    {
+      fontFamily: 'KitchenSink',
+      fontSize: 24,
+      fontWeight: 'bold'
+    },
+    {
+      button: true,
+      filters: [FXAA()],
+      positional: { center: true }
+    }
+  );
+
+  return [container, text];
 };

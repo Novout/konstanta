@@ -9,9 +9,9 @@ import {
   OpacityContainerSwitch
 } from '@/gsap/timeline';
 
-export const CreateAltarButton = (app, player, item, resources) => {
+export const CreateAltarButton = (stage, player, item, resources) => {
   const main = KContainer(
-    app.stage,
+    stage,
     {
       x: player.x - player.width / 2,
       y: player.y - player.height / 2,

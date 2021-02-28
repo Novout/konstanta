@@ -1,10 +1,10 @@
-import { Sprite, Rectangle, Texture, resources } from '@/pixi/alias';
+import { Sprite, resources } from '@/pixi/alias';
 import { FXAA, InterfaceGlow } from '@/utils/webgl';
 import { KContainer, KGraphics, KScrollBox, KTileset } from './material';
 import { UnknownInventorySprite } from '@/rig/items';
 
-export const CreateInventoryBar = (app, player, resources) => {
-  const inventory = KContainer(app.stage, { x: player.x, y: player.y - 100 });
+export const CreateInventoryBar = (stage, player, resources) => {
+  const inventory = KContainer(stage, { x: player.x, y: player.y - 100 });
   const container = KGraphics(inventory, {
     fill: 0x66bd99,
     rectangle: [0, 0, 256, 64],
@@ -102,14 +102,14 @@ export const removeInventoryItem = (inventory, player) => {
   }
 };
 
-const addInventoryItem = (inventory, player, app) => {};
+const addInventoryItem = (inventory, player, stage) => {};
 
-export const CreateInventoryMain = (app, player, resources) => {
+export const CreateInventoryMain = (stage, player, resources) => {
   const _x_set = 80;
   const _y_set = 80;
 
   const main = KScrollBox(
-    app.stage,
+    stage,
     {
       x: 0,
       y: 0
@@ -167,9 +167,8 @@ export const CreateInventoryMain = (app, player, resources) => {
 };
 
 export const RenderInventoryMain = (ui, player) => {
-  player.action.interactive_inventory ? player.action.interactive_ui = true : player.action.interactive_ui = false;
-  ui.inventory_main.position.set(
-    player.x - player.width / 2,
-    player.y
-  );
+  player.action.interactive_inventory
+    ? (player.action.interactive_ui = true)
+    : (player.action.interactive_ui = false);
+  ui.inventory_main.position.set(player.x - player.width / 2, player.y);
 };

@@ -4,10 +4,14 @@ import { getGenerateItem } from '@/generate/map/chest';
 import { setPlayerSprite } from '@/generate/items';
 import { OpacityContainerSwitch, OpacityContainerLeave } from '@/gsap/timeline';
 
-export const CreateChestButton = (app, player, item, resources) => {
+export const CreateChestButton = (stage, player, item, resources, app) => {
   const main = KContainer(
-    app.stage,
-    { x: player.x - player.width / 2, y: player.y - player.height / 1.5, invisible: true },
+    stage,
+    {
+      x: player.x - player.width / 2,
+      y: player.y - player.height / 1.5,
+      invisible: true
+    },
     [['id_parent', item.id]]
   );
 

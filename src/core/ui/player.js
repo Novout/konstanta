@@ -2,8 +2,8 @@ import { EffectText } from '@/gsap/timeline';
 import { UIAlpha, FXAA } from '@/utils/webgl';
 import { KContainer, KGraphics, KText } from './material';
 
-export const CreatePlayerLife = (app, player, resources) => {
-  const main = KContainer(app.stage, {
+export const CreatePlayerLife = (stage, player, resources) => {
+  const main = KContainer(stage, {
     x: player.x - player.width / 2,
     y: player.y - player.height / 2
   });
@@ -16,16 +16,21 @@ export const CreatePlayerLife = (app, player, resources) => {
   level.x -= main.width;
   level.y -= main.height - 12;
 
-  const level_text = KText(player.level, level, {
-    fontFamily: 'KitchenSink',
-    fontSize: 18,
-    fontWeight: 'bold'
-  }, {
-    positional: {
-      x: 0 + level.width / 2,
-      y: 0 + level.height / 2
+  const level_text = KText(
+    player.level,
+    level,
+    {
+      fontFamily: 'KitchenSink',
+      fontSize: 18,
+      fontWeight: 'bold'
+    },
+    {
+      positional: {
+        x: 0 + level.width / 2,
+        y: 0 + level.height / 2
+      }
     }
-  });
+  );
 
   const bar = KGraphics(main, {
     fill: 0xffffff,
@@ -44,17 +49,22 @@ export const CreatePlayerLife = (app, player, resources) => {
     rectangle: [0, 0, bar_value, 12]
   });
 
-  const health_text = KText(`${player.HP}  /  ${player.maxHP}`, main, {
-    fontFamily: 'KitchenSink',
-    fontSize: 10,
-    fontWeight: 'bold',
-    fill: 0xffffff
-  }, {
-    positional: {
-      x: 0,
-      y: 0 + health_bar.height / 2
+  const health_text = KText(
+    `${player.HP}  /  ${player.maxHP}`,
+    main,
+    {
+      fontFamily: 'KitchenSink',
+      fontSize: 10,
+      fontWeight: 'bold',
+      fill: 0xffffff
+    },
+    {
+      positional: {
+        x: 0,
+        y: 0 + health_bar.height / 2
+      }
     }
-  });
+  );
   health_text.filters = [FXAA()];
   health_text.x = bar.x + bar.width / 2 - 18;
 

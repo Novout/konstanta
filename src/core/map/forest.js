@@ -21,6 +21,8 @@ import { PlayerMouseListener } from '@/event/mouse';
 import { setBackground } from '@/utils/dom';
 import { PlayerKeyboardWatcher } from '@/watcher/keyboard';
 import { PlayerMouseWatcher, WindowScrollWatcher } from '@/watcher/mouse';
+import { CreateStoreButton } from '@/ui/store';
+import { ContainStoreActive } from '@/event/global/active';
 import * as Debugger from '@/debugger';
 import FOREST from '@/defines/loader/forest.json';
 import SKILLS from '@/defines/loader/skills.json';
@@ -38,14 +40,14 @@ export default (options) => {
   OnlyWEBGL();
 
   const setup = (loader, resources) => {
-    nodes = FirstLayerRender(stage, resources, options);
-    addons = SecondLayerRender(stage, resources, nodes, options);
-    player = PlayerLayerRender(stage, resources);
-    items = ThirdLayerRender(stage, resources, nodes, options);
+    nodes = FirstLayerRender(container, resources, options);
+    addons = SecondLayerRender(container, resources, nodes, options);
+    player = PlayerLayerRender(container, resources);
+    items = ThirdLayerRender(container, resources, nodes, options);
 
-    CameraInitialFixed(stage, renderer);
+    CameraInitialFixed(container, renderer);
 
-    ui = CreateUI(app, player[0], resources);
+    ui = CreateUI(container, player[0], resources);
 
     WindowScrollWatcher(app);
     PlayerKeyboardWatcher(player[0]);
@@ -53,17 +55,19 @@ export default (options) => {
 
     items.forEach((item) => {
       if (item.id.includes('altar')) {
-        item = CreateAltarButton(app, player[0], item, resources);
+        item = CreateAltarButton(container, player[0], item, resources);
+      } else if (item.id.includes('house')) {
+        item = CreateStoreButton(container, player[0], item, resources);
       }
     });
 
     addons.forEach((addon) => {
       if (addon.id.includes('chests')) {
-        addon = CreateChestButton(app, player[0], addon, resources);
+        addon = CreateChestButton(container, player[0], addon, resources, app);
       }
     });
 
-    debug = Debugger.Create(stage, player);
+    debug = Debugger.Create(container, player);
 
     Debugger.Success('Mapa Floresta foi inicializado!');
 
@@ -72,7 +76,7 @@ export default (options) => {
     GameLoop(app, loop);
   };
 
-  const [app, stage, renderer] = createContext();
+  const [app, stage, renderer, container] = createContext();
 
   FullContextSize(renderer, stage);
 
@@ -85,6 +89,8 @@ export default (options) => {
     items.forEach((item) => {
       if (item.id.includes('altar') && item.active) {
         ContainAltarActive(app, player[0], item, resources);
+      } else if (item.id.includes('house') && !player.interactive_ui) {
+        ContainStoreActive(app, player[0], item, resources);
       }
       BlockScenarioRIG(player[0], item, options);
     });
@@ -100,8 +106,8 @@ export default (options) => {
         ContainChestActive(app, player[0], addon, resources);
     });
 
-    RenderUI(app, ui, player[0]);
-    CameraFixed(stage, player[0]);
+    RenderUI(container, ui, player[0]);
+    CameraFixed(container, player[0]);
     Debugger.RenderFrameRate(debug, player[0], renderer);
   };
 };

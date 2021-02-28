@@ -1,6 +1,4 @@
-import {
-  Application,
-} from '@/pixi/alias';
+import { Application, Container } from '@/pixi/alias';
 import * as Debugger from '@/debugger';
 
 export const createContext = () => {
@@ -13,14 +11,19 @@ export const createContext = () => {
     resolution: 1
   });
 
-  if(!app) {
-    Debugger.ThrowError("Application not created!");
+  if (!app) {
+    Debugger.ThrowError('Application not created!');
   }
+
+  const container = new Container();
+  container.width = window.innerWidth;
+  container.height = window.innerHeight;
 
   const stage = app?.stage;
   const renderer = app?.renderer;
 
+  stage.addChild(container);
   document.body.appendChild(app.view);
 
-  return [app, stage, renderer];
-}
+  return [app, stage, renderer, container];
+};
