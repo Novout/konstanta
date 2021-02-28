@@ -1,5 +1,5 @@
 # Konstanta
 
-[DEMO](konstanta.novout.vercel.app)
-[API Docs](novout.github.io/konstanta)
+[DEMO](https://konstanta.novout.vercel.app)
+[API Docs](https://novout.github.io/konstanta)
 
