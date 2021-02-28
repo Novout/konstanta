@@ -10,8 +10,8 @@
     "d": "snowpack dev --polyfill-node",
     "build": "snowpack build --polyfill-node",
     "lint": "eslint --ext .js --ignore-path .gitignore . --fix && pretty-quick",
-    "docs": "documentation build src/core/** -f html -o docs",
-    "docs:serve": "documentation serve main.js"
+    "docs": "documentation build src/core/**/*.js -f html -o docs",
+    "docs:serve": "documentation serve --watch src/core/**/*.js"
   },
   "dependencies": {
     "gsap": "^3.6.0",
