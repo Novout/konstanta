@@ -9,9 +9,6 @@ export const createPlayer = (resources) => {
   let h = 80;
   // localStorage request;
   return {
-    //default
-    id: 'player',
-    texture_actually: 'stand',
     texture: {
       stand: [
         new Texture(resource_idle, new Rectangle(0 * w, 0, w, h)),
@@ -91,92 +88,6 @@ export const createPlayer = (resources) => {
           new Texture(resource_attack, new Rectangle(23 * w, 0, w, h))
         ]
       }
-    },
-    y: 1500,
-    x: 1500,
-    vx: 3,
-    vy: 3,
-    cwidth: 18,
-    cheight: 30,
-    lucky: {
-      items: 0
-    },
-    // habilities
-    level: 1,
-    levelHP: 8, // 1d8
-    maxHP: 10, // levelHP value per level
-    HP: 10, // actually hp
-    minHP: 0,
-    temporaryHP: 0,
-    CA: 0, // % for ignore attack
-    inventory: {
-      actually_item: setInitialPlayerItem(resources),
-      primary_weapon: setInitialPlayerItem(resources),
-      second_weapon: undefined,
-      activate: undefined,
-      artefact: undefined,
-      general: []
-    },
-    //knowledge utils
-    resources: {
-      gold: 0,
-      wood: 0,
-      rock: 0,
-      leather: 0,
-      efrium: 0,
-      eletronic_circuit: 0
-    },
-    conditionals: {
-      poisoning: false,
-      poisoning_value: 0,
-      bleeding: false,
-      bleeding_value: 0,
-      burning: false,
-      burning_value: 0,
-      freezing: false,
-      freezing_value: 0,
-      resistance: false
-    },
-    skills: {
-      resilience: 1,
-      rage: 1,
-      arcane: 1,
-      list: []
-    },
-    action: {
-      attack: false,
-      attack_time: 0,
-      attack_hit: false,
-      attack_velocity: 30,
-      distance: false,
-      distance_time: 0,
-      distance_hit: false,
-      interactive_inventory: false,
-      interactive_ui: false,
-      interactive_item: false,
-      position: {
-        x: 'left',
-        y: 'up',
-        area: false
-      },
-      magic: {
-        magic: false,
-        magic_hit: false,
-        magic_velocity: 30,
-        magic_slot_max: 4,
-        magic_slot: 4
-      }
-    },
-    effects: {
-      knockback: 2,
-      damage: {
-        poisoning: 0,
-        bleeding: 0,
-        thunder: 0,
-        fire: 0,
-        cold: 0
-      }
-    },
-    magics: []
+    }
   };
 };
