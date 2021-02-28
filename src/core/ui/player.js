@@ -53,8 +53,8 @@ export const CreatePlayerLife = (stage, player, resources) => {
     `${player.HP}  /  ${player.maxHP}`,
     main,
     {
-      fontFamily: 'KitchenSink',
-      fontSize: 10,
+      fontFamily: 'Arial',
+      fontSize: 12,
       fontWeight: 'bold',
       fill: 0xffffff
     },
