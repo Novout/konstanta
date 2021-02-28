@@ -9,7 +9,9 @@
   "scripts": {
     "d": "snowpack dev --polyfill-node",
     "build": "snowpack build --polyfill-node",
-    "lint": "eslint --ext .js --ignore-path .gitignore . --fix && pretty-quick"
+    "lint": "eslint --ext .js --ignore-path .gitignore . --fix && pretty-quick",
+    "docs": "documentation build src/core/** -f html -o docs",
+    "docs:serve": "documentation serve main.js"
   },
   "dependencies": {
     "gsap": "^3.6.0",
@@ -28,6 +30,7 @@
     "@snowpack/plugin-run-script": "^2.3.0",
     "@snowpack/plugin-webpack": "^2.3.0",
     "babel-eslint": "^10.1.0",
+    "documentation": "^13.1.1",
     "eslint": "^7.19.0",
     "eslint-watch": "^7.0.0",
     "husky": "^5.1.1",
