@@ -52,7 +52,7 @@ export default (options) => {
 
     ui = CreateUI(container, player[0], resources);
 
-    WindowScrollWatcher(app);
+    WindowScrollWatcher(container);
     PlayerKeyboardWatcher(player[0]);
     PlayerMouseWatcher(app, player[0]);
 

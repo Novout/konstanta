@@ -24,16 +24,16 @@ export const PlayerMouseWatcher = (app, player) => {
   );
 };
 
-export const WindowScrollWatcher = (app) => {
+export const WindowScrollWatcher = (stage) => {
   window.document.addEventListener('mousewheel', (event) => { 
     if(event.wheelDelta >= 0) {
-      if(app.stage.scale.x >= 1.6 || app.stage.scale.y >= 1.6) return;
-      app.stage.scale.x += 0.1
-      app.stage.scale.y += 0.1
+      if(stage.scale.x >= 1.6 || stage.scale.y >= 1.6) return;
+      stage.scale.x += 0.1
+      stage.scale.y += 0.1
     } else {
-      if(app.stage.scale.x <= 0.85 || app.stage.scale.y <= 0.85) return;
-      app.stage.scale.x -= 0.1
-      app.stage.scale.y -= 0.1
+      if(stage.scale.x <= 0.85 || stage.scale.y <= 0.85) return;
+      stage.scale.x -= 0.1
+      stage.scale.y -= 0.1
     }
   }, false);
 }
