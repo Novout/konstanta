@@ -3,6 +3,11 @@ import {
   SecondLayerRender,
   ThirdLayerRender
 } from '@/render/forest';
+import {
+  ContainStoreActive,
+  ContainAltarActive,
+  ContainChestActive
+} from '@/event/global/active';
 import { PlayerLayerRender } from '@/render/player';
 import { GameLoop } from '@/render/loop';
 import { OnlyWEBGL } from '@/utils/webgl';
@@ -14,7 +19,6 @@ import { FullContextSize } from '@/utils/context';
 import { BlockScenarioRIG, BlockFixedScenarioRIG } from '@/event/sprite';
 import { CreateUI, RenderUI } from '@/ui';
 import { CreateAltarButton } from '@/ui/altar';
-import { ContainAltarActive, ContainChestActive } from '@/event/sprite';
 import { CreateChestButton } from '@/ui/chests';
 import { resources } from '@/pixi/alias';
 import { PlayerMouseListener } from '@/event/mouse';
@@ -22,7 +26,6 @@ import { setBackground } from '@/utils/dom';
 import { PlayerKeyboardWatcher } from '@/watcher/keyboard';
 import { PlayerMouseWatcher, WindowScrollWatcher } from '@/watcher/mouse';
 import { CreateStoreButton } from '@/ui/store';
-import { ContainStoreActive } from '@/event/global/active';
 import * as Debugger from '@/debugger';
 import FOREST from '@/defines/loader/forest.json';
 import SKILLS from '@/defines/loader/skills.json';
