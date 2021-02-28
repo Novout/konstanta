@@ -1,6 +1,6 @@
 import { Sprite } from '@/pixi/alias';
 import { UIAlpha, InterfaceGlow, FXAA } from '@/utils/webgl';
-import { KText, KContainer, KGraphics } from './material';
+import { KText, KContainer, KGraphics, KInteractiveButton } from './material';
 import { getAltarChoices } from '@/generate/map/altar';
 import { setPlayerSkill } from '@/interceptor/player';
 import {
@@ -20,30 +20,10 @@ export const CreateAltarButton = (stage, player, item, resources) => {
     [['id_parent', item.id]]
   );
 
-  const container = KGraphics(main, {
-    fill: 0x66bd99,
-    rectangle: [0, 0, 256, 64],
-    filters: [UIAlpha().alpha_main]
-  });
-
-  const button = KText(
-    'Ativar Altar',
-    container,
-    {
-      fontFamily: 'KitchenSink',
-      fontSize: 24,
-      fontWeight: 'bold'
-    },
-    {
-      button: true,
-      filters: [FXAA()],
-      positional: {
-        center: true
-      }
-    }
-  );
+  const [container, button] = KInteractiveButton('Ativar Altar', main);
 
   button.on('click', () => {
+    button.visible = false;
     button.interactive = false;
     button.buttonMode = false;
 

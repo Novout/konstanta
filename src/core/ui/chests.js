@@ -1,5 +1,11 @@
 import { UIAlpha, InterfaceGlow, FXAA } from '@/utils/webgl';
-import { KText, KContainer, KGraphics, KTileset } from './material';
+import {
+  KText,
+  KContainer,
+  KGraphics,
+  KTileset,
+  KInteractiveButton
+} from './material';
 import { getGenerateItem } from '@/generate/map/chest';
 import { setPlayerSprite } from '@/generate/items';
 import { OpacityContainerSwitch, OpacityContainerLeave } from '@/gsap/timeline';
@@ -15,26 +21,7 @@ export const CreateChestButton = (stage, player, item, resources, app) => {
     [['id_parent', item.id]]
   );
 
-  const container = KGraphics(main, {
-    fill: 0x66bd99,
-    rectangle: [0, 0, 256, 64],
-    filters: [UIAlpha().alpha_main]
-  });
-
-  const button = KText(
-    'Abrir Bau',
-    container,
-    {
-      fontFamily: 'KitchenSink',
-      fontSize: 24,
-      fontWeight: 'bold'
-    },
-    {
-      button: true,
-      filters: [FXAA()],
-      positional: { center: true }
-    }
-  );
+  const [container, button] = KInteractiveButton('Ativar Bau', main);
 
   button.on('click', () => {
     const _item = getGenerateItem(player);
@@ -150,6 +137,7 @@ export const CreateChestButton = (stage, player, item, resources, app) => {
 
     OpacityContainerSwitch(item_container, container, () => {
       container.visible = false;
+      button.visible = false;
     }).start();
 
     item_container_pick.on('click', () => {
