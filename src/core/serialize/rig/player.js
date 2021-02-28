@@ -25,7 +25,13 @@ export const savePlayer = (player, context) => {
       second_weapon: player.inventory?.second_weapon?.base,
       activate: player.inventory?.activate?.base,
       artefact: player.inventory?.artefact?.base
-    }
+    },
+    resources: player.resources,
+    conditionals: player.conditionals,
+    skills: player.skills,
+    action: player.action,
+    effects: player.effects,
+    magics: player.magics
   });
 };
 
