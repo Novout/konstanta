@@ -44,7 +44,7 @@ export default (context, options) => {
     if (context.chunk[0] !== 1 && context.chunk[0] !== 1) {
       nodes = FirstLayerRender(container, resources, options);
       addons = SecondLayerRender(container, resources, nodes, options);
-      player = LoadPlayerLayerRender(container, resources);
+      player = LoadPlayerLayerRender(container, resources, context);
       items = ThirdLayerRender(container, resources, nodes, options);
     } else {
       nodes = FirstLayerRender(container, resources, options);
