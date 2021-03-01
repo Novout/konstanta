@@ -17,3 +17,7 @@ export const FullContextSize = (renderer, stage) => {
     event.stopPropagation();
   });
 };
+
+export const isInitialMap = (context) => {
+  return context.chunk[0] === 1 && context.chunk[0] === 1;
+};

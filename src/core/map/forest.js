@@ -6,11 +6,12 @@ import {
 import {
   ContainStoreActive,
   ContainAltarActive,
-  ContainChestActive
+  ContainChestActive,
+  ContainAreaActive
 } from '@/event/global/active';
 import { LoadPlayerLayerRender, PlayerLayerRender } from '@/render/player';
 import { GameLoop } from '@/render/loop';
-import { CameraFixed, CameraInitialFixed } from '@/utils/context';
+import { CameraFixed, CameraInitialFixed, isInitialMap } from '@/utils/context';
 import { PlayerKeyboardListener } from '@/event/keyboard';
 import { LoaderCache } from '@/pixi/loader';
 import { createMap } from '@/pixi/application';
@@ -19,29 +20,23 @@ import { BlockScenarioRIG, BlockFixedScenarioRIG } from '@/event/sprite';
 import { CreateUI, RenderUI } from '@/ui';
 import { CreateAltarButton } from '@/ui/altar';
 import { CreateChestButton } from '@/ui/chests';
-import { resources } from '@/pixi/alias';
 import { PlayerMouseListener } from '@/event/mouse';
 import { setBackground } from '@/utils/dom';
 import { PlayerKeyboardWatcher } from '@/watcher/keyboard';
 import { PlayerMouseWatcher, WindowScrollWatcher } from '@/watcher/mouse';
 import { CreateStoreButton } from '@/ui/store';
+import { CreateAreaButton } from '@/ui/area';
 import { saveAll } from '@/serialize';
 import * as Debugger from '@/debugger';
 import FOREST from '@/defines/loader/forest.json';
 import SKILLS from '@/defines/loader/skills.json';
 import ITEMS from '@/defines/loader/items.json';
 
-let player,
-  items,
-  ui,
-  addons,
-  nodes,
-  debug,
-  reactive = [];
+let player, items, ui, addons, nodes, debug, area;
 
 export default (context, options) => {
   const setup = (loader, resources) => {
-    if (context.chunk[0] !== 1 && context.chunk[0] !== 1) {
+    if (!isInitialMap(context)) {
       nodes = FirstLayerRender(container, resources, options);
       addons = SecondLayerRender(container, resources, nodes, options);
       player = LoadPlayerLayerRender(container, resources, context);
@@ -68,12 +63,12 @@ export default (context, options) => {
         item = CreateStoreButton(container, player[0], item, resources);
       }
     });
-
     addons.forEach((addon) => {
       if (addon.id.includes('chests')) {
         addon = CreateChestButton(container, player[0], addon, resources, app);
       }
     });
+    area = CreateAreaButton(app, container, player[0], context, options);
 
     debug = Debugger.Create(container, player);
 
@@ -90,7 +85,9 @@ export default (context, options) => {
 
   FullContextSize(renderer, container);
 
-  LoaderCache([...FOREST, ...SKILLS, ...ITEMS], setup);
+  if (isInitialMap(context)) {
+    LoaderCache([...FOREST, ...SKILLS, ...ITEMS], setup);
+  }
 
   const loop = (delta) => {
     PlayerKeyboardListener(delta, player[0], player[1], options);
@@ -98,9 +95,9 @@ export default (context, options) => {
 
     items.forEach((item) => {
       if (item.id.includes('altar') && item.active) {
-        ContainAltarActive(app, player[0], item, resources);
+        ContainAltarActive(app, player[0], item);
       } else if (item.id.includes('house') && !player.interactive_ui) {
-        ContainStoreActive(app, player[0], item, resources);
+        ContainStoreActive(app, player[0], item);
       }
       BlockScenarioRIG(player[0], item, options);
     });
@@ -113,8 +110,10 @@ export default (context, options) => {
         addon.active &&
         !player.interactive_ui
       )
-        ContainChestActive(app, player[0], addon, resources);
+        ContainChestActive(app, player[0], addon);
     });
+
+    ContainAreaActive(player[0], area, options);
 
     RenderUI(container, ui, player[0]);
     CameraFixed(container, player[0]);

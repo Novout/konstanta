@@ -1,6 +1,6 @@
 import { ContainSprite } from '@/event/sprite';
 
-export const ContainStoreActive = (app, player, item, resources) => {
+export const ContainStoreActive = (app, player, item) => {
   const _item = item;
 
   if (ContainSprite(player, _item) && !player.action.interactive_item) {
@@ -14,7 +14,7 @@ export const ContainStoreActive = (app, player, item, resources) => {
   }
 };
 
-export const ContainAltarActive = (app, player, item, resources) => {
+export const ContainAltarActive = (app, player, item) => {
   if (ContainSprite(player, item) && !player.action.interactive_item) {
     item.ui_altar.visible = true;
     if (item.choice_skills.visible)
@@ -29,7 +29,7 @@ export const ContainAltarActive = (app, player, item, resources) => {
   }
 };
 
-export const ContainChestActive = (app, player, item, resources) => {
+export const ContainChestActive = (app, player, item) => {
   if (ContainSprite(player, item) && !player.action.interactive_item) {
     item.ui_chest.position.set(
       player.x - player.width / 2 + 50,
@@ -38,5 +38,18 @@ export const ContainChestActive = (app, player, item, resources) => {
     item.ui_chest.visible = true;
   } else {
     item.ui_chest.visible = false;
+  }
+};
+
+export const ContainAreaActive = (player, item, options) => {
+  if (
+    (player.y >= (options.size - 2) * options.node_size ||
+      player.x >= (options.size - 2) * options.node_size) &&
+    !player.action.interactive_item
+  ) {
+    item.position.set(player.x + item.width / 2, player.y + item.height / 2);
+    item.visible = true;
+  } else {
+    item.visible = false;
   }
 };

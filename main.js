@@ -1,4 +1,4 @@
 import { NewGame } from './src/game/newgame/create';
-import './src/pages/css/index.css';
+import '~/css/index.css';
 
 NewGame();
