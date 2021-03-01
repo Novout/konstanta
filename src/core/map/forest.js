@@ -13,7 +13,7 @@ import { GameLoop } from '@/render/loop';
 import { CameraFixed, CameraInitialFixed } from '@/utils/context';
 import { PlayerKeyboardListener } from '@/event/keyboard';
 import { LoaderCache } from '@/pixi/loader';
-import { createContext } from '@/pixi/application';
+import { createMap } from '@/pixi/application';
 import { FullContextSize } from '@/utils/context';
 import { BlockScenarioRIG, BlockFixedScenarioRIG } from '@/event/sprite';
 import { CreateUI, RenderUI } from '@/ui';
@@ -86,7 +86,7 @@ export default (context, options) => {
     GameLoop(app, loop);
   };
 
-  const [app, stage, renderer, container] = createContext(context);
+  const [app, stage, renderer, container] = createMap(context);
 
   FullContextSize(renderer, container);
 

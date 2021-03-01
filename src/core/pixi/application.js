@@ -1,7 +1,7 @@
 import { Application, Container } from '@/pixi/alias';
 import * as Debugger from '@/debugger';
 
-export const createContext = ({ id }) => {
+export const createMap = ({ id }) => {
   const app = new Application({
     width: window.innerWidth,
     height: window.innerHeight,
