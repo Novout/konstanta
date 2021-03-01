@@ -1,8 +1,8 @@
 import { AnimatedSprite } from '@/pixi/alias';
 import { createPlayer } from '@/rig/player';
 import { generatePlayerItem, setInitialPlayerItem } from '@/generate/items';
-import PLAYER from '@/defines/rig/PLAYER.json';
 import { loadPlayer } from '@/serialize/rig/player';
+import PLAYER from '@/defines/rig/player.json';
 
 export const PlayerLayerRender = (stage, resources) => {
   const player = createPlayer(resources);
