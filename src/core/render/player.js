@@ -48,8 +48,8 @@ export const LoadPlayerLayerRender = (stage, resources, context) => {
   const _player = new AnimatedSprite(player_base.texture.stand);
   _player.id = player.id;
   _player.texture_actually = player.texture_actually;
-  _player.y = player.y;
-  _player.x = player.x;
+  _player.y = Math.random() * 500 + 800;
+  _player.x = Math.random() * 500 + 800;
   _player.cwidth = player.cwidth;
   _player.cheight = player.cheight;
   _player.vx = player.vx;

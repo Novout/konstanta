@@ -1,5 +1,8 @@
 {
   "id": "test001",
   "chunk": [1, 1],
+  "settings": {
+    "difficult": "hard"
+  },
   "user": { "deaths": 0 }
 }

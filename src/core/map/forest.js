@@ -37,17 +37,14 @@ let player, items, ui, addons, nodes, debug, area;
 
 export default (context, options) => {
   const setup = (loader, resources) => {
+    nodes = FirstLayerRender(container, resources, options);
+    addons = SecondLayerRender(container, resources, nodes, options);
     if (!isInitialMap(context)) {
-      nodes = FirstLayerRender(container, resources, options);
-      addons = SecondLayerRender(container, resources, nodes, options);
       player = LoadPlayerLayerRender(container, resources, context);
-      items = ThirdLayerRender(container, resources, nodes, options);
     } else {
-      nodes = FirstLayerRender(container, resources, options);
-      addons = SecondLayerRender(container, resources, nodes, options);
       player = PlayerLayerRender(container, resources);
-      items = ThirdLayerRender(container, resources, nodes, options);
     }
+    items = ThirdLayerRender(container, resources, nodes, options);
 
     CameraInitialFixed(container, renderer);
 
@@ -73,7 +70,7 @@ export default (context, options) => {
 
     debug = Debugger.Create(container, player);
 
-    Debugger.Success('Mapa Floresta foi inicializado!');
+    Debugger.Success(`Mapa Floresta ${context.chunk[0]} / ${context.chunk[1]} foi inicializado!`);
 
     setBackground('forest');
 

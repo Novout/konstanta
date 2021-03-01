@@ -1,5 +1,4 @@
 import { Texture, BaseTexture, Rectangle } from '@/pixi/alias';
-import { setInitialPlayerItem } from '@/generate/items';
 
 export const createPlayer = (resources) => {
   let resource_idle = BaseTexture.from(resources['player_ide'].url);
