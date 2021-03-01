@@ -7,15 +7,19 @@ export const CameraFixed = (stage, player) => {
 };
 
 export const FullContextSize = (renderer, stage) => {
-  window.addEventListener('resize', () => {
-    renderer.resize(window.innerWidth, window.innerHeight);
-    stage.position.set(renderer.screen.width / 2, renderer.screen.height / 2);
-  });
+  try {
+    window.addEventListener('resize', () => {
+      renderer.resize(window.innerWidth, window.innerHeight);
+      stage.position.set(renderer.screen.width / 2, renderer.screen.height / 2);
+    });
 
-  window.addEventListener('contextmenu', (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-  });
+    window.addEventListener('contextmenu', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+    });
+  } catch (e) {
+    console.log('deu ruim');
+  }
 };
 
 export const isInitialMap = (context) => {

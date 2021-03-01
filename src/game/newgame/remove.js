@@ -1,5 +1,5 @@
-import Mouse from "pixi.js-mouse";
-import Keyboard from "pixi.js-keyboard";
+import Mouse from '@/pixi/plugins/mouse';
+import Keyboard from 'pixi.js-keyboard';
 
 export const clearContext = () => {
   window.document.getElementById('canvas')?.remove();
@@ -8,4 +8,4 @@ export const clearContext = () => {
 export const clearListener = () => {
   Keyboard.clear();
   Mouse.clear();
-}
+};

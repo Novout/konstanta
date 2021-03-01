@@ -84,7 +84,7 @@ export default (context, options) => {
 
   const [app, stage, renderer, container] = createMap(context);
 
-  FullContextSize(renderer, container);
+  FullContextSize(renderer, container, context);
 
   const loop = (delta) => {
     PlayerKeyboardListener(delta, player[0], player[1], options);
