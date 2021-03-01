@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "gsap": "^3.6.0",
+    "nom-events": "^1.0.2",
     "pixi-filters": "^3.2.2",
     "pixi-scrollbox": "^2.2.3",
     "pixi-viewport": "^4.20.1",

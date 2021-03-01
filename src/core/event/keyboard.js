@@ -1,4 +1,4 @@
-import Mouse from 'pixi.js-mouse';
+import Mouse from "pixi.js-mouse";
 import Keyboard from 'pixi.js-keyboard';
 
 const PlayerIsRun = (player, player_base) => {

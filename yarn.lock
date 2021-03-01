@@ -6399,7 +6399,7 @@ node-releases@^1.1.70:
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.70.tgz#66e0ed0273aa65666d7fe78febe7634875426a08"
   integrity sha512-Slf2s69+2/uAD79pVVQo8uSiC34+g8GWY8UH2Qtqv34ZfhYrxpYpfzs9Js9d6O0mbDmALuxaTlplnBTnSELcrw==
 
-nom-events@^1.0.1:
+nom-events@^1.0.1, nom-events@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/nom-events/-/nom-events-1.0.2.tgz#6f30f27ee5da16af6eb51a88b96fea14340e4efa"
   integrity sha512-U4Ja3I9SFEOK+a6rKosutdhglbxIcBqn2rSBJLmVrTsMLfRC9JtZtRJ91hGisQ6EW4yBkRw4Q9l8RRd6yf7ejg==

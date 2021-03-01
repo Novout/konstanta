@@ -27,6 +27,7 @@ import { PlayerMouseWatcher, WindowScrollWatcher } from '@/watcher/mouse';
 import { CreateStoreButton } from '@/ui/store';
 import { CreateAreaButton } from '@/ui/area';
 import { saveAll } from '@/serialize';
+import { LoaderShared } from '@/pixi/alias';
 import * as Debugger from '@/debugger';
 import FOREST from '@/defines/loader/forest.json';
 import SKILLS from '@/defines/loader/skills.json';
@@ -52,9 +53,9 @@ export default (context, options) => {
 
     ui = CreateUI(container, player[0], resources);
 
-    WindowScrollWatcher(container);
-    PlayerKeyboardWatcher(player[0]);
-    PlayerMouseWatcher(app, player[0]);
+    WindowScrollWatcher(container, context);
+    PlayerKeyboardWatcher(player[0], context);
+    PlayerMouseWatcher(app, player[0], context);
 
     items.forEach((item) => {
       if (item.id.includes('altar')) {
@@ -84,10 +85,6 @@ export default (context, options) => {
   const [app, stage, renderer, container] = createMap(context);
 
   FullContextSize(renderer, container);
-
-  if (isInitialMap(context)) {
-    LoaderCache([...FOREST, ...SKILLS, ...ITEMS], setup);
-  }
 
   const loop = (delta) => {
     PlayerKeyboardListener(delta, player[0], player[1], options);
@@ -119,4 +116,10 @@ export default (context, options) => {
     CameraFixed(container, player[0]);
     Debugger.RenderFrameRate(debug, player[0], renderer);
   };
+
+  if (isInitialMap(context)) {
+    LoaderCache([...FOREST, ...SKILLS, ...ITEMS], setup);
+  } else {
+    LoaderShared.load(setup);
+  }
 };

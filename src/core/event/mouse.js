@@ -1,4 +1,4 @@
-import Mouse from 'pixi.js-mouse';
+import Mouse from "pixi.js-mouse";
 
 export const PlayerMouseListener = (delta, player, player_base, options) => {
   if (Mouse.isButtonDown(Mouse.Button.LEFT)) {

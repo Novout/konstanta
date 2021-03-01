@@ -1,7 +1,9 @@
 import { Application, Container } from '@/pixi/alias';
 import * as Debugger from '@/debugger';
+import { isInitialMap } from '@/utils/context';
+import { clearListener } from '-/game/newgame/remove';
 
-export const createMap = ({ id }) => {
+export const createMap = (context) => {
   const app = new Application({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -18,13 +20,17 @@ export const createMap = ({ id }) => {
   const container = new Container();
   container.width = window.innerWidth;
   container.height = window.innerHeight;
-  container.id_context = id;
+  container.id_context = context.id;
 
   const stage = app?.stage;
   const renderer = app?.renderer;
 
   stage.addChild(container);
   document.body.appendChild(app.view);
+
+  if(!isInitialMap(context)) {
+    clearListener();
+  }
 
   return [app, stage, renderer, container];
 };
