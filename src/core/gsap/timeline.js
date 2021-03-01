@@ -30,14 +30,17 @@ export const OpacityContainerLeave = (
       tl.to(
         text.style,
         0.25,
-        { fontSize: text.style.fontSize + 4, ease: Expo.easeInOut },
+        { fontSize: text.style.fontSize + 6, ease: Expo.easeInOut },
         'item'
-      ).to(
-        text.style,
-        0.5,
-        { fontSize: text.style.fontSize - 4, ease: Expo.easeIn },
-        'item+=0.3'
-      );
+      )
+        .to(text, 0.25, { x: text.x - 12, ease: Expo.easeInOut }, 'item')
+        .to(
+          text.style,
+          0.5,
+          { fontSize: text.style.fontSize - 6, ease: Expo.easeIn },
+          'item+=0.4'
+        )
+        .to(text, 0.5, { x: text.x + 12, ease: Expo.easeIn }, 'item+=0.4');
     }
     tl.to(
       especific_container ? especific_container.scale : container.scale,
