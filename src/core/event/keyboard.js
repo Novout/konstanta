@@ -1,4 +1,4 @@
-import Controller from 'pixi.js-controller';
+import Controller from 'pixi-controller';
 
 const PlayerIsRun = (player, player_base) => {
   if (player.texture_actually !== 'run') {

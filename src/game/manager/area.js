@@ -8,5 +8,5 @@ export const goToNewArea = async (chunk, app, content, context) => {
   await saveAll(content, context);
   await app.destroy(true);
   await clearContext();
-  await NewMap(chunk, context);
+  await NewMap(context);
 };

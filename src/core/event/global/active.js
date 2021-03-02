@@ -43,6 +43,14 @@ export const ContainChestActive = (app, player, item) => {
 
 export const ContainAreaActive = (player, item, options) => {
   if (
+    player.y >= (options.size - 2) * options.node_size &&
+    player.x >= (options.size - 2) * options.node_size
+  ) {
+    item.visible = false;
+    return;
+  }
+
+  if (
     (player.y >= (options.size - 2) * options.node_size ||
       player.x >= (options.size - 2) * options.node_size) &&
     !player.action.interactive_item

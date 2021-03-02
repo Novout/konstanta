@@ -1,4 +1,4 @@
-import Controller from 'pixi.js-controller';
+import Controller from 'pixi-controller';
 
 export const clearContext = () => {
   window.document.getElementById('canvas')?.remove();

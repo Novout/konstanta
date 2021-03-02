@@ -16,11 +16,11 @@
   "dependencies": {
     "gsap": "^3.6.0",
     "nom-events": "^1.0.2",
+    "pixi-controller": "^1.0.0",
     "pixi-filters": "^3.2.2",
     "pixi-scrollbox": "^2.2.3",
     "pixi-viewport": "^4.20.1",
     "pixi.js": "^5.3.8",
-    "pixi.js-controller": "^1.0.2",
     "snowpack": "^3.0.11"
   },
   "devDependencies": {

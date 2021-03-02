@@ -1,4 +1,4 @@
-import Controller from 'pixi.js-controller';
+import Controller from 'pixi-controller';
 
 export const PlayerMouseListener = (delta, player, player_base, options) => {
   if (Controller.Mouse.isButtonDown(Controller.Mouse.Button.LEFT)) {

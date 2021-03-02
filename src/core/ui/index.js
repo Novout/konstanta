@@ -1,4 +1,4 @@
-import Keyboard from 'pixi.js-keyboard';
+import Controller from 'pixi-controller';
 import {
   CreateInventoryBar,
   RenderInventoryBar,
@@ -22,14 +22,14 @@ export const RenderUI = (app, ui, player) => {
   RenderPlayerLife(ui, player);
 
   KEYS.D_OPEN_BAR.forEach((key) => {
-    if (Keyboard.isKeyDown(key)) {
+    if (Controller.Keyboard.isKeyDown(key)) {
       ui.inventory.visible = true;
       RenderInventoryBar(ui.inventory, player, key);
       return;
     }
   });
 
-  if(player.action.interactive_inventory) {
+  if (player.action.interactive_inventory) {
     ui.inventory_main.visible = true;
     RenderInventoryMain(ui, player);
   } else {

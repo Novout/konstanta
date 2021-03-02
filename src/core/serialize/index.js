@@ -1,5 +1,6 @@
 import * as Debugger from '@/debugger';
 import { loadPlayer, savePlayer } from './rig/player';
+import { saveContext } from './storage/context';
 import { getStorage } from './storage/get';
 import { setStorage } from './storage/set';
 
@@ -11,6 +12,7 @@ export const createSave = (context) => {
 export const saveAll = ({ player }, context) => {
   if (!context) Debugger.ThrowError('context Object not exist!');
 
+  saveContext(context);
   savePlayer(player, context);
 };
 

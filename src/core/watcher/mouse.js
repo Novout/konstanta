@@ -1,4 +1,4 @@
-import Controller from 'pixi.js-controller';
+import Controller from 'pixi-controller';
 import { isInitialMap } from '@/utils/context';
 
 export const PlayerMouseWatcher = (app, player, context) => {
