@@ -1,3 +1,4 @@
+import Controller from 'pixi.js-controller';
 import {
   FirstLayerRender,
   SecondLayerRender,
@@ -70,7 +71,9 @@ export default (context, options) => {
 
     debug = Debugger.Create(container, player);
 
-    Debugger.Success(`Mapa Floresta ${context.chunk[0]} / ${context.chunk[1]} foi inicializado!`);
+    Debugger.Success(
+      `Mapa Floresta ${context.chunk[0]} / ${context.chunk[1]} foi inicializado!`
+    );
 
     setBackground('forest');
 
@@ -112,6 +115,8 @@ export default (context, options) => {
     RenderUI(container, ui, player[0]);
     CameraFixed(container, player[0]);
     Debugger.RenderFrameRate(debug, player[0], renderer);
+
+    Controller.update();
   };
 
   if (isInitialMap(context)) {

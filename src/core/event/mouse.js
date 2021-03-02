@@ -1,7 +1,7 @@
-import Mouse from '@/pixi/plugins/mouse';
+import Controller from 'pixi.js-controller';
 
 export const PlayerMouseListener = (delta, player, player_base, options) => {
-  if (Mouse.isButtonDown(Mouse.Button.LEFT)) {
+  if (Controller.Mouse.isButtonDown(Controller.Mouse.Button.LEFT)) {
     if (player.action.position.x === 'left') {
       player.anchor.x = 0.75;
       player.scale.x = -2.5;
@@ -59,9 +59,7 @@ export const PlayerMouseListener = (delta, player, player_base, options) => {
     player.action.attack_time = 0;
   }
 
-  if (Mouse.isButtonDown(Mouse.Button.RIGHT)) {
+  if (Controller.Mouse.isButtonDown(Controller.Mouse.Button.RIGHT)) {
     console.log('right');
   }
-
-  Mouse.update();
 };

@@ -1,5 +1,4 @@
-import Mouse from '@/pixi/plugins/mouse';
-import Keyboard from 'pixi.js-keyboard';
+import Controller from 'pixi.js-controller';
 
 const PlayerIsRun = (player, player_base) => {
   if (player.texture_actually !== 'run') {
@@ -18,22 +17,20 @@ const PlayerIsStop = (player, player_base) => {
 };
 
 export const PlayerKeyboardListener = (delta, player, player_base, options) => {
-  if (Mouse.isButtonDown(Mouse.Button.LEFT)) return;
+  if (Controller.Mouse.isButtonDown(Controller.Mouse.Button.LEFT)) return;
 
-  if (Mouse.isButtonDown(Mouse.Button.RIGHT)) {
+  if (Controller.Mouse.isButtonDown(Controller.Mouse.Button.RIGHT)) {
     if (!player.action.position.area) {
       PlayerIsStop(player, player_base);
       return;
     }
   }
 
-  Keyboard.update();
-
   if (
-    (Keyboard.isKeyDown('ArrowLeft', 'KeyA') &&
-      Keyboard.isKeyDown('ArrowRight', 'KeyD')) ||
-    (Keyboard.isKeyDown('ArrowUp', 'KeyW') &&
-      Keyboard.isKeyDown('ArrowDown', 'KeyS'))
+    (Controller.Keyboard.isKeyDown('ArrowLeft', 'KeyA') &&
+      Controller.Keyboard.isKeyDown('ArrowRight', 'KeyD')) ||
+    (Controller.Keyboard.isKeyDown('ArrowUp', 'KeyW') &&
+      Controller.Keyboard.isKeyDown('ArrowDown', 'KeyS'))
   ) {
     PlayerIsStop(player, player_base);
     player.texture_actually = 'stand';
@@ -43,7 +40,7 @@ export const PlayerKeyboardListener = (delta, player, player_base, options) => {
 
   let stop = true;
 
-  if (Keyboard.isKeyDown('ArrowLeft', 'KeyA')) {
+  if (Controller.Keyboard.isKeyDown('ArrowLeft', 'KeyA')) {
     stop = false;
     player.anchor.x = 0.75;
     player.scale.x = -2.5;
@@ -52,7 +49,7 @@ export const PlayerKeyboardListener = (delta, player, player_base, options) => {
     player.x -= player.vx * delta;
   }
 
-  if (Keyboard.isKeyDown('ArrowRight', 'KeyD')) {
+  if (Controller.Keyboard.isKeyDown('ArrowRight', 'KeyD')) {
     stop = false;
     player.anchor.x = 0;
     player.scale.x = 2.5;
@@ -61,14 +58,14 @@ export const PlayerKeyboardListener = (delta, player, player_base, options) => {
     player.x += player.vx * delta;
   }
 
-  if (Keyboard.isKeyDown('ArrowUp', 'KeyW')) {
+  if (Controller.Keyboard.isKeyDown('ArrowUp', 'KeyW')) {
     stop = false;
     PlayerIsRun(player, player_base);
     if (player.y <= 0) return;
     player.y -= player.vy * delta;
   }
 
-  if (Keyboard.isKeyDown('ArrowDown', 'KeyS')) {
+  if (Controller.Keyboard.isKeyDown('ArrowDown', 'KeyS')) {
     stop = false;
     PlayerIsRun(player, player_base);
     if (player.y >= (options.size - 1) * options.node_size) return;

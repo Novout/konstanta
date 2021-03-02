@@ -1,11 +1,9 @@
-import Mouse from '@/pixi/plugins/mouse';
-import Keyboard from 'pixi.js-keyboard';
+import Controller from 'pixi.js-controller';
 
 export const clearContext = () => {
   window.document.getElementById('canvas')?.remove();
 };
 
 export const clearListener = () => {
-  Keyboard.clear();
-  Mouse.clear();
+  Controller.reset();
 };

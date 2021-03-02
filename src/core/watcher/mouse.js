@@ -1,8 +1,8 @@
-import Mouse from '@/pixi/plugins/mouse';
+import Controller from 'pixi.js-controller';
 import { isInitialMap } from '@/utils/context';
 
 export const PlayerMouseWatcher = (app, player, context) => {
-  Mouse.events.on(
+  Controller.Mouse.events.on(
     'pressed',
     null,
     (
