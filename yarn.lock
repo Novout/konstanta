@@ -6874,10 +6874,10 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
-pixi-controller@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/pixi-controller/-/pixi-controller-1.0.0.tgz#5f810937e337ce7a6e5d589ba6d310baad8cea6d"
-  integrity sha512-1gKR5J4F7cz9U8Mcnp2jCr0gUvF1Ed/wjQqzKLDEImJYaS9UkeBsGxlpxVBsanirfzCeohITi53Lqa2mr23Qag==
+pixi-controller@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/pixi-controller/-/pixi-controller-1.0.2.tgz#0542247aacc6cf17496355745040cf693de4b4b2"
+  integrity sha512-Ahk6guQIyPcACsxE9VM+bwmvefEQdL3NXx11j7pt7nxBqaa0TBSS++pO60NqLyuUVukmp6ubbpEpgq7T5UTpBw==
   dependencies:
     nom-events "^1.0.2"
 

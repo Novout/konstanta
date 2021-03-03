@@ -1,7 +1,7 @@
-import Controller from 'pixi-controller';
+import Controller, { BUTTON } from 'pixi-controller';
 
 export const PlayerMouseListener = (delta, player, player_base, options) => {
-  if (Controller.Mouse.isButtonDown(Controller.Mouse.Button.LEFT)) {
+  if (Controller.Mouse.isButtonDown(BUTTON.LEFT)) {
     if (player.action.position.x === 'left') {
       player.anchor.x = 0.75;
       player.scale.x = -2.5;
@@ -59,7 +59,7 @@ export const PlayerMouseListener = (delta, player, player_base, options) => {
     player.action.attack_time = 0;
   }
 
-  if (Controller.Mouse.isButtonDown(Controller.Mouse.Button.RIGHT)) {
+  if (Controller.Mouse.isButtonDown(BUTTON.RIGHT)) {
     console.log('right');
   }
 };

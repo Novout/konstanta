@@ -1,4 +1,4 @@
-import Controller from 'pixi-controller';
+import Controller, { BUTTON } from 'pixi-controller';
 
 const PlayerIsRun = (player, player_base) => {
   if (player.texture_actually !== 'run') {
@@ -17,9 +17,9 @@ const PlayerIsStop = (player, player_base) => {
 };
 
 export const PlayerKeyboardListener = (delta, player, player_base, options) => {
-  if (Controller.Mouse.isButtonDown(Controller.Mouse.Button.LEFT)) return;
+  if (Controller.Mouse.isButtonDown(BUTTON.LEFT)) return;
 
-  if (Controller.Mouse.isButtonDown(Controller.Mouse.Button.RIGHT)) {
+  if (Controller.Mouse.isButtonDown(BUTTON.RIGHT)) {
     if (!player.action.position.area) {
       PlayerIsStop(player, player_base);
       return;
