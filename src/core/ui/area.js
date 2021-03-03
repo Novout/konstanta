@@ -8,7 +8,7 @@ export const CreateAreaButton = (app, stage, player, context, options) => {
     invisible: true
   });
 
-  const [container, button] = KInteractiveButton('Nova Área', main);
+  const [container, button] = KInteractiveButton('Nova Area', main);
   button.on('click', () => {
     if (player.y >= (options.size - 2) * options.node_size) {
       Promise.resolve(

@@ -55,7 +55,10 @@ export const ContainAreaActive = (player, item, options) => {
       player.x >= (options.size - 2) * options.node_size) &&
     !player.action.interactive_item
   ) {
-    item.position.set(player.x + item.width / 2, player.y + item.height / 2);
+    item.position.set(
+      player.x - player.width / 2 + 50,
+      player.y - player.height / 2
+    );
     item.visible = true;
   } else {
     item.visible = false;
