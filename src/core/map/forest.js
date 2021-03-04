@@ -33,7 +33,6 @@ import * as Debugger from '@/debugger';
 import FOREST from '@/defines/loader/forest.json';
 import SKILLS from '@/defines/loader/skills.json';
 import ITEMS from '@/defines/loader/items.json';
-import { getContext } from '../serialize/storage/context';
 
 let player, items, ui, addons, nodes, debug, area;
 

@@ -8,12 +8,12 @@ export const CreateAreaButton = (app, stage, player, context, options) => {
     invisible: true
   });
 
-  const [container, button] = KInteractiveButton('Nova Area', main);
+  const [_, button] = KInteractiveButton('Nova Area', main);
   button.on('click', () => {
     if (player.y >= (options.size - 2) * options.node_size) {
       Promise.resolve(
         goToNewArea(
-          [context.chunk[0] + 1, context.chunk[1]],
+          [context.chunk[0] + 1, context.chunk[1], 'down'],
           app,
           { player },
           context
@@ -22,7 +22,7 @@ export const CreateAreaButton = (app, stage, player, context, options) => {
     } else {
       Promise.resolve(
         goToNewArea(
-          [context.chunk[0], context.chunk[1] + 1],
+          [context.chunk[0], context.chunk[1] + 1, 'right'],
           app,
           { player },
           context

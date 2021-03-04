@@ -1,6 +1,7 @@
 {
   "id": "test001",
   "chunk": [1, 1],
+  "chunkDirection": "",
   "settings": {
     "difficult": "hard"
   },

@@ -2,6 +2,7 @@ import { AnimatedSprite } from '@/pixi/alias';
 import { createPlayer } from '@/rig/player';
 import { generatePlayerItem, setInitialPlayerItem } from '@/generate/items';
 import { loadPlayer } from '@/serialize/rig/player';
+import * as Debugger from '@/debugger';
 import PLAYER from '@/defines/rig/player.json';
 
 export const PlayerLayerRender = (stage, resources) => {
@@ -42,14 +43,23 @@ export const PlayerLayerRender = (stage, resources) => {
 };
 
 export const LoadPlayerLayerRender = (stage, resources, context) => {
+  const old_player = loadPlayer(context);
   const player_base = createPlayer(resources);
-
   const player = loadPlayer(context);
   const _player = new AnimatedSprite(player_base.texture.stand);
   _player.id = player.id;
   _player.texture_actually = player.texture_actually;
-  _player.y = Math.random() * 500 + 800;
-  _player.x = Math.random() * 500 + 800;
+
+  if (context.chunkDirection === 'down') {
+    _player.x = old_player.x;
+    _player.y = 10;
+  } else if (context.chunkDirection === 'right') {
+    _player.x = 10;
+    _player.y = old_player.y;
+  } else {
+    Debugger.ThrowError('context: chunkDirection not exists!');
+  }
+
   _player.cwidth = player.cwidth;
   _player.cheight = player.cheight;
   _player.vx = player.vx;
