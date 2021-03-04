@@ -1,7 +1,7 @@
 import { KContainer, KInteractiveButton } from './material';
 import * as Debugger from '@/debugger';
 
-export const CreateStoreButton = (stage, player, item, resources) => {
+export const CreateStoreButton = (app, stage, player, item, resources) => {
   const main = KContainer(
     stage,
     {
@@ -11,12 +11,14 @@ export const CreateStoreButton = (stage, player, item, resources) => {
     [['id_parent', item.id]]
   );
 
-  const [_, button] = KInteractiveButton('Entrar na Loja', main);
+  const [container, button] = KInteractiveButton('Entrar na Loja', main);
   button.on('click', () => {
+    stage.visible = false;
+    container.visible = false;
     Debugger.Warning('vai demorar ate implementar isso aqui');
   });
 
-  item.ui_store = main;
+  item.ui_store_entry = main;
 
   return main;
 };

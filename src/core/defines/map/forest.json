@@ -1,5 +1,5 @@
 {
-  "size": 32,
+  "size": 10,
   "node_size": 200,
   "node_items": 30,
   "node_addons": 20,
@@ -7,6 +7,6 @@
   "altar_chance": 30,
   "spawn": {
     "simple_chest": 30,
-    "store": 99.9
+    "store": 89.9
   }
 }

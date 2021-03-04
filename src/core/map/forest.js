@@ -28,7 +28,7 @@ import { PlayerMouseWatcher, WindowScrollWatcher } from '@/watcher/mouse';
 import { CreateStoreButton } from '@/ui/store';
 import { CreateAreaButton } from '@/ui/area';
 import { saveAll } from '@/serialize';
-import { LoaderShared, utils } from '@/pixi/alias';
+import { LoaderShared } from '@/pixi/alias';
 import * as Debugger from '@/debugger';
 import FOREST from '@/defines/loader/forest.json';
 import SKILLS from '@/defines/loader/skills.json';
@@ -59,7 +59,7 @@ export default (context, options) => {
       if (item.id.includes('altar')) {
         item = CreateAltarButton(container, player[0], item, resources);
       } else if (item.id.includes('house')) {
-        item = CreateStoreButton(container, player[0], item, resources);
+        item = CreateStoreButton(app, container, player[0], item, resources);
       }
     });
     addons.forEach((addon) => {
@@ -81,8 +81,6 @@ export default (context, options) => {
 
     GameLoop(app, loop);
   };
-
-  utils.skipHello();
 
   const [app, stage, renderer, container] = createMap(context);
 
@@ -113,7 +111,7 @@ export default (context, options) => {
     });
 
     ContainAreaActive(player[0], area, options);
-
+    
     RenderUI(container, ui, player[0]);
     CameraFixed(container, player[0]);
     Debugger.RenderFrameRate(debug, player[0], renderer);
