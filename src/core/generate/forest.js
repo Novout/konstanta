@@ -1,5 +1,5 @@
 import FOREST from '@/defines/forest.json';
-import { createStores } from './map/store';
+import { createStoreBackground, createStores } from './map/store';
 import { createAltars } from './map/altar';
 import { createTrees } from './map/tree';
 import { createAddons } from './map/addons';
@@ -20,6 +20,14 @@ export const generateAddons = (nodes, options) => {
   let items = [];
 
   items = [...items, ...createAddons(nodes, FOREST, options)];
-  
+
   return items;
+};
+
+export const generateStore = (scene, resources) => {
+  let content = [];
+
+  content = [...content, ...createStoreBackground(scene, resources)];
+
+  return content;
 };

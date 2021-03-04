@@ -58,7 +58,7 @@ export const KText = (
 
 export const KContainer = (
   stage,
-  positional = { x: 1000, y: 1000 },
+  positional = { x: 1000, y: 1000, center: false },
   append = []
 ) => {
   const _container = new Container();
@@ -67,6 +67,11 @@ export const KContainer = (
     _container[item[0]] = item[1];
   });
   stage.addChild(_container);
+
+  if (positional.center) {
+    _container.pivot.x = _container.width / 2;
+    _container.pivot.y = _container.height / 2;
+  }
 
   positional.invisible
     ? (_container.visible = false)
@@ -136,6 +141,34 @@ export const KImage = (
   const _image = new Sprite(resources[item.sprite.path_inventory].texture);
   _image.width = size.width;
   _image.height = size.height;
+
+  if (positional) {
+    if (positional.absolute) {
+      if (positional.x) _image.x = positional.x;
+
+      if (positional.y) _image.y = positional.y;
+    } else {
+      _image.x += positional?.x;
+      _image.y += positional?.y;
+    }
+  }
+
+  stage.addChild(_image);
+
+  return _image;
+};
+
+export const KSprite = (
+  stage,
+  resources,
+  item,
+  size = { width: 100, height: 100 },
+  positional = undefined
+) => {
+  const _image = new Sprite(resources[item].texture);
+  _image.width = size.width;
+  _image.height = size.height;
+  _image.anchor.set(0.5, 0.5);
 
   if (positional) {
     if (positional.absolute) {

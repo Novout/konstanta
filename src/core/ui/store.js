@@ -1,5 +1,5 @@
+import { generateStore } from '../generate/forest';
 import { KContainer, KInteractiveButton } from './material';
-import * as Debugger from '@/debugger';
 
 export const CreateStoreButton = (app, stage, player, item, resources) => {
   const main = KContainer(
@@ -15,7 +15,17 @@ export const CreateStoreButton = (app, stage, player, item, resources) => {
   button.on('click', () => {
     stage.visible = false;
     container.visible = false;
-    Debugger.Warning('vai demorar ate implementar isso aqui');
+
+    const scene = KContainer(app.stage, { x: window.innerWidth / 5, y: 0 });
+
+    generateStore(scene, resources);
+
+    const [_container, _button] = KInteractiveButton('Sair', scene);
+    _button.on('click', () => {
+      scene.visible = false;
+      stage.visible = true;
+      container.visible = true;
+    });
   });
 
   item.ui_store_entry = main;

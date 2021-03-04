@@ -1,3 +1,4 @@
+import { KSprite } from '-/core/ui/material';
 import { generateStore } from '@/utils/random';
 
 export const createStores = (nodes, FOREST, options) => {
@@ -19,6 +20,27 @@ export const createStores = (nodes, FOREST, options) => {
       }
     }
   });
+
+  return items;
+};
+
+export const createStoreBackground = (stage, resources) => {
+  const items = [];
+
+  for (let y = 0; y < 30; y++) {
+    for (let x = 0; x < 15; x++) {
+      const item = KSprite(stage, resources, 'forest_store', {
+        width: 50,
+        height: 50
+      });
+      item.parent_quantity = 0;
+      item.x = stage.x + x * item.width;
+      item.y = stage.y + y * item.height;
+      stage.addChild(item);
+
+      items.push(item);
+    }
+  }
 
   return items;
 };
