@@ -28,7 +28,7 @@ import { PlayerMouseWatcher, WindowScrollWatcher } from '@/watcher/mouse';
 import { CreateStoreButton } from '@/ui/store';
 import { CreateAreaButton } from '@/ui/area';
 import { saveAll } from '@/serialize';
-import { LoaderShared } from '@/pixi/alias';
+import { LoaderShared, utils } from '@/pixi/alias';
 import * as Debugger from '@/debugger';
 import FOREST from '@/defines/loader/forest.json';
 import SKILLS from '@/defines/loader/skills.json';
@@ -81,6 +81,8 @@ export default (context, options) => {
 
     GameLoop(app, loop);
   };
+
+  utils.skipHello();
 
   const [app, stage, renderer, container] = createMap(context);
 

@@ -1,15 +1,16 @@
-import { Application, Container } from '@/pixi/alias';
-import * as Debugger from '@/debugger';
+import { Application, Container, utils } from '@/pixi/alias';
 import { isInitialMap } from '@/utils/context';
 import { clearListener } from '-/game/newgame/remove';
+import * as Debugger from '@/debugger';
 
 export const createMap = (context) => {
+  utils.skipHello();
+
   const app = new Application({
     width: window.innerWidth,
     height: window.innerHeight,
     backgroundAlpha: 0,
     antialias: true,
-    transparent: true,
     resolution: 1
   });
 
@@ -28,7 +29,7 @@ export const createMap = (context) => {
   stage.addChild(container);
   document.body.appendChild(app.view);
 
-  if(!isInitialMap(context)) {
+  if (!isInitialMap(context)) {
     clearListener();
   }
 
