@@ -3,6 +3,7 @@ import { createStoreBackground, createStores } from './map/store';
 import { createAltars } from './map/altar';
 import { createTrees } from './map/tree';
 import { createAddons } from './map/addons';
+import { setBackground } from '../utils/dom';
 
 export const generateItems = (nodes, options) => {
   let items = [];
@@ -26,6 +27,8 @@ export const generateAddons = (nodes, options) => {
 
 export const generateStore = (scene, resources) => {
   let content = [];
+
+  setBackground('store');
 
   content = [...content, ...createStoreBackground(scene, resources)];
 

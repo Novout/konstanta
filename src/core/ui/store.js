@@ -1,4 +1,5 @@
 import { generateStore } from '../generate/forest';
+import { setBackground } from '../utils/dom';
 import { KContainer, KInteractiveButton } from './material';
 
 export const CreateStoreButton = (app, stage, player, item, resources) => {
@@ -25,6 +26,7 @@ export const CreateStoreButton = (app, stage, player, item, resources) => {
       scene.visible = false;
       stage.visible = true;
       container.visible = true;
+      setBackground('forest');
     });
   });
 
