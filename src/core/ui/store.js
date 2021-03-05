@@ -16,7 +16,7 @@ export const CreateStoreButton = (app, stage, player, item, resources) => {
     stage.visible = false;
     container.visible = false;
 
-    const scene = KContainer(app.stage, { x: window.innerWidth / 5, y: 0 });
+    const scene = KContainer(app.stage, { x: 0, y: 0 });
 
     generateStore(scene, resources);
 

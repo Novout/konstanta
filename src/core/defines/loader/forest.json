@@ -11,7 +11,7 @@
   ["foreststone1", "map/forest/foreststone1.png"],
   ["foreststone2", "map/forest/foreststone2.png"],
   ["foresthouse", "map/forest/interactive/house.png"],
-  ["forest_store", "map/forest/background/store.jpg"],
+  ["foreststore1", "map/forest/background/store1.png"],
   ["altar", "map/generics/altar.png"],
   ["tree", "map/forest/tree.png"],
   ["tree2", "map/forest/tree2.png"],

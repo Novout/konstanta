@@ -168,7 +168,7 @@ export const KSprite = (
   const _image = new Sprite(resources[item].texture);
   _image.width = size.width;
   _image.height = size.height;
-  _image.anchor.set(0.5, 0.5);
+  if(size.center) _image.anchor.set(0.5, 0.5);
 
   if (positional) {
     if (positional.absolute) {
@@ -263,7 +263,7 @@ export const KInteractiveButton = (title, stage) => {
 
   const text = KText(
     title,
-    stage,
+    container,
     {
       fontFamily: 'KitchenSink',
       fontSize: 24,

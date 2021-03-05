@@ -29,7 +29,7 @@ export const createStoreBackground = (stage, resources) => {
 
   for (let y = 0; y < 30; y++) {
     for (let x = 0; x < 15; x++) {
-      const item = KSprite(stage, resources, 'forest_store', {
+      const item = KSprite(stage, resources, 'foreststore1', {
         width: 50,
         height: 50
       });
