@@ -27,8 +27,8 @@ export const createStores = (nodes, FOREST, options) => {
 export const createStoreBackground = (stage, resources) => {
   const items = [];
 
-  for (let y = 0; y < 30; y++) {
-    for (let x = 0; x < 15; x++) {
+  for (let x = 0; x < 10; x++) {
+    for (let y = 0; y < 15; y++) {
       const item = KSprite(stage, resources, 'foreststore1', {
         width: 50,
         height: 50

@@ -22,6 +22,9 @@ export const CreateStoreButton = (app, stage, player, item, resources) => {
     generateStore(scene, resources);
 
     const [_container, _button] = KInteractiveButton('Sair', scene);
+    _container.x = scene.x + scene.width / 5;
+    _container.y = scene.y + scene.height / 1.5;
+
     _button.on('click', () => {
       scene.visible = false;
       stage.visible = true;
