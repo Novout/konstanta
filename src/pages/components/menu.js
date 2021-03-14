@@ -10,6 +10,7 @@ export const MenuOptions = (unmounted) => {
   title.textContent = pkg.description;
   title.style.marginBottom = '5rem';
   title.style.color = 'white';
+  title.style.pointerEvents = 'none';
 
   container.classList.add('flex');
   container.style.flexFlow = 'column wrap';
@@ -65,6 +66,7 @@ export const MenuPackage = () => {
   container.style.color = 'white';
   container.style.fontSize = '0.7rem';
   container.style.fontFamily = 'Poppins';
+  container.style.pointerEvents = 'none';
 
   const author = document.createElement('p');
   author.textContent = `Author ${pkg.author}`;
