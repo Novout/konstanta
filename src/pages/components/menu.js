@@ -5,9 +5,11 @@ import pkg from '../../index.json';
 export const MenuOptions = (unmounted) => {
   const _main = document.querySelector('#base');
   const container = document.createElement('div');
+  container.style.width = '100%';
 
   const title = document.createElement('h1');
   title.textContent = pkg.description;
+  title.classList.add('title');
   title.style.marginBottom = '5rem';
   title.style.color = 'white';
   title.style.pointerEvents = 'none';
@@ -60,13 +62,7 @@ export const MenuPackage = () => {
   const _main = document.querySelector('#base');
 
   const container = document.createElement('div');
-  container.style.position = 'absolute';
-  container.style.right = '10%';
-  container.style.bottom = '25vh';
-  container.style.color = 'white';
-  container.style.fontSize = '0.7rem';
-  container.style.fontFamily = 'Poppins';
-  container.style.pointerEvents = 'none';
+  container.classList.add('package');
 
   const author = document.createElement('p');
   author.textContent = `Author ${pkg.author}`;
