@@ -1,8 +1,8 @@
 {
   "author": "Novout",
   "name": "konstanta",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "A 2D Runner RPG for Web Browsers",
   "license": "MIT",
   "main": "snowpack.config.js",
   "parser": "babel-eslint",

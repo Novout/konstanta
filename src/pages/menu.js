@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import GSAP, { Expo } from 'gsap';
-import { MenuOptions } from './components/menu';
+import { MenuOptions, MenuPackage } from './components/menu';
 
 export default () => {
   let scene;
@@ -191,6 +191,7 @@ export default () => {
       document.body.appendChild(container);
 
       MenuOptions(unmounted);
+      MenuPackage();
     };
     createContext();
     scene = new THREE.Scene();
