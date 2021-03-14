@@ -4,7 +4,7 @@
     "id_cont": 1,
     "title": "Virtude Unica",
     "sprite": {
-      "path": "skill21"
+      "path": "sk-unique-virtue"
     },
     "description": "+1 Slot de Magia",
     "effect": {

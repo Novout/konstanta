@@ -4,7 +4,7 @@
     "id_cont": 1,
     "title": "Carapaca do\nViajante",
     "sprite": {
-      "path": "skill36"
+      "path": "sk-travelers-carapace"
     },
     "description": "+4 de HP Maximo",
     "effect": {
