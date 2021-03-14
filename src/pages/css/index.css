@@ -1,16 +1,16 @@
 @font-face {
   font-family: 'KitchenSink';
-  src: url('/src/assets/fonts/KitchenSink.ttf');
+  src: url('/assets/fonts/KitchenSink.ttf');
 }
 
 @font-face {
   font-family: 'Poppins';
-  src: url('/src/assets/fonts/Poppins-Medium.otf');
+  src: url('/assets/fonts/Poppins-Medium.otf');
 }
 
 @font-face {
   font-family: 'PoppinsBold';
-  src: url('/src/assets/fonts/Poppins-Bold.otf');
+  src: url('/assets/fonts/Poppins-Bold.otf');
 }
 
 * {

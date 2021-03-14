@@ -1,0 +1,47 @@
+{
+  "author": "Novout",
+  "name": "konstanta",
+  "version": "0.1.0",
+  "description": "A 2D Runner RPG for Web Browsers",
+  "license": "MIT",
+  "main": "snowpack.config.js",
+  "parser": "babel-eslint",
+  "scripts": {
+    "d": "snowpack dev --polyfill-node",
+    "build": "snowpack build --polyfill-node",
+    "lint": "eslint --ext .js --ignore-path .gitignore . --fix && pretty-quick",
+    "docs": "documentation build src/core/**/*.js -f html -o docs",
+    "docs:serve": "documentation serve --watch src/core/**/*.js"
+  },
+  "dependencies": {
+    "gsap": "^3.6.0",
+    "nom-events": "^1.0.2",
+    "pixi-controller": "^1.0.4",
+    "pixi-filters": "^3.2.2",
+    "pixi-scrollbox": "^2.2.3",
+    "pixi-viewport": "^4.20.1",
+    "pixi.js": "^6.0.0",
+    "snowpack": "^3.0.11",
+    "three": "^0.126.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@snowpack/plugin-babel": "^2.1.6",
+    "@snowpack/plugin-run-script": "^2.3.0",
+    "@snowpack/plugin-webpack": "^2.3.0",
+    "babel-eslint": "^10.1.0",
+    "documentation": "^13.1.1",
+    "eslint": "^7.19.0",
+    "eslint-watch": "^7.0.0",
+    "husky": "^5.1.1",
+    "prettier": "2.2.1",
+    "pretty-quick": "^3.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}

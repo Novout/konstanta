@@ -1,6 +1,6 @@
 import { NewGame } from '-/game/newgame/create';
-import pkg from '../../../package.json';
 import './menu.css';
+import pkg from '../../index.json';
 
 export const MenuOptions = (unmounted) => {
   const _main = document.querySelector('#base');

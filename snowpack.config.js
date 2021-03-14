@@ -1,6 +1,10 @@
 const path = require('path');
 
 module.exports = {
+  mount: {
+    src: '/dist',
+    public: { url: '/', static: true }
+  },
   plugins: [
     '@snowpack/plugin-webpack',
     [
