@@ -1,4 +1,6 @@
-import { NewGame } from './src/game/newgame/create';
 import '~/css/index.css';
 
-NewGame();
+import Menu from '~/menu';
+
+const [mounted, unmounted] = Menu();
+mounted();

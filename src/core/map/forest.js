@@ -47,6 +47,8 @@ export default (context, options) => {
     }
     items = ThirdLayerRender(container, resources, nodes, options);
 
+    Controller.reset();
+
     CameraInitialFixed(container, renderer);
 
     ui = CreateUI(container, player[0], resources);
@@ -111,7 +113,7 @@ export default (context, options) => {
     });
 
     ContainAreaActive(player[0], area, options);
-    
+
     RenderUI(container, ui, player[0]);
     CameraFixed(container, player[0]);
     Debugger.RenderFrameRate(debug, player[0], renderer);
