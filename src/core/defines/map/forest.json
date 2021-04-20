@@ -6,7 +6,7 @@
   "altar_radius": 100,
   "altar_chance": 30,
   "spawn": {
-    "simple_chest": 30,
+    "simple_chest": 90,
     "store": 99.9
   }
 }
