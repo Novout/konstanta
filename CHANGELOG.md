@@ -1,3 +1,13 @@
+## 0.1.1
+
+### Feature
+
+- Loader background
+
+### Fixs
+
+- HTML SEO content
+
 ## 0.1.0
 
 ### Feature
