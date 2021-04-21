@@ -2,14 +2,14 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "-/*": [
-        "src/*"
-      ],
       "@/*": [
         "src/core/*"
       ],
       "~/*": [
         "src/pages/*"
+      ],
+      "-/*": [
+        "src/*"
       ],
     }
   },
