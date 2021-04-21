@@ -13,17 +13,20 @@ export const getAltarChoices = (player) => {
   );
 
   const skillsAvailable = [..._resilience, ..._rage, ..._arcane];
+  const skills = [];
 
   let _resilience_choice = false;
   let _rage_choice = false;
   let _arcane_choice = false;
-  const skills = [];
+
+  if(!_resilience || !_rage || !_arcane || !skillsAvailable) return [];
 
   while (!_resilience_choice || !_rage_choice || !_arcane_choice) {
+
     const random = Math.floor(Math.random() * skillsAvailable.length);
     const skill = skillsAvailable[random];
 
-    if (!skill) return;
+    if (!skill) break;
 
     if (skill.id === 'resilience' && !_resilience_choice) {
       skill.background = 0x2abe10;
@@ -39,6 +42,8 @@ export const getAltarChoices = (player) => {
       _arcane_choice = true;
     }
   }
+
+  if(skills.length !== 3) return;
 
   skills[0].x = -266;
   skills[1].x = 0;
