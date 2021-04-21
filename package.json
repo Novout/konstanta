@@ -1,7 +1,7 @@
 {
   "author": "Novout",
   "name": "konstanta",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A 2D Runner RPG for Web Browsers",
   "license": "MIT",
   "main": "snowpack.config.js",
@@ -11,7 +11,8 @@
     "build": "snowpack build --polyfill-node",
     "lint": "eslint --ext .js --ignore-path .gitignore . --fix && pretty-quick",
     "docs": "documentation build src/core/**/*.js -f html -o docs",
-    "docs:serve": "documentation serve --watch src/core/**/*.js"
+    "docs:serve": "documentation serve --watch src/core/**/*.js",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
   },
   "dependencies": {
     "gsap": "^3.6.0",
@@ -31,6 +32,7 @@
     "@snowpack/plugin-run-script": "^2.3.0",
     "@snowpack/plugin-webpack": "^2.3.0",
     "babel-eslint": "^10.1.0",
+    "conventional-changelog-cli": "^2.1.1",
     "documentation": "^13.1.1",
     "eslint": "^7.19.0",
     "eslint-watch": "^7.0.0",
