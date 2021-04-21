@@ -254,11 +254,11 @@ export const KScrollBox = (
   return _box;
 };
 
-export const KInteractiveButton = (title, stage) => {
+export const KInteractiveButton = (title, stage, options = {}) => {
   const container = KGraphics(stage, {
     fill: 0x66bd99,
     rectangle: [0, 0, 256, 64],
-    filters: [UIAlpha().alpha_main]
+    filters: options.removeAlpha ? [] : [UIAlpha().alpha_main]
   });
 
   const text = KText(
