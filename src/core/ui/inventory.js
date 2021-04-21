@@ -1,5 +1,5 @@
-import { Sprite, resources } from '@/pixi/alias';
-import { FXAA, InterfaceGlow } from '@/utils/webgl';
+import { Sprite, Rectangle } from '@/pixi/alias';
+import { FXAA, InterfaceGlow, UIAlpha } from '@/utils/webgl';
 import { KContainer, KGraphics, KScrollBox, KTileset } from './material';
 import { UnknownInventorySprite } from '@/rig/items';
 
@@ -108,6 +108,8 @@ export const CreateInventoryMain = (stage, player, resources) => {
   const _x_set = 80;
   const _y_set = 80;
 
+  const { alpha_bar } = UIAlpha();
+
   const main = KScrollBox(
     stage,
     {
@@ -119,25 +121,53 @@ export const CreateInventoryMain = (stage, player, resources) => {
       height: _y_set * 3
     },
     {
-      filters: [InterfaceGlow(0x75513c)],
       scrollableY: true
     }
   );
 
+  main.interactive = true;
+  main.buttonMode = true;
+  main.hitArea = new Rectangle(main.x, main.y, main.width, main.height);
+
+  main.on('mouseover', () => {
+    player.action.interactive_inventory_hover = true;
+  });
+
+  main.on('mouseout', () => {
+    player.action.interactive_inventory_hover = false;
+  });
+
   const item_container = KGraphics(
     main.content,
     {
-      fill: 0x75513c,
-      rectangle: [0, 0, _x_set * 5, _y_set * 3]
+      fill: 0x161616,
+      rectangle: [0, 0, _x_set * 5, _y_set * 10]
     },
     {
       x: 0,
-      y: 0
+      y: 0,
+      filters: [alpha_bar]
     }
   );
 
+  main.__container = item_container;
+
+  update(player, item_container);
+
+  return main;
+};
+
+export const RenderInventoryMain = (ui, player) => {
+  player.action.interactive_inventory
+    ? (player.action.interactive_ui = true)
+    : (player.action.interactive_ui = false);
+  ui.inventory_main.position.set(player.x - player.width / 2, player.y);
+};
+
+export const update = (player, item_container) => {
   let _x = 0;
   let _y = 0;
+
   player.inventory.general?.forEach((item) => {
     const item_sprite = KTileset(
       item_container,
@@ -155,20 +185,50 @@ export const CreateInventoryMain = (stage, player, resources) => {
       item.sprite.path_inventory_main
     );
 
+    item_sprite.utils = {
+      x: _x,
+      y: _y
+    };
+
     // fuck this logic
     _x++;
     if (_x > 4) {
       _x = 0;
       _y++;
     }
+
+    item_container[`item_sprite_${x}/${y}`] = item_sprite;
   });
 
-  return main;
+  player.inventory.utils.x = _x;
+  player.inventory.utils.y = _y;
 };
 
-export const RenderInventoryMain = (ui, player) => {
-  player.action.interactive_inventory
-    ? (player.action.interactive_ui = true)
-    : (player.action.interactive_ui = false);
-  ui.inventory_main.position.set(player.x - player.width / 2, player.y);
+export const addPlayerItem = (player, item, container, resources) => {
+  const _x_set = 80;
+  const _y_set = 80;
+
+  player.inventory.general.push(item);
+
+  const _item = KTileset(
+    container.__container,
+    item,
+    resources,
+    {
+      width: _x_set,
+      height: _y_set
+    },
+    {
+      x: _x_set * player.inventory.utils.x,
+      y: _y_set * player.inventory.utils.y,
+      anchor: true
+    },
+    item.sprite.path_inventory_main
+  );
+
+  player.inventory.utils.x++;
+  if (player.inventory.utils.x > 4) {
+    player.inventory.utils.x = 0;
+    player.inventory.utils.y++;
+  }
 };

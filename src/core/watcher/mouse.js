@@ -25,16 +25,18 @@ export const PlayerMouseWatcher = (app, player, context) => {
   );
 };
 
-export const WindowScrollWatcher = (stage, context) => {
+export const WindowScrollWatcher = (stage, context, player) => {
   const listener = (event) => {
-    if (event.wheelDelta >= 0) {
-      if (stage.scale.x >= 1.6 || stage.scale.y >= 1.6) return;
-      stage.scale.x += 0.1;
-      stage.scale.y += 0.1;
-    } else {
-      if (stage.scale.x <= 0.85 || stage.scale.y <= 0.85) return;
-      stage.scale.x -= 0.1;
-      stage.scale.y -= 0.1;
+    if (!player.action.interactive_inventory) {
+      if (event.wheelDelta >= 0) {
+        if (stage.scale.x >= 1.6 || stage.scale.y >= 1.6) return;
+        stage.scale.x += 0.1;
+        stage.scale.y += 0.1;
+      } else {
+        if (stage.scale.x <= 0.85 || stage.scale.y <= 0.85) return;
+        stage.scale.x -= 0.1;
+        stage.scale.y -= 0.1;
+      }
     }
   };
 

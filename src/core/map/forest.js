@@ -51,9 +51,7 @@ export default (context, options) => {
 
     CameraInitialFixed(container, renderer);
 
-    ui = CreateUI(container, player[0], resources);
-
-    WindowScrollWatcher(container, context);
+    WindowScrollWatcher(container, context, player[0]);
     PlayerKeyboardWatcher(player[0], context);
     PlayerMouseWatcher(app, player[0], context);
 
@@ -77,6 +75,8 @@ export default (context, options) => {
       `Mapa Floresta ${context.chunk[0]} / ${context.chunk[1]} foi inicializado!`
     );
 
+    ui = CreateUI(container, player[0], resources);
+
     setBackground('forest');
 
     saveAll({ player: player[0] }, context);
@@ -84,7 +84,7 @@ export default (context, options) => {
     GameLoop(app, loop);
   };
 
-  const [app, stage, renderer, container] = createMap(context);
+  const [app, _, renderer, container] = createMap(context);
 
   FullContextSize(renderer, container, context);
 

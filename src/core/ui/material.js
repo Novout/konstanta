@@ -168,7 +168,7 @@ export const KSprite = (
   const _image = new Sprite(resources[item].texture);
   _image.width = size.width;
   _image.height = size.height;
-  if(size.center) _image.anchor.set(0.5, 0.5);
+  if (size.center) _image.anchor.set(0.5, 0.5);
 
   if (positional) {
     if (positional.absolute) {
@@ -246,8 +246,8 @@ export const KScrollBox = (
   }
 
   _box.filters = options?.filters;
-  _box.overflowY = options?.scrollableY ? 'auto' : 'hidden';
-  _box.overflowX = options?.scrollableX ? 'auto' : 'hidden';
+  _box.overflowY = options?.scrollableY ? 'scroll' : 'hidden';
+  _box.overflowX = options?.scrollableX ? 'scroll' : 'hidden';
 
   stage.addChild(_box);
 

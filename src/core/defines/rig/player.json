@@ -23,7 +23,11 @@
     "second_weapon": "",
     "activate": "",
     "artefact": "",
-    "general": []
+    "general": [],
+    "utils": {
+      "x": 0,
+      "y": 0
+    }
   },
   "resources": {
     "gold": 0,
@@ -59,6 +63,7 @@
     "distance_time": 0,
     "distance_hit": false,
     "interactive_inventory": false,
+    "interactive_inventory_hover": false,
     "interactive_ui": false,
     "interactive_item": false,
     "position": {
