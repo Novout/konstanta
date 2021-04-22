@@ -24,7 +24,8 @@ export const savePlayer = (player, context) => {
       primary_weapon: player.inventory?.primary_weapon?.base,
       second_weapon: player.inventory?.second_weapon?.base,
       activate: player.inventory?.activate?.base,
-      artefact: player.inventory?.artefact?.base
+      artefact: player.inventory?.artefact?.base,
+      utils: player.inventory?.utils
     },
     resources: player.resources,
     conditionals: player.conditionals,
