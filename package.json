@@ -1,7 +1,7 @@
 {
   "author": "Novout",
   "name": "konstanta",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Tips for implementing roleplaying on the web.",
   "license": "MIT",
   "main": "snowpack.config.js",
