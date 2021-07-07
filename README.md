@@ -1,4 +1,4 @@
-# RPG In Web
+# RPG In Web (WIP)
 
 Example implementation RPG on the web
 
