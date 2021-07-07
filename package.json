@@ -2,7 +2,7 @@
   "author": "Novout",
   "name": "konstanta",
   "version": "0.1.0",
-  "description": "A 2D Runner RPG for Web Browsers",
+  "description": "Tips for implementing roleplaying on the web.",
   "license": "MIT",
   "main": "snowpack.config.js",
   "parser": "babel-eslint",
