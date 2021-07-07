@@ -55,6 +55,8 @@ export default (context, options) => {
     PlayerKeyboardWatcher(player[0], context);
     PlayerMouseWatcher(app, player[0], context);
 
+    ui = CreateUI(container, player[0], resources);
+
     items.forEach((item) => {
       if (item.id.includes('altar')) {
         item = CreateAltarButton(container, player[0], item, resources);
@@ -76,8 +78,6 @@ export default (context, options) => {
         `Mapa Floresta ${context.chunk[0]} / ${context.chunk[1]} foi inicializado!`
       );
     }
-
-    ui = CreateUI(container, player[0], resources);
 
     setBackground('forest');
 
