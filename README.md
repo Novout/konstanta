@@ -5,6 +5,8 @@ Example implementation RPG on the web
 [DEMO](https://konstanta.novout.vercel.app)
 [API Docs](https://novout.github.io/konstanta)
 
+![Konstanta game image](./.github/main.png)
+
 ## Motivation
 
 The main motivation was trying to see how far we can build scalable games (different from enterprise systems) on the web in the same way as desktop games.
